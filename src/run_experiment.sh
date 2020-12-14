@@ -1,9 +1,9 @@
-#!/bin/bash
-#
-#SBATCH --job-name=test
-#SBATCH --output=res_%j.txt  # output file
-#SBATCH -e res_%j.err        # File to which STDERR will be written
+#!/bin/sh
+#SBATCH -o my_output.txt
+#SBATCH -e my_errors.txt
+#SBATCH --partition=titanx-short
 #SBATCH --gres=gpu:1
+#SBATCH --cpus-per-task=2
 
-python train.py -d 1 --config config.json
-exit
+python train.py  --config config.json
+
