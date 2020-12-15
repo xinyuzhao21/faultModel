@@ -1,9 +1,9 @@
 #!/bin/sh
-#SBATCH -o my_output.txt
-#SBATCH -e my_errors.txt
+#SBATCH -o out/experiment_%J.txt
+#SBATCH -e out/experiment_%J.err
 #SBATCH --partition=titanx-short
 #SBATCH --gres=gpu:1
 #SBATCH --cpus-per-task=2
-
-python train.py  --config config.json
+python -c 'import torch; print(torch.cuda.is_available())'
+time python train.py  --config config.json
 
