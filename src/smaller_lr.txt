@@ -1,0 +1,2901 @@
+Mon Dec 14 00:26:15 2020       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 455.23.05    Driver Version: 455.23.05    CUDA Version: 11.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  GeForce GTX TIT...  Off  | 00000000:02:00.0 Off |                  N/A |
+| 18%   50C    P0    70W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  GeForce GTX TIT...  Off  | 00000000:03:00.0 Off |                  N/A |
+| 17%   53C    P0    73W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  GeForce GTX TIT...  Off  | 00000000:81:00.0 Off |                  N/A |
+| 18%   49C    P0    71W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  GeForce GTX TIT...  Off  | 00000000:82:00.0 Off |                  N/A |
+| 17%   43C    P0    67W / 250W |      0MiB / 12212MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+True
+Files already downloaded and verified
+ResNet18(
+  (resnet): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+    (fc): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+Trainable parameters: 5130
+Warning: The number of GPU's configured to use is 2, but only 1 are available on this machine.
+Warning: visualization (Tensorboard) is configured to use, but currently not installed on this machine. Please install TensorboardX with 'pip install tensorboardx', upgrade PyTorch to version >= 1.1 to use 'torch.utils.tensorboard' or turn off the option in the 'config.json' file.
+Train Epoch: 1 [0/45000 (0%)] Loss: 2.609106
+Train Epoch: 1 [1408/45000 (3%)] Loss: 2.342232
+Train Epoch: 1 [2816/45000 (6%)] Loss: 2.107053
+Train Epoch: 1 [4224/45000 (9%)] Loss: 2.025067
+Train Epoch: 1 [5632/45000 (13%)] Loss: 1.906008
+Train Epoch: 1 [7040/45000 (16%)] Loss: 1.822871
+Train Epoch: 1 [8448/45000 (19%)] Loss: 1.721180
+Train Epoch: 1 [9856/45000 (22%)] Loss: 1.698050
+Train Epoch: 1 [11264/45000 (25%)] Loss: 1.558293
+Train Epoch: 1 [12672/45000 (28%)] Loss: 1.503351
+Train Epoch: 1 [14080/45000 (31%)] Loss: 1.478349
+Train Epoch: 1 [15488/45000 (34%)] Loss: 1.357260
+Train Epoch: 1 [16896/45000 (38%)] Loss: 1.346106
+Train Epoch: 1 [18304/45000 (41%)] Loss: 1.411743
+Train Epoch: 1 [19712/45000 (44%)] Loss: 1.289978
+Train Epoch: 1 [21120/45000 (47%)] Loss: 1.242691
+Train Epoch: 1 [22528/45000 (50%)] Loss: 1.240223
+Train Epoch: 1 [23936/45000 (53%)] Loss: 1.097161
+Train Epoch: 1 [25344/45000 (56%)] Loss: 1.143752
+Train Epoch: 1 [26752/45000 (59%)] Loss: 1.087449
+Train Epoch: 1 [28160/45000 (63%)] Loss: 1.214582
+Train Epoch: 1 [29568/45000 (66%)] Loss: 1.132973
+Train Epoch: 1 [30976/45000 (69%)] Loss: 1.062757
+Train Epoch: 1 [32384/45000 (72%)] Loss: 1.090503
+Train Epoch: 1 [33792/45000 (75%)] Loss: 1.071979
+Train Epoch: 1 [35200/45000 (78%)] Loss: 1.078014
+Train Epoch: 1 [36608/45000 (81%)] Loss: 0.994443
+Train Epoch: 1 [38016/45000 (84%)] Loss: 1.094334
+Train Epoch: 1 [39424/45000 (88%)] Loss: 1.026220
+Train Epoch: 1 [40832/45000 (91%)] Loss: 1.083121
+Train Epoch: 1 [42240/45000 (94%)] Loss: 0.919758
+Train Epoch: 1 [43648/45000 (97%)] Loss: 0.972532
+    epoch          : 1
+    loss           : 1.3657108037309214
+    accuracy       : 0.6010890151515151
+    top_k_acc      : 0.8442284169823232
+    val_loss       : 0.9173861965537071
+    val_accuracy   : 0.7419921875
+    val_top_k_acc  : 0.94140625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch1.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 2 [0/45000 (0%)] Loss: 0.937525
+Train Epoch: 2 [1408/45000 (3%)] Loss: 0.957395
+Train Epoch: 2 [2816/45000 (6%)] Loss: 0.960248
+Train Epoch: 2 [4224/45000 (9%)] Loss: 0.934008
+Train Epoch: 2 [5632/45000 (13%)] Loss: 0.810339
+Train Epoch: 2 [7040/45000 (16%)] Loss: 0.820944
+Train Epoch: 2 [8448/45000 (19%)] Loss: 0.954834
+Train Epoch: 2 [9856/45000 (22%)] Loss: 0.932223
+Train Epoch: 2 [11264/45000 (25%)] Loss: 0.905774
+Train Epoch: 2 [12672/45000 (28%)] Loss: 0.796276
+Train Epoch: 2 [14080/45000 (31%)] Loss: 0.862029
+Train Epoch: 2 [15488/45000 (34%)] Loss: 0.924043
+Train Epoch: 2 [16896/45000 (38%)] Loss: 0.792184
+Train Epoch: 2 [18304/45000 (41%)] Loss: 0.776975
+Train Epoch: 2 [19712/45000 (44%)] Loss: 0.896930
+Train Epoch: 2 [21120/45000 (47%)] Loss: 0.883983
+Train Epoch: 2 [22528/45000 (50%)] Loss: 0.918421
+Train Epoch: 2 [23936/45000 (53%)] Loss: 0.826871
+Train Epoch: 2 [25344/45000 (56%)] Loss: 0.783907
+Train Epoch: 2 [26752/45000 (59%)] Loss: 0.792740
+Train Epoch: 2 [28160/45000 (63%)] Loss: 0.789964
+Train Epoch: 2 [29568/45000 (66%)] Loss: 0.804566
+Train Epoch: 2 [30976/45000 (69%)] Loss: 0.808738
+Train Epoch: 2 [32384/45000 (72%)] Loss: 0.862340
+Train Epoch: 2 [33792/45000 (75%)] Loss: 0.821720
+Train Epoch: 2 [35200/45000 (78%)] Loss: 0.800178
+Train Epoch: 2 [36608/45000 (81%)] Loss: 0.771248
+Train Epoch: 2 [38016/45000 (84%)] Loss: 0.816309
+Train Epoch: 2 [39424/45000 (88%)] Loss: 0.883539
+Train Epoch: 2 [40832/45000 (91%)] Loss: 0.615735
+Train Epoch: 2 [42240/45000 (94%)] Loss: 0.885389
+Train Epoch: 2 [43648/45000 (97%)] Loss: 0.716401
+    epoch          : 2
+    loss           : 0.8378389089960944
+    accuracy       : 0.7471220999053031
+    top_k_acc      : 0.9401115648674242
+    val_loss       : 0.7671247318387031
+    val_accuracy   : 0.7603515625
+    val_top_k_acc  : 0.948046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch2.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 3 [0/45000 (0%)] Loss: 0.837875
+Train Epoch: 3 [1408/45000 (3%)] Loss: 0.818709
+Train Epoch: 3 [2816/45000 (6%)] Loss: 0.856391
+Train Epoch: 3 [4224/45000 (9%)] Loss: 0.685384
+Train Epoch: 3 [5632/45000 (13%)] Loss: 0.793977
+Train Epoch: 3 [7040/45000 (16%)] Loss: 0.809150
+Train Epoch: 3 [8448/45000 (19%)] Loss: 0.692418
+Train Epoch: 3 [9856/45000 (22%)] Loss: 0.689769
+Train Epoch: 3 [11264/45000 (25%)] Loss: 0.659912
+Train Epoch: 3 [12672/45000 (28%)] Loss: 0.609214
+Train Epoch: 3 [14080/45000 (31%)] Loss: 0.711292
+Train Epoch: 3 [15488/45000 (34%)] Loss: 0.770608
+Train Epoch: 3 [16896/45000 (38%)] Loss: 0.694908
+Train Epoch: 3 [18304/45000 (41%)] Loss: 0.716267
+Train Epoch: 3 [19712/45000 (44%)] Loss: 0.731966
+Train Epoch: 3 [21120/45000 (47%)] Loss: 0.722602
+Train Epoch: 3 [22528/45000 (50%)] Loss: 0.929993
+Train Epoch: 3 [23936/45000 (53%)] Loss: 0.784211
+Train Epoch: 3 [25344/45000 (56%)] Loss: 0.759526
+Train Epoch: 3 [26752/45000 (59%)] Loss: 0.598993
+Train Epoch: 3 [28160/45000 (63%)] Loss: 0.733433
+Train Epoch: 3 [29568/45000 (66%)] Loss: 0.774439
+Train Epoch: 3 [30976/45000 (69%)] Loss: 0.889463
+Train Epoch: 3 [32384/45000 (72%)] Loss: 0.852777
+Train Epoch: 3 [33792/45000 (75%)] Loss: 0.688757
+Train Epoch: 3 [35200/45000 (78%)] Loss: 0.679710
+Train Epoch: 3 [36608/45000 (81%)] Loss: 0.678316
+Train Epoch: 3 [38016/45000 (84%)] Loss: 0.677727
+Train Epoch: 3 [39424/45000 (88%)] Loss: 0.642254
+Train Epoch: 3 [40832/45000 (91%)] Loss: 0.698163
+Train Epoch: 3 [42240/45000 (94%)] Loss: 0.715197
+Train Epoch: 3 [43648/45000 (97%)] Loss: 0.615718
+    epoch          : 3
+    loss           : 0.7379835928705606
+    accuracy       : 0.7628605389835859
+    top_k_acc      : 0.946392637310606
+    val_loss       : 0.678469804674387
+    val_accuracy   : 0.7787109375
+    val_top_k_acc  : 0.958984375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch3.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 4 [0/45000 (0%)] Loss: 0.861816
+Train Epoch: 4 [1408/45000 (3%)] Loss: 0.645575
+Train Epoch: 4 [2816/45000 (6%)] Loss: 0.548945
+Train Epoch: 4 [4224/45000 (9%)] Loss: 0.601618
+Train Epoch: 4 [5632/45000 (13%)] Loss: 0.700253
+Train Epoch: 4 [7040/45000 (16%)] Loss: 0.642625
+Train Epoch: 4 [8448/45000 (19%)] Loss: 0.749703
+Train Epoch: 4 [9856/45000 (22%)] Loss: 0.643940
+Train Epoch: 4 [11264/45000 (25%)] Loss: 0.755394
+Train Epoch: 4 [12672/45000 (28%)] Loss: 0.702363
+Train Epoch: 4 [14080/45000 (31%)] Loss: 0.688211
+Train Epoch: 4 [15488/45000 (34%)] Loss: 0.715837
+Train Epoch: 4 [16896/45000 (38%)] Loss: 0.618977
+Train Epoch: 4 [18304/45000 (41%)] Loss: 0.724715
+Train Epoch: 4 [19712/45000 (44%)] Loss: 0.762864
+Train Epoch: 4 [21120/45000 (47%)] Loss: 0.753880
+Train Epoch: 4 [22528/45000 (50%)] Loss: 0.678950
+Train Epoch: 4 [23936/45000 (53%)] Loss: 0.759073
+Train Epoch: 4 [25344/45000 (56%)] Loss: 0.649488
+Train Epoch: 4 [26752/45000 (59%)] Loss: 0.650191
+Train Epoch: 4 [28160/45000 (63%)] Loss: 0.656434
+Train Epoch: 4 [29568/45000 (66%)] Loss: 0.599539
+Train Epoch: 4 [30976/45000 (69%)] Loss: 0.644171
+Train Epoch: 4 [32384/45000 (72%)] Loss: 0.665999
+Train Epoch: 4 [33792/45000 (75%)] Loss: 0.768133
+Train Epoch: 4 [35200/45000 (78%)] Loss: 0.638265
+Train Epoch: 4 [36608/45000 (81%)] Loss: 0.735927
+Train Epoch: 4 [38016/45000 (84%)] Loss: 0.573969
+Train Epoch: 4 [39424/45000 (88%)] Loss: 0.895589
+Train Epoch: 4 [40832/45000 (91%)] Loss: 0.708037
+Train Epoch: 4 [42240/45000 (94%)] Loss: 0.598156
+Train Epoch: 4 [43648/45000 (97%)] Loss: 0.663858
+    epoch          : 4
+    loss           : 0.6882807434621182
+    accuracy       : 0.7744313249684344
+    top_k_acc      : 0.9510041824494949
+    val_loss       : 0.6622339084744453
+    val_accuracy   : 0.778125
+    val_top_k_acc  : 0.9572265625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch4.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 5 [0/45000 (0%)] Loss: 0.535509
+Train Epoch: 5 [1408/45000 (3%)] Loss: 0.755821
+Train Epoch: 5 [2816/45000 (6%)] Loss: 0.552426
+Train Epoch: 5 [4224/45000 (9%)] Loss: 0.770732
+Train Epoch: 5 [5632/45000 (13%)] Loss: 0.554774
+Train Epoch: 5 [7040/45000 (16%)] Loss: 0.509683
+Train Epoch: 5 [8448/45000 (19%)] Loss: 0.672828
+Train Epoch: 5 [9856/45000 (22%)] Loss: 0.760880
+Train Epoch: 5 [11264/45000 (25%)] Loss: 0.793141
+Train Epoch: 5 [12672/45000 (28%)] Loss: 0.633858
+Train Epoch: 5 [14080/45000 (31%)] Loss: 0.636692
+Train Epoch: 5 [15488/45000 (34%)] Loss: 0.647096
+Train Epoch: 5 [16896/45000 (38%)] Loss: 0.543888
+Train Epoch: 5 [18304/45000 (41%)] Loss: 0.617453
+Train Epoch: 5 [19712/45000 (44%)] Loss: 0.680534
+Train Epoch: 5 [21120/45000 (47%)] Loss: 0.657278
+Train Epoch: 5 [22528/45000 (50%)] Loss: 0.596120
+Train Epoch: 5 [23936/45000 (53%)] Loss: 0.664354
+Train Epoch: 5 [25344/45000 (56%)] Loss: 0.674589
+Train Epoch: 5 [26752/45000 (59%)] Loss: 0.744563
+Train Epoch: 5 [28160/45000 (63%)] Loss: 0.538512
+Train Epoch: 5 [29568/45000 (66%)] Loss: 0.693572
+Train Epoch: 5 [30976/45000 (69%)] Loss: 0.722437
+Train Epoch: 5 [32384/45000 (72%)] Loss: 0.639445
+Train Epoch: 5 [33792/45000 (75%)] Loss: 0.617617
+Train Epoch: 5 [35200/45000 (78%)] Loss: 0.654209
+Train Epoch: 5 [36608/45000 (81%)] Loss: 0.647478
+Train Epoch: 5 [38016/45000 (84%)] Loss: 0.639622
+Train Epoch: 5 [39424/45000 (88%)] Loss: 0.692005
+Train Epoch: 5 [40832/45000 (91%)] Loss: 0.598720
+Train Epoch: 5 [42240/45000 (94%)] Loss: 0.681595
+Train Epoch: 5 [43648/45000 (97%)] Loss: 0.553051
+    epoch          : 5
+    loss           : 0.6591790517453443
+    accuracy       : 0.7812426017992423
+    top_k_acc      : 0.9538056344696969
+    val_loss       : 0.6336174309253693
+    val_accuracy   : 0.788671875
+    val_top_k_acc  : 0.9626953125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch5.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 6 [0/45000 (0%)] Loss: 0.734402
+Train Epoch: 6 [1408/45000 (3%)] Loss: 0.594683
+Train Epoch: 6 [2816/45000 (6%)] Loss: 0.484549
+Train Epoch: 6 [4224/45000 (9%)] Loss: 0.722175
+Train Epoch: 6 [5632/45000 (13%)] Loss: 0.595135
+Train Epoch: 6 [7040/45000 (16%)] Loss: 0.677109
+Train Epoch: 6 [8448/45000 (19%)] Loss: 0.731193
+Train Epoch: 6 [9856/45000 (22%)] Loss: 0.623852
+Train Epoch: 6 [11264/45000 (25%)] Loss: 0.782419
+Train Epoch: 6 [12672/45000 (28%)] Loss: 0.724009
+Train Epoch: 6 [14080/45000 (31%)] Loss: 0.563941
+Train Epoch: 6 [15488/45000 (34%)] Loss: 0.742228
+Train Epoch: 6 [16896/45000 (38%)] Loss: 0.733760
+Train Epoch: 6 [18304/45000 (41%)] Loss: 0.581325
+Train Epoch: 6 [19712/45000 (44%)] Loss: 0.895863
+Train Epoch: 6 [21120/45000 (47%)] Loss: 0.693574
+Train Epoch: 6 [22528/45000 (50%)] Loss: 0.696430
+Train Epoch: 6 [23936/45000 (53%)] Loss: 0.645611
+Train Epoch: 6 [25344/45000 (56%)] Loss: 0.526898
+Train Epoch: 6 [26752/45000 (59%)] Loss: 0.443090
+Train Epoch: 6 [28160/45000 (63%)] Loss: 0.652496
+Train Epoch: 6 [29568/45000 (66%)] Loss: 0.504351
+Train Epoch: 6 [30976/45000 (69%)] Loss: 0.657785
+Train Epoch: 6 [32384/45000 (72%)] Loss: 0.663543
+Train Epoch: 6 [33792/45000 (75%)] Loss: 0.480808
+Train Epoch: 6 [35200/45000 (78%)] Loss: 0.697812
+Train Epoch: 6 [36608/45000 (81%)] Loss: 0.650078
+Train Epoch: 6 [38016/45000 (84%)] Loss: 0.417922
+Train Epoch: 6 [39424/45000 (88%)] Loss: 0.590650
+Train Epoch: 6 [40832/45000 (91%)] Loss: 0.623906
+Train Epoch: 6 [42240/45000 (94%)] Loss: 0.554056
+Train Epoch: 6 [43648/45000 (97%)] Loss: 0.631291
+    epoch          : 6
+    loss           : 0.6413165716962381
+    accuracy       : 0.7855113636363636
+    top_k_acc      : 0.9555466777146464
+    val_loss       : 0.6431552186608315
+    val_accuracy   : 0.7796875
+    val_top_k_acc  : 0.9580078125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch6.pth ...
+Train Epoch: 7 [0/45000 (0%)] Loss: 0.806523
+Train Epoch: 7 [1408/45000 (3%)] Loss: 0.642278
+Train Epoch: 7 [2816/45000 (6%)] Loss: 0.624537
+Train Epoch: 7 [4224/45000 (9%)] Loss: 0.619105
+Train Epoch: 7 [5632/45000 (13%)] Loss: 0.617550
+Train Epoch: 7 [7040/45000 (16%)] Loss: 0.654885
+Train Epoch: 7 [8448/45000 (19%)] Loss: 0.563950
+Train Epoch: 7 [9856/45000 (22%)] Loss: 0.625976
+Train Epoch: 7 [11264/45000 (25%)] Loss: 0.793643
+Train Epoch: 7 [12672/45000 (28%)] Loss: 0.582263
+Train Epoch: 7 [14080/45000 (31%)] Loss: 0.546090
+Train Epoch: 7 [15488/45000 (34%)] Loss: 0.671584
+Train Epoch: 7 [16896/45000 (38%)] Loss: 0.685093
+Train Epoch: 7 [18304/45000 (41%)] Loss: 0.629040
+Train Epoch: 7 [19712/45000 (44%)] Loss: 0.656785
+Train Epoch: 7 [21120/45000 (47%)] Loss: 0.486366
+Train Epoch: 7 [22528/45000 (50%)] Loss: 0.563483
+Train Epoch: 7 [23936/45000 (53%)] Loss: 0.652697
+Train Epoch: 7 [25344/45000 (56%)] Loss: 0.616002
+Train Epoch: 7 [26752/45000 (59%)] Loss: 0.567416
+Train Epoch: 7 [28160/45000 (63%)] Loss: 0.588702
+Train Epoch: 7 [29568/45000 (66%)] Loss: 0.610110
+Train Epoch: 7 [30976/45000 (69%)] Loss: 0.507266
+Train Epoch: 7 [32384/45000 (72%)] Loss: 0.518566
+Train Epoch: 7 [33792/45000 (75%)] Loss: 0.752249
+Train Epoch: 7 [35200/45000 (78%)] Loss: 0.658520
+Train Epoch: 7 [36608/45000 (81%)] Loss: 0.523905
+Train Epoch: 7 [38016/45000 (84%)] Loss: 0.632899
+Train Epoch: 7 [39424/45000 (88%)] Loss: 0.802656
+Train Epoch: 7 [40832/45000 (91%)] Loss: 0.559134
+Train Epoch: 7 [42240/45000 (94%)] Loss: 0.755744
+Train Epoch: 7 [43648/45000 (97%)] Loss: 0.770479
+    epoch          : 7
+    loss           : 0.6267850747839971
+    accuracy       : 0.7894521385732323
+    top_k_acc      : 0.9573691011679292
+    val_loss       : 0.6205516062676907
+    val_accuracy   : 0.791015625
+    val_top_k_acc  : 0.9576171875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch7.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 8 [0/45000 (0%)] Loss: 0.758743
+Train Epoch: 8 [1408/45000 (3%)] Loss: 0.614231
+Train Epoch: 8 [2816/45000 (6%)] Loss: 0.617998
+Train Epoch: 8 [4224/45000 (9%)] Loss: 0.615738
+Train Epoch: 8 [5632/45000 (13%)] Loss: 0.691905
+Train Epoch: 8 [7040/45000 (16%)] Loss: 0.669159
+Train Epoch: 8 [8448/45000 (19%)] Loss: 0.537084
+Train Epoch: 8 [9856/45000 (22%)] Loss: 0.587791
+Train Epoch: 8 [11264/45000 (25%)] Loss: 0.474968
+Train Epoch: 8 [12672/45000 (28%)] Loss: 0.657432
+Train Epoch: 8 [14080/45000 (31%)] Loss: 0.619271
+Train Epoch: 8 [15488/45000 (34%)] Loss: 0.652640
+Train Epoch: 8 [16896/45000 (38%)] Loss: 0.612188
+Train Epoch: 8 [18304/45000 (41%)] Loss: 0.573215
+Train Epoch: 8 [19712/45000 (44%)] Loss: 0.551049
+Train Epoch: 8 [21120/45000 (47%)] Loss: 0.706951
+Train Epoch: 8 [22528/45000 (50%)] Loss: 0.734434
+Train Epoch: 8 [23936/45000 (53%)] Loss: 0.616800
+Train Epoch: 8 [25344/45000 (56%)] Loss: 0.577048
+Train Epoch: 8 [26752/45000 (59%)] Loss: 0.580510
+Train Epoch: 8 [28160/45000 (63%)] Loss: 0.553448
+Train Epoch: 8 [29568/45000 (66%)] Loss: 0.750058
+Train Epoch: 8 [30976/45000 (69%)] Loss: 0.535621
+Train Epoch: 8 [32384/45000 (72%)] Loss: 0.631425
+Train Epoch: 8 [33792/45000 (75%)] Loss: 0.663214
+Train Epoch: 8 [35200/45000 (78%)] Loss: 0.663642
+Train Epoch: 8 [36608/45000 (81%)] Loss: 0.642008
+Train Epoch: 8 [38016/45000 (84%)] Loss: 0.573104
+Train Epoch: 8 [39424/45000 (88%)] Loss: 0.494356
+Train Epoch: 8 [40832/45000 (91%)] Loss: 0.562532
+Train Epoch: 8 [42240/45000 (94%)] Loss: 0.782859
+Train Epoch: 8 [43648/45000 (97%)] Loss: 0.727935
+    epoch          : 8
+    loss           : 0.6168473300270059
+    accuracy       : 0.7910970052083333
+    top_k_acc      : 0.9584936276830809
+    val_loss       : 0.6038258865475654
+    val_accuracy   : 0.794921875
+    val_top_k_acc  : 0.963671875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch8.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 9 [0/45000 (0%)] Loss: 0.649637
+Train Epoch: 9 [1408/45000 (3%)] Loss: 0.478247
+Train Epoch: 9 [2816/45000 (6%)] Loss: 0.615640
+Train Epoch: 9 [4224/45000 (9%)] Loss: 0.626562
+Train Epoch: 9 [5632/45000 (13%)] Loss: 0.707259
+Train Epoch: 9 [7040/45000 (16%)] Loss: 0.570939
+Train Epoch: 9 [8448/45000 (19%)] Loss: 0.638024
+Train Epoch: 9 [9856/45000 (22%)] Loss: 0.566661
+Train Epoch: 9 [11264/45000 (25%)] Loss: 0.722087
+Train Epoch: 9 [12672/45000 (28%)] Loss: 0.604027
+Train Epoch: 9 [14080/45000 (31%)] Loss: 0.593655
+Train Epoch: 9 [15488/45000 (34%)] Loss: 0.593639
+Train Epoch: 9 [16896/45000 (38%)] Loss: 0.551427
+Train Epoch: 9 [18304/45000 (41%)] Loss: 0.716122
+Train Epoch: 9 [19712/45000 (44%)] Loss: 0.520951
+Train Epoch: 9 [21120/45000 (47%)] Loss: 0.625351
+Train Epoch: 9 [22528/45000 (50%)] Loss: 0.610328
+Train Epoch: 9 [23936/45000 (53%)] Loss: 0.631834
+Train Epoch: 9 [25344/45000 (56%)] Loss: 0.608285
+Train Epoch: 9 [26752/45000 (59%)] Loss: 0.554150
+Train Epoch: 9 [28160/45000 (63%)] Loss: 0.571311
+Train Epoch: 9 [29568/45000 (66%)] Loss: 0.665130
+Train Epoch: 9 [30976/45000 (69%)] Loss: 0.482088
+Train Epoch: 9 [32384/45000 (72%)] Loss: 0.724552
+Train Epoch: 9 [33792/45000 (75%)] Loss: 0.626695
+Train Epoch: 9 [35200/45000 (78%)] Loss: 0.428863
+Train Epoch: 9 [36608/45000 (81%)] Loss: 0.752398
+Train Epoch: 9 [38016/45000 (84%)] Loss: 0.642253
+Train Epoch: 9 [39424/45000 (88%)] Loss: 0.672634
+Train Epoch: 9 [40832/45000 (91%)] Loss: 0.663387
+Train Epoch: 9 [42240/45000 (94%)] Loss: 0.625761
+Train Epoch: 9 [43648/45000 (97%)] Loss: 0.560191
+    epoch          : 9
+    loss           : 0.6100925414568998
+    accuracy       : 0.7941524621212122
+    top_k_acc      : 0.9587279040404041
+    val_loss       : 0.5940200313925743
+    val_accuracy   : 0.803125
+    val_top_k_acc  : 0.9607421875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch9.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 10 [0/45000 (0%)] Loss: 0.593053
+Train Epoch: 10 [1408/45000 (3%)] Loss: 0.645551
+Train Epoch: 10 [2816/45000 (6%)] Loss: 0.767994
+Train Epoch: 10 [4224/45000 (9%)] Loss: 0.590671
+Train Epoch: 10 [5632/45000 (13%)] Loss: 0.579691
+Train Epoch: 10 [7040/45000 (16%)] Loss: 0.840686
+Train Epoch: 10 [8448/45000 (19%)] Loss: 0.631321
+Train Epoch: 10 [9856/45000 (22%)] Loss: 0.554504
+Train Epoch: 10 [11264/45000 (25%)] Loss: 0.449453
+Train Epoch: 10 [12672/45000 (28%)] Loss: 0.493268
+Train Epoch: 10 [14080/45000 (31%)] Loss: 0.612644
+Train Epoch: 10 [15488/45000 (34%)] Loss: 0.602785
+Train Epoch: 10 [16896/45000 (38%)] Loss: 0.637981
+Train Epoch: 10 [18304/45000 (41%)] Loss: 0.673382
+Train Epoch: 10 [19712/45000 (44%)] Loss: 0.498760
+Train Epoch: 10 [21120/45000 (47%)] Loss: 0.605550
+Train Epoch: 10 [22528/45000 (50%)] Loss: 0.686793
+Train Epoch: 10 [23936/45000 (53%)] Loss: 0.558281
+Train Epoch: 10 [25344/45000 (56%)] Loss: 0.722706
+Train Epoch: 10 [26752/45000 (59%)] Loss: 0.606985
+Train Epoch: 10 [28160/45000 (63%)] Loss: 0.526461
+Train Epoch: 10 [29568/45000 (66%)] Loss: 0.589927
+Train Epoch: 10 [30976/45000 (69%)] Loss: 0.565330
+Train Epoch: 10 [32384/45000 (72%)] Loss: 0.568503
+Train Epoch: 10 [33792/45000 (75%)] Loss: 0.593241
+Train Epoch: 10 [35200/45000 (78%)] Loss: 0.649833
+Train Epoch: 10 [36608/45000 (81%)] Loss: 0.511485
+Train Epoch: 10 [38016/45000 (84%)] Loss: 0.648234
+Train Epoch: 10 [39424/45000 (88%)] Loss: 0.538362
+Train Epoch: 10 [40832/45000 (91%)] Loss: 0.657920
+Train Epoch: 10 [42240/45000 (94%)] Loss: 0.451708
+Train Epoch: 10 [43648/45000 (97%)] Loss: 0.566965
+    epoch          : 10
+    loss           : 0.6011645883660425
+    accuracy       : 0.7963078046085859
+    top_k_acc      : 0.9593000315656565
+    val_loss       : 0.6029751606285572
+    val_accuracy   : 0.794921875
+    val_top_k_acc  : 0.9591796875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch10.pth ...
+Train Epoch: 11 [0/45000 (0%)] Loss: 0.681432
+Train Epoch: 11 [1408/45000 (3%)] Loss: 0.616803
+Train Epoch: 11 [2816/45000 (6%)] Loss: 0.595300
+Train Epoch: 11 [4224/45000 (9%)] Loss: 0.596296
+Train Epoch: 11 [5632/45000 (13%)] Loss: 0.590205
+Train Epoch: 11 [7040/45000 (16%)] Loss: 0.618663
+Train Epoch: 11 [8448/45000 (19%)] Loss: 0.575509
+Train Epoch: 11 [9856/45000 (22%)] Loss: 0.544151
+Train Epoch: 11 [11264/45000 (25%)] Loss: 0.558105
+Train Epoch: 11 [12672/45000 (28%)] Loss: 0.607562
+Train Epoch: 11 [14080/45000 (31%)] Loss: 0.467462
+Train Epoch: 11 [15488/45000 (34%)] Loss: 0.822909
+Train Epoch: 11 [16896/45000 (38%)] Loss: 0.561821
+Train Epoch: 11 [18304/45000 (41%)] Loss: 0.715606
+Train Epoch: 11 [19712/45000 (44%)] Loss: 0.732680
+Train Epoch: 11 [21120/45000 (47%)] Loss: 0.644851
+Train Epoch: 11 [22528/45000 (50%)] Loss: 0.778358
+Train Epoch: 11 [23936/45000 (53%)] Loss: 0.577645
+Train Epoch: 11 [25344/45000 (56%)] Loss: 0.663868
+Train Epoch: 11 [26752/45000 (59%)] Loss: 0.699881
+Train Epoch: 11 [28160/45000 (63%)] Loss: 0.630273
+Train Epoch: 11 [29568/45000 (66%)] Loss: 0.533046
+Train Epoch: 11 [30976/45000 (69%)] Loss: 0.690490
+Train Epoch: 11 [32384/45000 (72%)] Loss: 0.698354
+Train Epoch: 11 [33792/45000 (75%)] Loss: 0.614451
+Train Epoch: 11 [35200/45000 (78%)] Loss: 0.543625
+Train Epoch: 11 [36608/45000 (81%)] Loss: 0.617729
+Train Epoch: 11 [38016/45000 (84%)] Loss: 0.547276
+Train Epoch: 11 [39424/45000 (88%)] Loss: 0.563704
+Train Epoch: 11 [40832/45000 (91%)] Loss: 0.485322
+Train Epoch: 11 [42240/45000 (94%)] Loss: 0.629913
+Train Epoch: 11 [43648/45000 (97%)] Loss: 0.592037
+    epoch          : 11
+    loss           : 0.596502015451816
+    accuracy       : 0.7974495935921717
+    top_k_acc      : 0.9594282670454546
+    val_loss       : 0.5804879404604435
+    val_accuracy   : 0.805859375
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch11.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 12 [0/45000 (0%)] Loss: 0.650178
+Train Epoch: 12 [1408/45000 (3%)] Loss: 0.586082
+Train Epoch: 12 [2816/45000 (6%)] Loss: 0.592582
+Train Epoch: 12 [4224/45000 (9%)] Loss: 0.806196
+Train Epoch: 12 [5632/45000 (13%)] Loss: 0.554185
+Train Epoch: 12 [7040/45000 (16%)] Loss: 0.677072
+Train Epoch: 12 [8448/45000 (19%)] Loss: 0.634532
+Train Epoch: 12 [9856/45000 (22%)] Loss: 0.651156
+Train Epoch: 12 [11264/45000 (25%)] Loss: 0.569639
+Train Epoch: 12 [12672/45000 (28%)] Loss: 0.613588
+Train Epoch: 12 [14080/45000 (31%)] Loss: 0.605122
+Train Epoch: 12 [15488/45000 (34%)] Loss: 0.639313
+Train Epoch: 12 [16896/45000 (38%)] Loss: 0.614903
+Train Epoch: 12 [18304/45000 (41%)] Loss: 0.511086
+Train Epoch: 12 [19712/45000 (44%)] Loss: 0.675004
+Train Epoch: 12 [21120/45000 (47%)] Loss: 0.626179
+Train Epoch: 12 [22528/45000 (50%)] Loss: 0.784630
+Train Epoch: 12 [23936/45000 (53%)] Loss: 0.627241
+Train Epoch: 12 [25344/45000 (56%)] Loss: 0.672689
+Train Epoch: 12 [26752/45000 (59%)] Loss: 0.544227
+Train Epoch: 12 [28160/45000 (63%)] Loss: 0.724614
+Train Epoch: 12 [29568/45000 (66%)] Loss: 0.528965
+Train Epoch: 12 [30976/45000 (69%)] Loss: 0.443875
+Train Epoch: 12 [32384/45000 (72%)] Loss: 0.514428
+Train Epoch: 12 [33792/45000 (75%)] Loss: 0.608167
+Train Epoch: 12 [35200/45000 (78%)] Loss: 0.542755
+Train Epoch: 12 [36608/45000 (81%)] Loss: 0.665025
+Train Epoch: 12 [38016/45000 (84%)] Loss: 0.633273
+Train Epoch: 12 [39424/45000 (88%)] Loss: 0.555818
+Train Epoch: 12 [40832/45000 (91%)] Loss: 0.605848
+Train Epoch: 12 [42240/45000 (94%)] Loss: 0.614862
+Train Epoch: 12 [43648/45000 (97%)] Loss: 0.667043
+    epoch          : 12
+    loss           : 0.5916179327124899
+    accuracy       : 0.7979206123737373
+    top_k_acc      : 0.9602149423926768
+    val_loss       : 0.6038034774363041
+    val_accuracy   : 0.798046875
+    val_top_k_acc  : 0.959765625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch12.pth ...
+Train Epoch: 13 [0/45000 (0%)] Loss: 0.610788
+Train Epoch: 13 [1408/45000 (3%)] Loss: 0.471666
+Train Epoch: 13 [2816/45000 (6%)] Loss: 0.653858
+Train Epoch: 13 [4224/45000 (9%)] Loss: 0.812612
+Train Epoch: 13 [5632/45000 (13%)] Loss: 0.541116
+Train Epoch: 13 [7040/45000 (16%)] Loss: 0.614027
+Train Epoch: 13 [8448/45000 (19%)] Loss: 0.739284
+Train Epoch: 13 [9856/45000 (22%)] Loss: 0.561924
+Train Epoch: 13 [11264/45000 (25%)] Loss: 0.453245
+Train Epoch: 13 [12672/45000 (28%)] Loss: 0.579564
+Train Epoch: 13 [14080/45000 (31%)] Loss: 0.524152
+Train Epoch: 13 [15488/45000 (34%)] Loss: 0.537766
+Train Epoch: 13 [16896/45000 (38%)] Loss: 0.597186
+Train Epoch: 13 [18304/45000 (41%)] Loss: 0.571908
+Train Epoch: 13 [19712/45000 (44%)] Loss: 0.620072
+Train Epoch: 13 [21120/45000 (47%)] Loss: 0.574456
+Train Epoch: 13 [22528/45000 (50%)] Loss: 0.568479
+Train Epoch: 13 [23936/45000 (53%)] Loss: 0.635011
+Train Epoch: 13 [25344/45000 (56%)] Loss: 0.506417
+Train Epoch: 13 [26752/45000 (59%)] Loss: 0.511356
+Train Epoch: 13 [28160/45000 (63%)] Loss: 0.470577
+Train Epoch: 13 [29568/45000 (66%)] Loss: 0.513520
+Train Epoch: 13 [30976/45000 (69%)] Loss: 0.547058
+Train Epoch: 13 [32384/45000 (72%)] Loss: 0.523926
+Train Epoch: 13 [33792/45000 (75%)] Loss: 0.601768
+Train Epoch: 13 [35200/45000 (78%)] Loss: 0.616688
+Train Epoch: 13 [36608/45000 (81%)] Loss: 0.570711
+Train Epoch: 13 [38016/45000 (84%)] Loss: 0.673092
+Train Epoch: 13 [39424/45000 (88%)] Loss: 0.445659
+Train Epoch: 13 [40832/45000 (91%)] Loss: 0.513266
+Train Epoch: 13 [42240/45000 (94%)] Loss: 0.548029
+Train Epoch: 13 [43648/45000 (97%)] Loss: 0.598798
+    epoch          : 13
+    loss           : 0.5870759973133152
+    accuracy       : 0.7987319483901515
+    top_k_acc      : 0.9605922506313131
+    val_loss       : 0.5994529373943805
+    val_accuracy   : 0.7931640625
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch13.pth ...
+Train Epoch: 14 [0/45000 (0%)] Loss: 0.766715
+Train Epoch: 14 [1408/45000 (3%)] Loss: 0.620064
+Train Epoch: 14 [2816/45000 (6%)] Loss: 0.565599
+Train Epoch: 14 [4224/45000 (9%)] Loss: 0.627464
+Train Epoch: 14 [5632/45000 (13%)] Loss: 0.500254
+Train Epoch: 14 [7040/45000 (16%)] Loss: 0.554414
+Train Epoch: 14 [8448/45000 (19%)] Loss: 0.467603
+Train Epoch: 14 [9856/45000 (22%)] Loss: 0.548771
+Train Epoch: 14 [11264/45000 (25%)] Loss: 0.500943
+Train Epoch: 14 [12672/45000 (28%)] Loss: 0.567765
+Train Epoch: 14 [14080/45000 (31%)] Loss: 0.641835
+Train Epoch: 14 [15488/45000 (34%)] Loss: 0.520570
+Train Epoch: 14 [16896/45000 (38%)] Loss: 0.548673
+Train Epoch: 14 [18304/45000 (41%)] Loss: 0.601627
+Train Epoch: 14 [19712/45000 (44%)] Loss: 0.442212
+Train Epoch: 14 [21120/45000 (47%)] Loss: 0.607677
+Train Epoch: 14 [22528/45000 (50%)] Loss: 0.563904
+Train Epoch: 14 [23936/45000 (53%)] Loss: 0.706654
+Train Epoch: 14 [25344/45000 (56%)] Loss: 0.609507
+Train Epoch: 14 [26752/45000 (59%)] Loss: 0.621272
+Train Epoch: 14 [28160/45000 (63%)] Loss: 0.619438
+Train Epoch: 14 [29568/45000 (66%)] Loss: 0.588883
+Train Epoch: 14 [30976/45000 (69%)] Loss: 0.837283
+Train Epoch: 14 [32384/45000 (72%)] Loss: 0.656074
+Train Epoch: 14 [33792/45000 (75%)] Loss: 0.670559
+Train Epoch: 14 [35200/45000 (78%)] Loss: 0.654529
+Train Epoch: 14 [36608/45000 (81%)] Loss: 0.466106
+Train Epoch: 14 [38016/45000 (84%)] Loss: 0.578159
+Train Epoch: 14 [39424/45000 (88%)] Loss: 0.508696
+Train Epoch: 14 [40832/45000 (91%)] Loss: 0.556177
+Train Epoch: 14 [42240/45000 (94%)] Loss: 0.456267
+Train Epoch: 14 [43648/45000 (97%)] Loss: 0.628955
+    epoch          : 14
+    loss           : 0.5822489049962976
+    accuracy       : 0.8007664535984849
+    top_k_acc      : 0.9615244239267677
+    val_loss       : 0.5787366956472397
+    val_accuracy   : 0.803515625
+    val_top_k_acc  : 0.9623046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch14.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 15 [0/45000 (0%)] Loss: 0.602781
+Train Epoch: 15 [1408/45000 (3%)] Loss: 0.567985
+Train Epoch: 15 [2816/45000 (6%)] Loss: 0.581732
+Train Epoch: 15 [4224/45000 (9%)] Loss: 0.555593
+Train Epoch: 15 [5632/45000 (13%)] Loss: 0.559062
+Train Epoch: 15 [7040/45000 (16%)] Loss: 0.666583
+Train Epoch: 15 [8448/45000 (19%)] Loss: 0.517758
+Train Epoch: 15 [9856/45000 (22%)] Loss: 0.622551
+Train Epoch: 15 [11264/45000 (25%)] Loss: 0.739291
+Train Epoch: 15 [12672/45000 (28%)] Loss: 0.491003
+Train Epoch: 15 [14080/45000 (31%)] Loss: 0.602638
+Train Epoch: 15 [15488/45000 (34%)] Loss: 0.535897
+Train Epoch: 15 [16896/45000 (38%)] Loss: 0.628836
+Train Epoch: 15 [18304/45000 (41%)] Loss: 0.583632
+Train Epoch: 15 [19712/45000 (44%)] Loss: 0.591250
+Train Epoch: 15 [21120/45000 (47%)] Loss: 0.608886
+Train Epoch: 15 [22528/45000 (50%)] Loss: 0.524050
+Train Epoch: 15 [23936/45000 (53%)] Loss: 0.694325
+Train Epoch: 15 [25344/45000 (56%)] Loss: 0.559845
+Train Epoch: 15 [26752/45000 (59%)] Loss: 0.587600
+Train Epoch: 15 [28160/45000 (63%)] Loss: 0.577030
+Train Epoch: 15 [29568/45000 (66%)] Loss: 0.605974
+Train Epoch: 15 [30976/45000 (69%)] Loss: 0.554114
+Train Epoch: 15 [32384/45000 (72%)] Loss: 0.585792
+Train Epoch: 15 [33792/45000 (75%)] Loss: 0.544613
+Train Epoch: 15 [35200/45000 (78%)] Loss: 0.572857
+Train Epoch: 15 [36608/45000 (81%)] Loss: 0.583864
+Train Epoch: 15 [38016/45000 (84%)] Loss: 0.564606
+Train Epoch: 15 [39424/45000 (88%)] Loss: 0.419924
+Train Epoch: 15 [40832/45000 (91%)] Loss: 0.513475
+Train Epoch: 15 [42240/45000 (94%)] Loss: 0.564490
+Train Epoch: 15 [43648/45000 (97%)] Loss: 0.622655
+    epoch          : 15
+    loss           : 0.5778936631977558
+    accuracy       : 0.8025987413194445
+    top_k_acc      : 0.9613912563131314
+    val_loss       : 0.5949484892189503
+    val_accuracy   : 0.79765625
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch15.pth ...
+Train Epoch: 16 [0/45000 (0%)] Loss: 0.600172
+Train Epoch: 16 [1408/45000 (3%)] Loss: 0.635651
+Train Epoch: 16 [2816/45000 (6%)] Loss: 0.668729
+Train Epoch: 16 [4224/45000 (9%)] Loss: 0.563380
+Train Epoch: 16 [5632/45000 (13%)] Loss: 0.633327
+Train Epoch: 16 [7040/45000 (16%)] Loss: 0.578228
+Train Epoch: 16 [8448/45000 (19%)] Loss: 0.557463
+Train Epoch: 16 [9856/45000 (22%)] Loss: 0.455405
+Train Epoch: 16 [11264/45000 (25%)] Loss: 0.521895
+Train Epoch: 16 [12672/45000 (28%)] Loss: 0.607895
+Train Epoch: 16 [14080/45000 (31%)] Loss: 0.466083
+Train Epoch: 16 [15488/45000 (34%)] Loss: 0.545556
+Train Epoch: 16 [16896/45000 (38%)] Loss: 0.641196
+Train Epoch: 16 [18304/45000 (41%)] Loss: 0.753004
+Train Epoch: 16 [19712/45000 (44%)] Loss: 0.626724
+Train Epoch: 16 [21120/45000 (47%)] Loss: 0.558538
+Train Epoch: 16 [22528/45000 (50%)] Loss: 0.501405
+Train Epoch: 16 [23936/45000 (53%)] Loss: 0.413122
+Train Epoch: 16 [25344/45000 (56%)] Loss: 0.515841
+Train Epoch: 16 [26752/45000 (59%)] Loss: 0.662400
+Train Epoch: 16 [28160/45000 (63%)] Loss: 0.436743
+Train Epoch: 16 [29568/45000 (66%)] Loss: 0.567990
+Train Epoch: 16 [30976/45000 (69%)] Loss: 0.597053
+Train Epoch: 16 [32384/45000 (72%)] Loss: 0.540337
+Train Epoch: 16 [33792/45000 (75%)] Loss: 0.509748
+Train Epoch: 16 [35200/45000 (78%)] Loss: 0.532828
+Train Epoch: 16 [36608/45000 (81%)] Loss: 0.545641
+Train Epoch: 16 [38016/45000 (84%)] Loss: 0.580704
+Train Epoch: 16 [39424/45000 (88%)] Loss: 0.712189
+Train Epoch: 16 [40832/45000 (91%)] Loss: 0.540838
+Train Epoch: 16 [42240/45000 (94%)] Loss: 0.635147
+Train Epoch: 16 [43648/45000 (97%)] Loss: 0.541647
+    epoch          : 16
+    loss           : 0.578119485808367
+    accuracy       : 0.8017972695707072
+    top_k_acc      : 0.9618647411616162
+    val_loss       : 0.596392796933651
+    val_accuracy   : 0.794921875
+    val_top_k_acc  : 0.96015625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch16.pth ...
+Train Epoch: 17 [0/45000 (0%)] Loss: 0.477202
+Train Epoch: 17 [1408/45000 (3%)] Loss: 0.525743
+Train Epoch: 17 [2816/45000 (6%)] Loss: 0.548022
+Train Epoch: 17 [4224/45000 (9%)] Loss: 0.611108
+Train Epoch: 17 [5632/45000 (13%)] Loss: 0.631158
+Train Epoch: 17 [7040/45000 (16%)] Loss: 0.499620
+Train Epoch: 17 [8448/45000 (19%)] Loss: 0.582338
+Train Epoch: 17 [9856/45000 (22%)] Loss: 0.485152
+Train Epoch: 17 [11264/45000 (25%)] Loss: 0.540205
+Train Epoch: 17 [12672/45000 (28%)] Loss: 0.696400
+Train Epoch: 17 [14080/45000 (31%)] Loss: 0.520177
+Train Epoch: 17 [15488/45000 (34%)] Loss: 0.570183
+Train Epoch: 17 [16896/45000 (38%)] Loss: 0.566311
+Train Epoch: 17 [18304/45000 (41%)] Loss: 0.530716
+Train Epoch: 17 [19712/45000 (44%)] Loss: 0.583036
+Train Epoch: 17 [21120/45000 (47%)] Loss: 0.811409
+Train Epoch: 17 [22528/45000 (50%)] Loss: 0.542893
+Train Epoch: 17 [23936/45000 (53%)] Loss: 0.812752
+Train Epoch: 17 [25344/45000 (56%)] Loss: 0.598662
+Train Epoch: 17 [26752/45000 (59%)] Loss: 0.562297
+Train Epoch: 17 [28160/45000 (63%)] Loss: 0.476302
+Train Epoch: 17 [29568/45000 (66%)] Loss: 0.563268
+Train Epoch: 17 [30976/45000 (69%)] Loss: 0.497203
+Train Epoch: 17 [32384/45000 (72%)] Loss: 0.725410
+Train Epoch: 17 [33792/45000 (75%)] Loss: 0.449212
+Train Epoch: 17 [35200/45000 (78%)] Loss: 0.736806
+Train Epoch: 17 [36608/45000 (81%)] Loss: 0.526562
+Train Epoch: 17 [38016/45000 (84%)] Loss: 0.564003
+Train Epoch: 17 [39424/45000 (88%)] Loss: 0.466086
+Train Epoch: 17 [40832/45000 (91%)] Loss: 0.492464
+Train Epoch: 17 [42240/45000 (94%)] Loss: 0.666704
+Train Epoch: 17 [43648/45000 (97%)] Loss: 0.631267
+    epoch          : 17
+    loss           : 0.5731491598046639
+    accuracy       : 0.8039032907196969
+    top_k_acc      : 0.9622075244633838
+    val_loss       : 0.5682429648935795
+    val_accuracy   : 0.808203125
+    val_top_k_acc  : 0.9609375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch17.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 18 [0/45000 (0%)] Loss: 0.601872
+Train Epoch: 18 [1408/45000 (3%)] Loss: 0.607126
+Train Epoch: 18 [2816/45000 (6%)] Loss: 0.598809
+Train Epoch: 18 [4224/45000 (9%)] Loss: 0.620038
+Train Epoch: 18 [5632/45000 (13%)] Loss: 0.511830
+Train Epoch: 18 [7040/45000 (16%)] Loss: 0.534445
+Train Epoch: 18 [8448/45000 (19%)] Loss: 0.469447
+Train Epoch: 18 [9856/45000 (22%)] Loss: 0.493676
+Train Epoch: 18 [11264/45000 (25%)] Loss: 0.666219
+Train Epoch: 18 [12672/45000 (28%)] Loss: 0.752267
+Train Epoch: 18 [14080/45000 (31%)] Loss: 0.578082
+Train Epoch: 18 [15488/45000 (34%)] Loss: 0.583313
+Train Epoch: 18 [16896/45000 (38%)] Loss: 0.493377
+Train Epoch: 18 [18304/45000 (41%)] Loss: 0.561022
+Train Epoch: 18 [19712/45000 (44%)] Loss: 0.551555
+Train Epoch: 18 [21120/45000 (47%)] Loss: 0.606486
+Train Epoch: 18 [22528/45000 (50%)] Loss: 0.524225
+Train Epoch: 18 [23936/45000 (53%)] Loss: 0.587703
+Train Epoch: 18 [25344/45000 (56%)] Loss: 0.617198
+Train Epoch: 18 [26752/45000 (59%)] Loss: 0.500976
+Train Epoch: 18 [28160/45000 (63%)] Loss: 0.566271
+Train Epoch: 18 [29568/45000 (66%)] Loss: 0.436276
+Train Epoch: 18 [30976/45000 (69%)] Loss: 0.650134
+Train Epoch: 18 [32384/45000 (72%)] Loss: 0.651850
+Train Epoch: 18 [33792/45000 (75%)] Loss: 0.625761
+Train Epoch: 18 [35200/45000 (78%)] Loss: 0.527773
+Train Epoch: 18 [36608/45000 (81%)] Loss: 0.520959
+Train Epoch: 18 [38016/45000 (84%)] Loss: 0.576426
+Train Epoch: 18 [39424/45000 (88%)] Loss: 0.545641
+Train Epoch: 18 [40832/45000 (91%)] Loss: 0.607963
+Train Epoch: 18 [42240/45000 (94%)] Loss: 0.579909
+Train Epoch: 18 [43648/45000 (97%)] Loss: 0.580117
+    epoch          : 18
+    loss           : 0.5693882182240486
+    accuracy       : 0.8046332465277778
+    top_k_acc      : 0.9631495620265151
+    val_loss       : 0.5780387803912163
+    val_accuracy   : 0.80078125
+    val_top_k_acc  : 0.9583984375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch18.pth ...
+Train Epoch: 19 [0/45000 (0%)] Loss: 0.546790
+Train Epoch: 19 [1408/45000 (3%)] Loss: 0.664330
+Train Epoch: 19 [2816/45000 (6%)] Loss: 0.466108
+Train Epoch: 19 [4224/45000 (9%)] Loss: 0.674543
+Train Epoch: 19 [5632/45000 (13%)] Loss: 0.561049
+Train Epoch: 19 [7040/45000 (16%)] Loss: 0.500718
+Train Epoch: 19 [8448/45000 (19%)] Loss: 0.453226
+Train Epoch: 19 [9856/45000 (22%)] Loss: 0.523375
+Train Epoch: 19 [11264/45000 (25%)] Loss: 0.479978
+Train Epoch: 19 [12672/45000 (28%)] Loss: 0.636943
+Train Epoch: 19 [14080/45000 (31%)] Loss: 0.604394
+Train Epoch: 19 [15488/45000 (34%)] Loss: 0.506641
+Train Epoch: 19 [16896/45000 (38%)] Loss: 0.404923
+Train Epoch: 19 [18304/45000 (41%)] Loss: 0.550844
+Train Epoch: 19 [19712/45000 (44%)] Loss: 0.566024
+Train Epoch: 19 [21120/45000 (47%)] Loss: 0.592781
+Train Epoch: 19 [22528/45000 (50%)] Loss: 0.554589
+Train Epoch: 19 [23936/45000 (53%)] Loss: 0.699968
+Train Epoch: 19 [25344/45000 (56%)] Loss: 0.733278
+Train Epoch: 19 [26752/45000 (59%)] Loss: 0.516869
+Train Epoch: 19 [28160/45000 (63%)] Loss: 0.658722
+Train Epoch: 19 [29568/45000 (66%)] Loss: 0.512451
+Train Epoch: 19 [30976/45000 (69%)] Loss: 0.617407
+Train Epoch: 19 [32384/45000 (72%)] Loss: 0.569313
+Train Epoch: 19 [33792/45000 (75%)] Loss: 0.563211
+Train Epoch: 19 [35200/45000 (78%)] Loss: 0.660641
+Train Epoch: 19 [36608/45000 (81%)] Loss: 0.549178
+Train Epoch: 19 [38016/45000 (84%)] Loss: 0.422856
+Train Epoch: 19 [39424/45000 (88%)] Loss: 0.655763
+Train Epoch: 19 [40832/45000 (91%)] Loss: 0.542979
+Train Epoch: 19 [42240/45000 (94%)] Loss: 0.459094
+Train Epoch: 19 [43648/45000 (97%)] Loss: 0.610947
+    epoch          : 19
+    loss           : 0.5673977803777565
+    accuracy       : 0.8045913233901515
+    top_k_acc      : 0.9638425268308081
+    val_loss       : 0.576126416772604
+    val_accuracy   : 0.8056640625
+    val_top_k_acc  : 0.9587890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch19.pth ...
+Train Epoch: 20 [0/45000 (0%)] Loss: 0.446978
+Train Epoch: 20 [1408/45000 (3%)] Loss: 0.525760
+Train Epoch: 20 [2816/45000 (6%)] Loss: 0.627566
+Train Epoch: 20 [4224/45000 (9%)] Loss: 0.692907
+Train Epoch: 20 [5632/45000 (13%)] Loss: 0.637301
+Train Epoch: 20 [7040/45000 (16%)] Loss: 0.477111
+Train Epoch: 20 [8448/45000 (19%)] Loss: 0.598424
+Train Epoch: 20 [9856/45000 (22%)] Loss: 0.478663
+Train Epoch: 20 [11264/45000 (25%)] Loss: 0.598499
+Train Epoch: 20 [12672/45000 (28%)] Loss: 0.633930
+Train Epoch: 20 [14080/45000 (31%)] Loss: 0.578881
+Train Epoch: 20 [15488/45000 (34%)] Loss: 0.646777
+Train Epoch: 20 [16896/45000 (38%)] Loss: 0.582610
+Train Epoch: 20 [18304/45000 (41%)] Loss: 0.563934
+Train Epoch: 20 [19712/45000 (44%)] Loss: 0.574981
+Train Epoch: 20 [21120/45000 (47%)] Loss: 0.495169
+Train Epoch: 20 [22528/45000 (50%)] Loss: 0.454633
+Train Epoch: 20 [23936/45000 (53%)] Loss: 0.465878
+Train Epoch: 20 [25344/45000 (56%)] Loss: 0.582306
+Train Epoch: 20 [26752/45000 (59%)] Loss: 0.558798
+Train Epoch: 20 [28160/45000 (63%)] Loss: 0.680409
+Train Epoch: 20 [29568/45000 (66%)] Loss: 0.512760
+Train Epoch: 20 [30976/45000 (69%)] Loss: 0.547521
+Train Epoch: 20 [32384/45000 (72%)] Loss: 0.627228
+Train Epoch: 20 [33792/45000 (75%)] Loss: 0.645522
+Train Epoch: 20 [35200/45000 (78%)] Loss: 0.466581
+Train Epoch: 20 [36608/45000 (81%)] Loss: 0.551688
+Train Epoch: 20 [38016/45000 (84%)] Loss: 0.486218
+Train Epoch: 20 [39424/45000 (88%)] Loss: 0.581692
+Train Epoch: 20 [40832/45000 (91%)] Loss: 0.670207
+Train Epoch: 20 [42240/45000 (94%)] Loss: 0.660528
+Train Epoch: 20 [43648/45000 (97%)] Loss: 0.503481
+    epoch          : 20
+    loss           : 0.5672544812444936
+    accuracy       : 0.8044088344381314
+    top_k_acc      : 0.9630731139520201
+    val_loss       : 0.5695834748446942
+    val_accuracy   : 0.808203125
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch20.pth ...
+Train Epoch: 21 [0/45000 (0%)] Loss: 0.500696
+Train Epoch: 21 [1408/45000 (3%)] Loss: 0.675195
+Train Epoch: 21 [2816/45000 (6%)] Loss: 0.735862
+Train Epoch: 21 [4224/45000 (9%)] Loss: 0.462120
+Train Epoch: 21 [5632/45000 (13%)] Loss: 0.386660
+Train Epoch: 21 [7040/45000 (16%)] Loss: 0.527488
+Train Epoch: 21 [8448/45000 (19%)] Loss: 0.498842
+Train Epoch: 21 [9856/45000 (22%)] Loss: 0.635055
+Train Epoch: 21 [11264/45000 (25%)] Loss: 0.499474
+Train Epoch: 21 [12672/45000 (28%)] Loss: 0.558158
+Train Epoch: 21 [14080/45000 (31%)] Loss: 0.510207
+Train Epoch: 21 [15488/45000 (34%)] Loss: 0.628628
+Train Epoch: 21 [16896/45000 (38%)] Loss: 0.735184
+Train Epoch: 21 [18304/45000 (41%)] Loss: 0.376535
+Train Epoch: 21 [19712/45000 (44%)] Loss: 0.491081
+Train Epoch: 21 [21120/45000 (47%)] Loss: 0.373779
+Train Epoch: 21 [22528/45000 (50%)] Loss: 0.509758
+Train Epoch: 21 [23936/45000 (53%)] Loss: 0.689221
+Train Epoch: 21 [25344/45000 (56%)] Loss: 0.602984
+Train Epoch: 21 [26752/45000 (59%)] Loss: 0.536439
+Train Epoch: 21 [28160/45000 (63%)] Loss: 0.634240
+Train Epoch: 21 [29568/45000 (66%)] Loss: 0.539236
+Train Epoch: 21 [30976/45000 (69%)] Loss: 0.591977
+Train Epoch: 21 [32384/45000 (72%)] Loss: 0.519069
+Train Epoch: 21 [33792/45000 (75%)] Loss: 0.573977
+Train Epoch: 21 [35200/45000 (78%)] Loss: 0.565620
+Train Epoch: 21 [36608/45000 (81%)] Loss: 0.464334
+Train Epoch: 21 [38016/45000 (84%)] Loss: 0.702683
+Train Epoch: 21 [39424/45000 (88%)] Loss: 0.660445
+Train Epoch: 21 [40832/45000 (91%)] Loss: 0.598149
+Train Epoch: 21 [42240/45000 (94%)] Loss: 0.660475
+Train Epoch: 21 [43648/45000 (97%)] Loss: 0.600111
+    epoch          : 21
+    loss           : 0.5624007395553318
+    accuracy       : 0.8057059856376263
+    top_k_acc      : 0.963443023989899
+    val_loss       : 0.5652853388339281
+    val_accuracy   : 0.808984375
+    val_top_k_acc  : 0.962109375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch21.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 22 [0/45000 (0%)] Loss: 0.371033
+Train Epoch: 22 [1408/45000 (3%)] Loss: 0.585961
+Train Epoch: 22 [2816/45000 (6%)] Loss: 0.493792
+Train Epoch: 22 [4224/45000 (9%)] Loss: 0.659592
+Train Epoch: 22 [5632/45000 (13%)] Loss: 0.588706
+Train Epoch: 22 [7040/45000 (16%)] Loss: 0.480156
+Train Epoch: 22 [8448/45000 (19%)] Loss: 0.575973
+Train Epoch: 22 [9856/45000 (22%)] Loss: 0.565680
+Train Epoch: 22 [11264/45000 (25%)] Loss: 0.482151
+Train Epoch: 22 [12672/45000 (28%)] Loss: 0.617814
+Train Epoch: 22 [14080/45000 (31%)] Loss: 0.629229
+Train Epoch: 22 [15488/45000 (34%)] Loss: 0.580148
+Train Epoch: 22 [16896/45000 (38%)] Loss: 0.612860
+Train Epoch: 22 [18304/45000 (41%)] Loss: 0.579099
+Train Epoch: 22 [19712/45000 (44%)] Loss: 0.608161
+Train Epoch: 22 [21120/45000 (47%)] Loss: 0.447745
+Train Epoch: 22 [22528/45000 (50%)] Loss: 0.575821
+Train Epoch: 22 [23936/45000 (53%)] Loss: 0.519525
+Train Epoch: 22 [25344/45000 (56%)] Loss: 0.475431
+Train Epoch: 22 [26752/45000 (59%)] Loss: 0.615393
+Train Epoch: 22 [28160/45000 (63%)] Loss: 0.479958
+Train Epoch: 22 [29568/45000 (66%)] Loss: 0.547984
+Train Epoch: 22 [30976/45000 (69%)] Loss: 0.512019
+Train Epoch: 22 [32384/45000 (72%)] Loss: 0.576611
+Train Epoch: 22 [33792/45000 (75%)] Loss: 0.577588
+Train Epoch: 22 [35200/45000 (78%)] Loss: 0.456153
+Train Epoch: 22 [36608/45000 (81%)] Loss: 0.498807
+Train Epoch: 22 [38016/45000 (84%)] Loss: 0.610257
+Train Epoch: 22 [39424/45000 (88%)] Loss: 0.545869
+Train Epoch: 22 [40832/45000 (91%)] Loss: 0.613178
+Train Epoch: 22 [42240/45000 (94%)] Loss: 0.519806
+Train Epoch: 22 [43648/45000 (97%)] Loss: 0.607990
+    epoch          : 22
+    loss           : 0.5635050237178802
+    accuracy       : 0.8070549242424242
+    top_k_acc      : 0.9639534998421717
+    val_loss       : 0.5677964881062507
+    val_accuracy   : 0.8099609375
+    val_top_k_acc  : 0.9630859375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch22.pth ...
+Train Epoch: 23 [0/45000 (0%)] Loss: 0.473551
+Train Epoch: 23 [1408/45000 (3%)] Loss: 0.481919
+Train Epoch: 23 [2816/45000 (6%)] Loss: 0.476845
+Train Epoch: 23 [4224/45000 (9%)] Loss: 0.642161
+Train Epoch: 23 [5632/45000 (13%)] Loss: 0.553290
+Train Epoch: 23 [7040/45000 (16%)] Loss: 0.513502
+Train Epoch: 23 [8448/45000 (19%)] Loss: 0.546891
+Train Epoch: 23 [9856/45000 (22%)] Loss: 0.565054
+Train Epoch: 23 [11264/45000 (25%)] Loss: 0.659393
+Train Epoch: 23 [12672/45000 (28%)] Loss: 0.564828
+Train Epoch: 23 [14080/45000 (31%)] Loss: 0.610553
+Train Epoch: 23 [15488/45000 (34%)] Loss: 0.509350
+Train Epoch: 23 [16896/45000 (38%)] Loss: 0.515042
+Train Epoch: 23 [18304/45000 (41%)] Loss: 0.660471
+Train Epoch: 23 [19712/45000 (44%)] Loss: 0.485258
+Train Epoch: 23 [21120/45000 (47%)] Loss: 0.585384
+Train Epoch: 23 [22528/45000 (50%)] Loss: 0.575933
+Train Epoch: 23 [23936/45000 (53%)] Loss: 0.535133
+Train Epoch: 23 [25344/45000 (56%)] Loss: 0.477341
+Train Epoch: 23 [26752/45000 (59%)] Loss: 0.503854
+Train Epoch: 23 [28160/45000 (63%)] Loss: 0.583402
+Train Epoch: 23 [29568/45000 (66%)] Loss: 0.603532
+Train Epoch: 23 [30976/45000 (69%)] Loss: 0.472939
+Train Epoch: 23 [32384/45000 (72%)] Loss: 0.580724
+Train Epoch: 23 [33792/45000 (75%)] Loss: 0.465366
+Train Epoch: 23 [35200/45000 (78%)] Loss: 0.524539
+Train Epoch: 23 [36608/45000 (81%)] Loss: 0.604083
+Train Epoch: 23 [38016/45000 (84%)] Loss: 0.495933
+Train Epoch: 23 [39424/45000 (88%)] Loss: 0.673263
+Train Epoch: 23 [40832/45000 (91%)] Loss: 0.559628
+Train Epoch: 23 [42240/45000 (94%)] Loss: 0.511953
+Train Epoch: 23 [43648/45000 (97%)] Loss: 0.540577
+    epoch          : 23
+    loss           : 0.5586584894494577
+    accuracy       : 0.8090154474431818
+    top_k_acc      : 0.9641433869949495
+    val_loss       : 0.5792481996119022
+    val_accuracy   : 0.8029296875
+    val_top_k_acc  : 0.959765625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch23.pth ...
+Train Epoch: 24 [0/45000 (0%)] Loss: 0.625571
+Train Epoch: 24 [1408/45000 (3%)] Loss: 0.483026
+Train Epoch: 24 [2816/45000 (6%)] Loss: 0.576101
+Train Epoch: 24 [4224/45000 (9%)] Loss: 0.511413
+Train Epoch: 24 [5632/45000 (13%)] Loss: 0.612225
+Train Epoch: 24 [7040/45000 (16%)] Loss: 0.570260
+Train Epoch: 24 [8448/45000 (19%)] Loss: 0.480883
+Train Epoch: 24 [9856/45000 (22%)] Loss: 0.428619
+Train Epoch: 24 [11264/45000 (25%)] Loss: 0.701813
+Train Epoch: 24 [12672/45000 (28%)] Loss: 0.646497
+Train Epoch: 24 [14080/45000 (31%)] Loss: 0.438918
+Train Epoch: 24 [15488/45000 (34%)] Loss: 0.486793
+Train Epoch: 24 [16896/45000 (38%)] Loss: 0.631542
+Train Epoch: 24 [18304/45000 (41%)] Loss: 0.496669
+Train Epoch: 24 [19712/45000 (44%)] Loss: 0.699190
+Train Epoch: 24 [21120/45000 (47%)] Loss: 0.702675
+Train Epoch: 24 [22528/45000 (50%)] Loss: 0.537546
+Train Epoch: 24 [23936/45000 (53%)] Loss: 0.644669
+Train Epoch: 24 [25344/45000 (56%)] Loss: 0.580051
+Train Epoch: 24 [26752/45000 (59%)] Loss: 0.467067
+Train Epoch: 24 [28160/45000 (63%)] Loss: 0.505899
+Train Epoch: 24 [29568/45000 (66%)] Loss: 0.582097
+Train Epoch: 24 [30976/45000 (69%)] Loss: 0.441053
+Train Epoch: 24 [32384/45000 (72%)] Loss: 0.423479
+Train Epoch: 24 [33792/45000 (75%)] Loss: 0.578497
+Train Epoch: 24 [35200/45000 (78%)] Loss: 0.635675
+Train Epoch: 24 [36608/45000 (81%)] Loss: 0.681148
+Train Epoch: 24 [38016/45000 (84%)] Loss: 0.519308
+Train Epoch: 24 [39424/45000 (88%)] Loss: 0.579070
+Train Epoch: 24 [40832/45000 (91%)] Loss: 0.505265
+Train Epoch: 24 [42240/45000 (94%)] Loss: 0.481270
+Train Epoch: 24 [43648/45000 (97%)] Loss: 0.531210
+    epoch          : 24
+    loss           : 0.5580234083093025
+    accuracy       : 0.8067762586805555
+    top_k_acc      : 0.9638474589646464
+    val_loss       : 0.5603622587397694
+    val_accuracy   : 0.8107421875
+    val_top_k_acc  : 0.9634765625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch24.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 25 [0/45000 (0%)] Loss: 0.538235
+Train Epoch: 25 [1408/45000 (3%)] Loss: 0.627686
+Train Epoch: 25 [2816/45000 (6%)] Loss: 0.541466
+Train Epoch: 25 [4224/45000 (9%)] Loss: 0.567785
+Train Epoch: 25 [5632/45000 (13%)] Loss: 0.516785
+Train Epoch: 25 [7040/45000 (16%)] Loss: 0.493407
+Train Epoch: 25 [8448/45000 (19%)] Loss: 0.543669
+Train Epoch: 25 [9856/45000 (22%)] Loss: 0.536009
+Train Epoch: 25 [11264/45000 (25%)] Loss: 0.466294
+Train Epoch: 25 [12672/45000 (28%)] Loss: 0.596232
+Train Epoch: 25 [14080/45000 (31%)] Loss: 0.445342
+Train Epoch: 25 [15488/45000 (34%)] Loss: 0.563148
+Train Epoch: 25 [16896/45000 (38%)] Loss: 0.628249
+Train Epoch: 25 [18304/45000 (41%)] Loss: 0.469470
+Train Epoch: 25 [19712/45000 (44%)] Loss: 0.603753
+Train Epoch: 25 [21120/45000 (47%)] Loss: 0.604000
+Train Epoch: 25 [22528/45000 (50%)] Loss: 0.576967
+Train Epoch: 25 [23936/45000 (53%)] Loss: 0.550129
+Train Epoch: 25 [25344/45000 (56%)] Loss: 0.540567
+Train Epoch: 25 [26752/45000 (59%)] Loss: 0.488191
+Train Epoch: 25 [28160/45000 (63%)] Loss: 0.514290
+Train Epoch: 25 [29568/45000 (66%)] Loss: 0.643473
+Train Epoch: 25 [30976/45000 (69%)] Loss: 0.581355
+Train Epoch: 25 [32384/45000 (72%)] Loss: 0.493873
+Train Epoch: 25 [33792/45000 (75%)] Loss: 0.625317
+Train Epoch: 25 [35200/45000 (78%)] Loss: 0.716004
+Train Epoch: 25 [36608/45000 (81%)] Loss: 0.607648
+Train Epoch: 25 [38016/45000 (84%)] Loss: 0.493913
+Train Epoch: 25 [39424/45000 (88%)] Loss: 0.629888
+Train Epoch: 25 [40832/45000 (91%)] Loss: 0.555712
+Train Epoch: 25 [42240/45000 (94%)] Loss: 0.457775
+Train Epoch: 25 [43648/45000 (97%)] Loss: 0.576001
+    epoch          : 25
+    loss           : 0.5585092732005499
+    accuracy       : 0.8075925268308081
+    top_k_acc      : 0.9640225497159091
+    val_loss       : 0.5743394523859024
+    val_accuracy   : 0.801953125
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch25.pth ...
+Train Epoch: 26 [0/45000 (0%)] Loss: 0.586314
+Train Epoch: 26 [1408/45000 (3%)] Loss: 0.467582
+Train Epoch: 26 [2816/45000 (6%)] Loss: 0.656850
+Train Epoch: 26 [4224/45000 (9%)] Loss: 0.467731
+Train Epoch: 26 [5632/45000 (13%)] Loss: 0.383016
+Train Epoch: 26 [7040/45000 (16%)] Loss: 0.560722
+Train Epoch: 26 [8448/45000 (19%)] Loss: 0.477562
+Train Epoch: 26 [9856/45000 (22%)] Loss: 0.487584
+Train Epoch: 26 [11264/45000 (25%)] Loss: 0.606808
+Train Epoch: 26 [12672/45000 (28%)] Loss: 0.591361
+Train Epoch: 26 [14080/45000 (31%)] Loss: 0.415031
+Train Epoch: 26 [15488/45000 (34%)] Loss: 0.568227
+Train Epoch: 26 [16896/45000 (38%)] Loss: 0.702337
+Train Epoch: 26 [18304/45000 (41%)] Loss: 0.586761
+Train Epoch: 26 [19712/45000 (44%)] Loss: 0.578627
+Train Epoch: 26 [21120/45000 (47%)] Loss: 0.598172
+Train Epoch: 26 [22528/45000 (50%)] Loss: 0.583323
+Train Epoch: 26 [23936/45000 (53%)] Loss: 0.473956
+Train Epoch: 26 [25344/45000 (56%)] Loss: 0.560792
+Train Epoch: 26 [26752/45000 (59%)] Loss: 0.652152
+Train Epoch: 26 [28160/45000 (63%)] Loss: 0.681010
+Train Epoch: 26 [29568/45000 (66%)] Loss: 0.636801
+Train Epoch: 26 [30976/45000 (69%)] Loss: 0.530315
+Train Epoch: 26 [32384/45000 (72%)] Loss: 0.523582
+Train Epoch: 26 [33792/45000 (75%)] Loss: 0.400945
+Train Epoch: 26 [35200/45000 (78%)] Loss: 0.480810
+Train Epoch: 26 [36608/45000 (81%)] Loss: 0.583474
+Train Epoch: 26 [38016/45000 (84%)] Loss: 0.526465
+Train Epoch: 26 [39424/45000 (88%)] Loss: 0.662801
+Train Epoch: 26 [40832/45000 (91%)] Loss: 0.411288
+Train Epoch: 26 [42240/45000 (94%)] Loss: 0.428284
+Train Epoch: 26 [43648/45000 (97%)] Loss: 0.568726
+    epoch          : 26
+    loss           : 0.5545047019523653
+    accuracy       : 0.8084433199179292
+    top_k_acc      : 0.964138454861111
+    val_loss       : 0.5740775175392627
+    val_accuracy   : 0.8009765625
+    val_top_k_acc  : 0.95859375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch26.pth ...
+Train Epoch: 27 [0/45000 (0%)] Loss: 0.467972
+Train Epoch: 27 [1408/45000 (3%)] Loss: 0.581808
+Train Epoch: 27 [2816/45000 (6%)] Loss: 0.614276
+Train Epoch: 27 [4224/45000 (9%)] Loss: 0.482213
+Train Epoch: 27 [5632/45000 (13%)] Loss: 0.594782
+Train Epoch: 27 [7040/45000 (16%)] Loss: 0.536007
+Train Epoch: 27 [8448/45000 (19%)] Loss: 0.679998
+Train Epoch: 27 [9856/45000 (22%)] Loss: 0.430952
+Train Epoch: 27 [11264/45000 (25%)] Loss: 0.507216
+Train Epoch: 27 [12672/45000 (28%)] Loss: 0.443047
+Train Epoch: 27 [14080/45000 (31%)] Loss: 0.609303
+Train Epoch: 27 [15488/45000 (34%)] Loss: 0.616132
+Train Epoch: 27 [16896/45000 (38%)] Loss: 0.558134
+Train Epoch: 27 [18304/45000 (41%)] Loss: 0.431476
+Train Epoch: 27 [19712/45000 (44%)] Loss: 0.482350
+Train Epoch: 27 [21120/45000 (47%)] Loss: 0.487623
+Train Epoch: 27 [22528/45000 (50%)] Loss: 0.586256
+Train Epoch: 27 [23936/45000 (53%)] Loss: 0.547283
+Train Epoch: 27 [25344/45000 (56%)] Loss: 0.828717
+Train Epoch: 27 [26752/45000 (59%)] Loss: 0.607132
+Train Epoch: 27 [28160/45000 (63%)] Loss: 0.411164
+Train Epoch: 27 [29568/45000 (66%)] Loss: 0.611206
+Train Epoch: 27 [30976/45000 (69%)] Loss: 0.512702
+Train Epoch: 27 [32384/45000 (72%)] Loss: 0.490595
+Train Epoch: 27 [33792/45000 (75%)] Loss: 0.471248
+Train Epoch: 27 [35200/45000 (78%)] Loss: 0.496548
+Train Epoch: 27 [36608/45000 (81%)] Loss: 0.624847
+Train Epoch: 27 [38016/45000 (84%)] Loss: 0.594799
+Train Epoch: 27 [39424/45000 (88%)] Loss: 0.570702
+Train Epoch: 27 [40832/45000 (91%)] Loss: 0.470903
+Train Epoch: 27 [42240/45000 (94%)] Loss: 0.630051
+Train Epoch: 27 [43648/45000 (97%)] Loss: 0.573020
+    epoch          : 27
+    loss           : 0.5537939787080343
+    accuracy       : 0.8097404711174242
+    top_k_acc      : 0.9643751972853536
+    val_loss       : 0.5619732744991779
+    val_accuracy   : 0.807421875
+    val_top_k_acc  : 0.9630859375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch27.pth ...
+Train Epoch: 28 [0/45000 (0%)] Loss: 0.607546
+Train Epoch: 28 [1408/45000 (3%)] Loss: 0.546114
+Train Epoch: 28 [2816/45000 (6%)] Loss: 0.663592
+Train Epoch: 28 [4224/45000 (9%)] Loss: 0.590791
+Train Epoch: 28 [5632/45000 (13%)] Loss: 0.587431
+Train Epoch: 28 [7040/45000 (16%)] Loss: 0.513149
+Train Epoch: 28 [8448/45000 (19%)] Loss: 0.592709
+Train Epoch: 28 [9856/45000 (22%)] Loss: 0.450072
+Train Epoch: 28 [11264/45000 (25%)] Loss: 0.601624
+Train Epoch: 28 [12672/45000 (28%)] Loss: 0.533882
+Train Epoch: 28 [14080/45000 (31%)] Loss: 0.607607
+Train Epoch: 28 [15488/45000 (34%)] Loss: 0.590163
+Train Epoch: 28 [16896/45000 (38%)] Loss: 0.494406
+Train Epoch: 28 [18304/45000 (41%)] Loss: 0.446710
+Train Epoch: 28 [19712/45000 (44%)] Loss: 0.594619
+Train Epoch: 28 [21120/45000 (47%)] Loss: 0.522020
+Train Epoch: 28 [22528/45000 (50%)] Loss: 0.471724
+Train Epoch: 28 [23936/45000 (53%)] Loss: 0.591580
+Train Epoch: 28 [25344/45000 (56%)] Loss: 0.459869
+Train Epoch: 28 [26752/45000 (59%)] Loss: 0.662232
+Train Epoch: 28 [28160/45000 (63%)] Loss: 0.665088
+Train Epoch: 28 [29568/45000 (66%)] Loss: 0.502716
+Train Epoch: 28 [30976/45000 (69%)] Loss: 0.528065
+Train Epoch: 28 [32384/45000 (72%)] Loss: 0.429467
+Train Epoch: 28 [33792/45000 (75%)] Loss: 0.480999
+Train Epoch: 28 [35200/45000 (78%)] Loss: 0.447514
+Train Epoch: 28 [36608/45000 (81%)] Loss: 0.672043
+Train Epoch: 28 [38016/45000 (84%)] Loss: 0.414423
+Train Epoch: 28 [39424/45000 (88%)] Loss: 0.474616
+Train Epoch: 28 [40832/45000 (91%)] Loss: 0.530279
+Train Epoch: 28 [42240/45000 (94%)] Loss: 0.724102
+Train Epoch: 28 [43648/45000 (97%)] Loss: 0.599836
+    epoch          : 28
+    loss           : 0.5529462975365195
+    accuracy       : 0.8089932528409091
+    top_k_acc      : 0.964626736111111
+    val_loss       : 0.55735018029809
+    val_accuracy   : 0.8115234375
+    val_top_k_acc  : 0.9609375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch28.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 29 [0/45000 (0%)] Loss: 0.520027
+Train Epoch: 29 [1408/45000 (3%)] Loss: 0.502648
+Train Epoch: 29 [2816/45000 (6%)] Loss: 0.560933
+Train Epoch: 29 [4224/45000 (9%)] Loss: 0.668997
+Train Epoch: 29 [5632/45000 (13%)] Loss: 0.487582
+Train Epoch: 29 [7040/45000 (16%)] Loss: 0.454337
+Train Epoch: 29 [8448/45000 (19%)] Loss: 0.552528
+Train Epoch: 29 [9856/45000 (22%)] Loss: 0.638175
+Train Epoch: 29 [11264/45000 (25%)] Loss: 0.554896
+Train Epoch: 29 [12672/45000 (28%)] Loss: 0.434528
+Train Epoch: 29 [14080/45000 (31%)] Loss: 0.528092
+Train Epoch: 29 [15488/45000 (34%)] Loss: 0.555831
+Train Epoch: 29 [16896/45000 (38%)] Loss: 0.492059
+Train Epoch: 29 [18304/45000 (41%)] Loss: 0.490398
+Train Epoch: 29 [19712/45000 (44%)] Loss: 0.772577
+Train Epoch: 29 [21120/45000 (47%)] Loss: 0.543157
+Train Epoch: 29 [22528/45000 (50%)] Loss: 0.666559
+Train Epoch: 29 [23936/45000 (53%)] Loss: 0.460534
+Train Epoch: 29 [25344/45000 (56%)] Loss: 0.678600
+Train Epoch: 29 [26752/45000 (59%)] Loss: 0.459185
+Train Epoch: 29 [28160/45000 (63%)] Loss: 0.451127
+Train Epoch: 29 [29568/45000 (66%)] Loss: 0.464286
+Train Epoch: 29 [30976/45000 (69%)] Loss: 0.599695
+Train Epoch: 29 [32384/45000 (72%)] Loss: 0.527942
+Train Epoch: 29 [33792/45000 (75%)] Loss: 0.491178
+Train Epoch: 29 [35200/45000 (78%)] Loss: 0.640138
+Train Epoch: 29 [36608/45000 (81%)] Loss: 0.560955
+Train Epoch: 29 [38016/45000 (84%)] Loss: 0.589141
+Train Epoch: 29 [39424/45000 (88%)] Loss: 0.556420
+Train Epoch: 29 [40832/45000 (91%)] Loss: 0.621248
+Train Epoch: 29 [42240/45000 (94%)] Loss: 0.554659
+Train Epoch: 29 [43648/45000 (97%)] Loss: 0.614821
+    epoch          : 29
+    loss           : 0.5530569903891195
+    accuracy       : 0.8075727982954546
+    top_k_acc      : 0.9640768031881314
+    val_loss       : 0.5618791490793228
+    val_accuracy   : 0.81171875
+    val_top_k_acc  : 0.9615234375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch29.pth ...
+Train Epoch: 30 [0/45000 (0%)] Loss: 0.626069
+Train Epoch: 30 [1408/45000 (3%)] Loss: 0.457295
+Train Epoch: 30 [2816/45000 (6%)] Loss: 0.505905
+Train Epoch: 30 [4224/45000 (9%)] Loss: 0.492045
+Train Epoch: 30 [5632/45000 (13%)] Loss: 0.606771
+Train Epoch: 30 [7040/45000 (16%)] Loss: 0.592152
+Train Epoch: 30 [8448/45000 (19%)] Loss: 0.550694
+Train Epoch: 30 [9856/45000 (22%)] Loss: 0.634867
+Train Epoch: 30 [11264/45000 (25%)] Loss: 0.529951
+Train Epoch: 30 [12672/45000 (28%)] Loss: 0.625814
+Train Epoch: 30 [14080/45000 (31%)] Loss: 0.634165
+Train Epoch: 30 [15488/45000 (34%)] Loss: 0.449082
+Train Epoch: 30 [16896/45000 (38%)] Loss: 0.519321
+Train Epoch: 30 [18304/45000 (41%)] Loss: 0.470508
+Train Epoch: 30 [19712/45000 (44%)] Loss: 0.611603
+Train Epoch: 30 [21120/45000 (47%)] Loss: 0.423419
+Train Epoch: 30 [22528/45000 (50%)] Loss: 0.580872
+Train Epoch: 30 [23936/45000 (53%)] Loss: 0.424982
+Train Epoch: 30 [25344/45000 (56%)] Loss: 0.495503
+Train Epoch: 30 [26752/45000 (59%)] Loss: 0.638764
+Train Epoch: 30 [28160/45000 (63%)] Loss: 0.572600
+Train Epoch: 30 [29568/45000 (66%)] Loss: 0.545092
+Train Epoch: 30 [30976/45000 (69%)] Loss: 0.602151
+Train Epoch: 30 [32384/45000 (72%)] Loss: 0.497560
+Train Epoch: 30 [33792/45000 (75%)] Loss: 0.613493
+Train Epoch: 30 [35200/45000 (78%)] Loss: 0.567670
+Train Epoch: 30 [36608/45000 (81%)] Loss: 0.575058
+Train Epoch: 30 [38016/45000 (84%)] Loss: 0.670959
+Train Epoch: 30 [39424/45000 (88%)] Loss: 0.549073
+Train Epoch: 30 [40832/45000 (91%)] Loss: 0.512453
+Train Epoch: 30 [42240/45000 (94%)] Loss: 0.628893
+Train Epoch: 30 [43648/45000 (97%)] Loss: 0.468462
+    epoch          : 30
+    loss           : 0.549351326528598
+    accuracy       : 0.8113557449494949
+    top_k_acc      : 0.9649152659406565
+    val_loss       : 0.5609706893563271
+    val_accuracy   : 0.8080078125
+    val_top_k_acc  : 0.9625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch30.pth ...
+Train Epoch: 31 [0/45000 (0%)] Loss: 0.612329
+Train Epoch: 31 [1408/45000 (3%)] Loss: 0.551026
+Train Epoch: 31 [2816/45000 (6%)] Loss: 0.634145
+Train Epoch: 31 [4224/45000 (9%)] Loss: 0.347990
+Train Epoch: 31 [5632/45000 (13%)] Loss: 0.671766
+Train Epoch: 31 [7040/45000 (16%)] Loss: 0.643648
+Train Epoch: 31 [8448/45000 (19%)] Loss: 0.599171
+Train Epoch: 31 [9856/45000 (22%)] Loss: 0.590872
+Train Epoch: 31 [11264/45000 (25%)] Loss: 0.484959
+Train Epoch: 31 [12672/45000 (28%)] Loss: 0.503783
+Train Epoch: 31 [14080/45000 (31%)] Loss: 0.640356
+Train Epoch: 31 [15488/45000 (34%)] Loss: 0.528955
+Train Epoch: 31 [16896/45000 (38%)] Loss: 0.557145
+Train Epoch: 31 [18304/45000 (41%)] Loss: 0.384640
+Train Epoch: 31 [19712/45000 (44%)] Loss: 0.470180
+Train Epoch: 31 [21120/45000 (47%)] Loss: 0.663680
+Train Epoch: 31 [22528/45000 (50%)] Loss: 0.583384
+Train Epoch: 31 [23936/45000 (53%)] Loss: 0.581869
+Train Epoch: 31 [25344/45000 (56%)] Loss: 0.420403
+Train Epoch: 31 [26752/45000 (59%)] Loss: 0.485985
+Train Epoch: 31 [28160/45000 (63%)] Loss: 0.706157
+Train Epoch: 31 [29568/45000 (66%)] Loss: 0.570977
+Train Epoch: 31 [30976/45000 (69%)] Loss: 0.590237
+Train Epoch: 31 [32384/45000 (72%)] Loss: 0.538736
+Train Epoch: 31 [33792/45000 (75%)] Loss: 0.612739
+Train Epoch: 31 [35200/45000 (78%)] Loss: 0.370629
+Train Epoch: 31 [36608/45000 (81%)] Loss: 0.619004
+Train Epoch: 31 [38016/45000 (84%)] Loss: 0.670561
+Train Epoch: 31 [39424/45000 (88%)] Loss: 0.376834
+Train Epoch: 31 [40832/45000 (91%)] Loss: 0.727195
+Train Epoch: 31 [42240/45000 (94%)] Loss: 0.602516
+Train Epoch: 31 [43648/45000 (97%)] Loss: 0.604643
+    epoch          : 31
+    loss           : 0.5490552170032804
+    accuracy       : 0.8095456518308081
+    top_k_acc      : 0.9654799952651515
+    val_loss       : 0.5660928815603257
+    val_accuracy   : 0.8064453125
+    val_top_k_acc  : 0.96328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch31.pth ...
+Train Epoch: 32 [0/45000 (0%)] Loss: 0.674872
+Train Epoch: 32 [1408/45000 (3%)] Loss: 0.395159
+Train Epoch: 32 [2816/45000 (6%)] Loss: 0.540513
+Train Epoch: 32 [4224/45000 (9%)] Loss: 0.511652
+Train Epoch: 32 [5632/45000 (13%)] Loss: 0.604073
+Train Epoch: 32 [7040/45000 (16%)] Loss: 0.630206
+Train Epoch: 32 [8448/45000 (19%)] Loss: 0.457359
+Train Epoch: 32 [9856/45000 (22%)] Loss: 0.533648
+Train Epoch: 32 [11264/45000 (25%)] Loss: 0.412734
+Train Epoch: 32 [12672/45000 (28%)] Loss: 0.408403
+Train Epoch: 32 [14080/45000 (31%)] Loss: 0.568263
+Train Epoch: 32 [15488/45000 (34%)] Loss: 0.644822
+Train Epoch: 32 [16896/45000 (38%)] Loss: 0.488298
+Train Epoch: 32 [18304/45000 (41%)] Loss: 0.484049
+Train Epoch: 32 [19712/45000 (44%)] Loss: 0.544912
+Train Epoch: 32 [21120/45000 (47%)] Loss: 0.600920
+Train Epoch: 32 [22528/45000 (50%)] Loss: 0.518632
+Train Epoch: 32 [23936/45000 (53%)] Loss: 0.451184
+Train Epoch: 32 [25344/45000 (56%)] Loss: 0.448666
+Train Epoch: 32 [26752/45000 (59%)] Loss: 0.705283
+Train Epoch: 32 [28160/45000 (63%)] Loss: 0.405510
+Train Epoch: 32 [29568/45000 (66%)] Loss: 0.585460
+Train Epoch: 32 [30976/45000 (69%)] Loss: 0.553423
+Train Epoch: 32 [32384/45000 (72%)] Loss: 0.497802
+Train Epoch: 32 [33792/45000 (75%)] Loss: 0.382852
+Train Epoch: 32 [35200/45000 (78%)] Loss: 0.538607
+Train Epoch: 32 [36608/45000 (81%)] Loss: 0.598190
+Train Epoch: 32 [38016/45000 (84%)] Loss: 0.536018
+Train Epoch: 32 [39424/45000 (88%)] Loss: 0.593973
+Train Epoch: 32 [40832/45000 (91%)] Loss: 0.525608
+Train Epoch: 32 [42240/45000 (94%)] Loss: 0.554725
+Train Epoch: 32 [43648/45000 (97%)] Loss: 0.533200
+    epoch          : 32
+    loss           : 0.5482516741718758
+    accuracy       : 0.8111584595959596
+    top_k_acc      : 0.9649645872790404
+    val_loss       : 0.5761344574391842
+    val_accuracy   : 0.8041015625
+    val_top_k_acc  : 0.9591796875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch32.pth ...
+Train Epoch: 33 [0/45000 (0%)] Loss: 0.466141
+Train Epoch: 33 [1408/45000 (3%)] Loss: 0.556185
+Train Epoch: 33 [2816/45000 (6%)] Loss: 0.533026
+Train Epoch: 33 [4224/45000 (9%)] Loss: 0.698709
+Train Epoch: 33 [5632/45000 (13%)] Loss: 0.591760
+Train Epoch: 33 [7040/45000 (16%)] Loss: 0.570850
+Train Epoch: 33 [8448/45000 (19%)] Loss: 0.663682
+Train Epoch: 33 [9856/45000 (22%)] Loss: 0.609973
+Train Epoch: 33 [11264/45000 (25%)] Loss: 0.722636
+Train Epoch: 33 [12672/45000 (28%)] Loss: 0.356516
+Train Epoch: 33 [14080/45000 (31%)] Loss: 0.573764
+Train Epoch: 33 [15488/45000 (34%)] Loss: 0.590675
+Train Epoch: 33 [16896/45000 (38%)] Loss: 0.605811
+Train Epoch: 33 [18304/45000 (41%)] Loss: 0.530247
+Train Epoch: 33 [19712/45000 (44%)] Loss: 0.595913
+Train Epoch: 33 [21120/45000 (47%)] Loss: 0.569909
+Train Epoch: 33 [22528/45000 (50%)] Loss: 0.444871
+Train Epoch: 33 [23936/45000 (53%)] Loss: 0.594432
+Train Epoch: 33 [25344/45000 (56%)] Loss: 0.634389
+Train Epoch: 33 [26752/45000 (59%)] Loss: 0.495835
+Train Epoch: 33 [28160/45000 (63%)] Loss: 0.567578
+Train Epoch: 33 [29568/45000 (66%)] Loss: 0.481813
+Train Epoch: 33 [30976/45000 (69%)] Loss: 0.484354
+Train Epoch: 33 [32384/45000 (72%)] Loss: 0.528298
+Train Epoch: 33 [33792/45000 (75%)] Loss: 0.488878
+Train Epoch: 33 [35200/45000 (78%)] Loss: 0.423935
+Train Epoch: 33 [36608/45000 (81%)] Loss: 0.426074
+Train Epoch: 33 [38016/45000 (84%)] Loss: 0.426155
+Train Epoch: 33 [39424/45000 (88%)] Loss: 0.526615
+Train Epoch: 33 [40832/45000 (91%)] Loss: 0.559245
+Train Epoch: 33 [42240/45000 (94%)] Loss: 0.692241
+Train Epoch: 33 [43648/45000 (97%)] Loss: 0.600006
+    epoch          : 33
+    loss           : 0.5459079205651175
+    accuracy       : 0.8113458806818182
+    top_k_acc      : 0.9656304253472222
+    val_loss       : 0.5698217362165451
+    val_accuracy   : 0.8044921875
+    val_top_k_acc  : 0.9587890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch33.pth ...
+Train Epoch: 34 [0/45000 (0%)] Loss: 0.539783
+Train Epoch: 34 [1408/45000 (3%)] Loss: 0.590394
+Train Epoch: 34 [2816/45000 (6%)] Loss: 0.576234
+Train Epoch: 34 [4224/45000 (9%)] Loss: 0.606200
+Train Epoch: 34 [5632/45000 (13%)] Loss: 0.404635
+Train Epoch: 34 [7040/45000 (16%)] Loss: 0.686623
+Train Epoch: 34 [8448/45000 (19%)] Loss: 0.483274
+Train Epoch: 34 [9856/45000 (22%)] Loss: 0.485088
+Train Epoch: 34 [11264/45000 (25%)] Loss: 0.655792
+Train Epoch: 34 [12672/45000 (28%)] Loss: 0.475560
+Train Epoch: 34 [14080/45000 (31%)] Loss: 0.595868
+Train Epoch: 34 [15488/45000 (34%)] Loss: 0.491139
+Train Epoch: 34 [16896/45000 (38%)] Loss: 0.481582
+Train Epoch: 34 [18304/45000 (41%)] Loss: 0.537721
+Train Epoch: 34 [19712/45000 (44%)] Loss: 0.521656
+Train Epoch: 34 [21120/45000 (47%)] Loss: 0.507097
+Train Epoch: 34 [22528/45000 (50%)] Loss: 0.511278
+Train Epoch: 34 [23936/45000 (53%)] Loss: 0.672735
+Train Epoch: 34 [25344/45000 (56%)] Loss: 0.570717
+Train Epoch: 34 [26752/45000 (59%)] Loss: 0.638299
+Train Epoch: 34 [28160/45000 (63%)] Loss: 0.496373
+Train Epoch: 34 [29568/45000 (66%)] Loss: 0.503855
+Train Epoch: 34 [30976/45000 (69%)] Loss: 0.513568
+Train Epoch: 34 [32384/45000 (72%)] Loss: 0.510550
+Train Epoch: 34 [33792/45000 (75%)] Loss: 0.510709
+Train Epoch: 34 [35200/45000 (78%)] Loss: 0.529135
+Train Epoch: 34 [36608/45000 (81%)] Loss: 0.390832
+Train Epoch: 34 [38016/45000 (84%)] Loss: 0.576968
+Train Epoch: 34 [39424/45000 (88%)] Loss: 0.578854
+Train Epoch: 34 [40832/45000 (91%)] Loss: 0.498450
+Train Epoch: 34 [42240/45000 (94%)] Loss: 0.560817
+Train Epoch: 34 [43648/45000 (97%)] Loss: 0.527246
+    epoch          : 34
+    loss           : 0.5465854858471588
+    accuracy       : 0.8101054490214646
+    top_k_acc      : 0.9648585464015151
+    val_loss       : 0.5629062630236149
+    val_accuracy   : 0.8080078125
+    val_top_k_acc  : 0.9626953125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch34.pth ...
+Train Epoch: 35 [0/45000 (0%)] Loss: 0.554666
+Train Epoch: 35 [1408/45000 (3%)] Loss: 0.558018
+Train Epoch: 35 [2816/45000 (6%)] Loss: 0.476460
+Train Epoch: 35 [4224/45000 (9%)] Loss: 0.676942
+Train Epoch: 35 [5632/45000 (13%)] Loss: 0.563755
+Train Epoch: 35 [7040/45000 (16%)] Loss: 0.552694
+Train Epoch: 35 [8448/45000 (19%)] Loss: 0.475635
+Train Epoch: 35 [9856/45000 (22%)] Loss: 0.653490
+Train Epoch: 35 [11264/45000 (25%)] Loss: 0.515973
+Train Epoch: 35 [12672/45000 (28%)] Loss: 0.515215
+Train Epoch: 35 [14080/45000 (31%)] Loss: 0.524478
+Train Epoch: 35 [15488/45000 (34%)] Loss: 0.530077
+Train Epoch: 35 [16896/45000 (38%)] Loss: 0.381079
+Train Epoch: 35 [18304/45000 (41%)] Loss: 0.543278
+Train Epoch: 35 [19712/45000 (44%)] Loss: 0.659169
+Train Epoch: 35 [21120/45000 (47%)] Loss: 0.590834
+Train Epoch: 35 [22528/45000 (50%)] Loss: 0.467029
+Train Epoch: 35 [23936/45000 (53%)] Loss: 0.649228
+Train Epoch: 35 [25344/45000 (56%)] Loss: 0.467856
+Train Epoch: 35 [26752/45000 (59%)] Loss: 0.458360
+Train Epoch: 35 [28160/45000 (63%)] Loss: 0.528452
+Train Epoch: 35 [29568/45000 (66%)] Loss: 0.675693
+Train Epoch: 35 [30976/45000 (69%)] Loss: 0.717429
+Train Epoch: 35 [32384/45000 (72%)] Loss: 0.623970
+Train Epoch: 35 [33792/45000 (75%)] Loss: 0.430261
+Train Epoch: 35 [35200/45000 (78%)] Loss: 0.545460
+Train Epoch: 35 [36608/45000 (81%)] Loss: 0.635204
+Train Epoch: 35 [38016/45000 (84%)] Loss: 0.481423
+Train Epoch: 35 [39424/45000 (88%)] Loss: 0.495957
+Train Epoch: 35 [40832/45000 (91%)] Loss: 0.513198
+Train Epoch: 35 [42240/45000 (94%)] Loss: 0.540253
+Train Epoch: 35 [43648/45000 (97%)] Loss: 0.420489
+    epoch          : 35
+    loss           : 0.5457508305765011
+    accuracy       : 0.8111905184659091
+    top_k_acc      : 0.9662568063446969
+    val_loss       : 0.5672892741858959
+    val_accuracy   : 0.8044921875
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch35.pth ...
+Train Epoch: 36 [0/45000 (0%)] Loss: 0.521592
+Train Epoch: 36 [1408/45000 (3%)] Loss: 0.646568
+Train Epoch: 36 [2816/45000 (6%)] Loss: 0.560291
+Train Epoch: 36 [4224/45000 (9%)] Loss: 0.609048
+Train Epoch: 36 [5632/45000 (13%)] Loss: 0.510382
+Train Epoch: 36 [7040/45000 (16%)] Loss: 0.561817
+Train Epoch: 36 [8448/45000 (19%)] Loss: 0.432594
+Train Epoch: 36 [9856/45000 (22%)] Loss: 0.417779
+Train Epoch: 36 [11264/45000 (25%)] Loss: 0.600597
+Train Epoch: 36 [12672/45000 (28%)] Loss: 0.530324
+Train Epoch: 36 [14080/45000 (31%)] Loss: 0.429259
+Train Epoch: 36 [15488/45000 (34%)] Loss: 0.647359
+Train Epoch: 36 [16896/45000 (38%)] Loss: 0.556451
+Train Epoch: 36 [18304/45000 (41%)] Loss: 0.438786
+Train Epoch: 36 [19712/45000 (44%)] Loss: 0.581134
+Train Epoch: 36 [21120/45000 (47%)] Loss: 0.653844
+Train Epoch: 36 [22528/45000 (50%)] Loss: 0.639955
+Train Epoch: 36 [23936/45000 (53%)] Loss: 0.595402
+Train Epoch: 36 [25344/45000 (56%)] Loss: 0.593236
+Train Epoch: 36 [26752/45000 (59%)] Loss: 0.585121
+Train Epoch: 36 [28160/45000 (63%)] Loss: 0.477462
+Train Epoch: 36 [29568/45000 (66%)] Loss: 0.519729
+Train Epoch: 36 [30976/45000 (69%)] Loss: 0.587238
+Train Epoch: 36 [32384/45000 (72%)] Loss: 0.542994
+Train Epoch: 36 [33792/45000 (75%)] Loss: 0.676640
+Train Epoch: 36 [35200/45000 (78%)] Loss: 0.493860
+Train Epoch: 36 [36608/45000 (81%)] Loss: 0.567277
+Train Epoch: 36 [38016/45000 (84%)] Loss: 0.608074
+Train Epoch: 36 [39424/45000 (88%)] Loss: 0.539709
+Train Epoch: 36 [40832/45000 (91%)] Loss: 0.481795
+Train Epoch: 36 [42240/45000 (94%)] Loss: 0.540869
+Train Epoch: 36 [43648/45000 (97%)] Loss: 0.428977
+    epoch          : 36
+    loss           : 0.5455740245736458
+    accuracy       : 0.8127614030934344
+    top_k_acc      : 0.9646809895833333
+    val_loss       : 0.55451445216313
+    val_accuracy   : 0.809765625
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch36.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 37 [0/45000 (0%)] Loss: 0.586389
+Train Epoch: 37 [1408/45000 (3%)] Loss: 0.602222
+Train Epoch: 37 [2816/45000 (6%)] Loss: 0.611886
+Train Epoch: 37 [4224/45000 (9%)] Loss: 0.641088
+Train Epoch: 37 [5632/45000 (13%)] Loss: 0.715368
+Train Epoch: 37 [7040/45000 (16%)] Loss: 0.602372
+Train Epoch: 37 [8448/45000 (19%)] Loss: 0.611596
+Train Epoch: 37 [9856/45000 (22%)] Loss: 0.567969
+Train Epoch: 37 [11264/45000 (25%)] Loss: 0.519064
+Train Epoch: 37 [12672/45000 (28%)] Loss: 0.559278
+Train Epoch: 37 [14080/45000 (31%)] Loss: 0.463638
+Train Epoch: 37 [15488/45000 (34%)] Loss: 0.526774
+Train Epoch: 37 [16896/45000 (38%)] Loss: 0.653208
+Train Epoch: 37 [18304/45000 (41%)] Loss: 0.512723
+Train Epoch: 37 [19712/45000 (44%)] Loss: 0.560097
+Train Epoch: 37 [21120/45000 (47%)] Loss: 0.540293
+Train Epoch: 37 [22528/45000 (50%)] Loss: 0.606341
+Train Epoch: 37 [23936/45000 (53%)] Loss: 0.636193
+Train Epoch: 37 [25344/45000 (56%)] Loss: 0.469476
+Train Epoch: 37 [26752/45000 (59%)] Loss: 0.526947
+Train Epoch: 37 [28160/45000 (63%)] Loss: 0.534583
+Train Epoch: 37 [29568/45000 (66%)] Loss: 0.496960
+Train Epoch: 37 [30976/45000 (69%)] Loss: 0.537948
+Train Epoch: 37 [32384/45000 (72%)] Loss: 0.605471
+Train Epoch: 37 [33792/45000 (75%)] Loss: 0.577017
+Train Epoch: 37 [35200/45000 (78%)] Loss: 0.619423
+Train Epoch: 37 [36608/45000 (81%)] Loss: 0.477019
+Train Epoch: 37 [38016/45000 (84%)] Loss: 0.603806
+Train Epoch: 37 [39424/45000 (88%)] Loss: 0.443352
+Train Epoch: 37 [40832/45000 (91%)] Loss: 0.606006
+Train Epoch: 37 [42240/45000 (94%)] Loss: 0.639401
+Train Epoch: 37 [43648/45000 (97%)] Loss: 0.475449
+    epoch          : 37
+    loss           : 0.544009848497808
+    accuracy       : 0.8123347735164141
+    top_k_acc      : 0.9653517597853536
+    val_loss       : 0.5861270561814308
+    val_accuracy   : 0.805859375
+    val_top_k_acc  : 0.95625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch37.pth ...
+Train Epoch: 38 [0/45000 (0%)] Loss: 0.581716
+Train Epoch: 38 [1408/45000 (3%)] Loss: 0.601915
+Train Epoch: 38 [2816/45000 (6%)] Loss: 0.479179
+Train Epoch: 38 [4224/45000 (9%)] Loss: 0.561581
+Train Epoch: 38 [5632/45000 (13%)] Loss: 0.579740
+Train Epoch: 38 [7040/45000 (16%)] Loss: 0.508822
+Train Epoch: 38 [8448/45000 (19%)] Loss: 0.601473
+Train Epoch: 38 [9856/45000 (22%)] Loss: 0.565764
+Train Epoch: 38 [11264/45000 (25%)] Loss: 0.553329
+Train Epoch: 38 [12672/45000 (28%)] Loss: 0.452117
+Train Epoch: 38 [14080/45000 (31%)] Loss: 0.494716
+Train Epoch: 38 [15488/45000 (34%)] Loss: 0.520322
+Train Epoch: 38 [16896/45000 (38%)] Loss: 0.553562
+Train Epoch: 38 [18304/45000 (41%)] Loss: 0.424795
+Train Epoch: 38 [19712/45000 (44%)] Loss: 0.562496
+Train Epoch: 38 [21120/45000 (47%)] Loss: 0.543310
+Train Epoch: 38 [22528/45000 (50%)] Loss: 0.537460
+Train Epoch: 38 [23936/45000 (53%)] Loss: 0.526604
+Train Epoch: 38 [25344/45000 (56%)] Loss: 0.520532
+Train Epoch: 38 [26752/45000 (59%)] Loss: 0.468737
+Train Epoch: 38 [28160/45000 (63%)] Loss: 0.551317
+Train Epoch: 38 [29568/45000 (66%)] Loss: 0.528233
+Train Epoch: 38 [30976/45000 (69%)] Loss: 0.417859
+Train Epoch: 38 [32384/45000 (72%)] Loss: 0.565702
+Train Epoch: 38 [33792/45000 (75%)] Loss: 0.608707
+Train Epoch: 38 [35200/45000 (78%)] Loss: 0.581951
+Train Epoch: 38 [36608/45000 (81%)] Loss: 0.513534
+Train Epoch: 38 [38016/45000 (84%)] Loss: 0.483064
+Train Epoch: 38 [39424/45000 (88%)] Loss: 0.559711
+Train Epoch: 38 [40832/45000 (91%)] Loss: 0.616627
+Train Epoch: 38 [42240/45000 (94%)] Loss: 0.507598
+Train Epoch: 38 [43648/45000 (97%)] Loss: 0.573321
+    epoch          : 38
+    loss           : 0.5424973871558905
+    accuracy       : 0.8126380997474747
+    top_k_acc      : 0.9655737058080809
+    val_loss       : 0.5571202203631401
+    val_accuracy   : 0.812109375
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch38.pth ...
+Train Epoch: 39 [0/45000 (0%)] Loss: 0.390206
+Train Epoch: 39 [1408/45000 (3%)] Loss: 0.486222
+Train Epoch: 39 [2816/45000 (6%)] Loss: 0.581409
+Train Epoch: 39 [4224/45000 (9%)] Loss: 0.501650
+Train Epoch: 39 [5632/45000 (13%)] Loss: 0.503249
+Train Epoch: 39 [7040/45000 (16%)] Loss: 0.462372
+Train Epoch: 39 [8448/45000 (19%)] Loss: 0.565507
+Train Epoch: 39 [9856/45000 (22%)] Loss: 0.499953
+Train Epoch: 39 [11264/45000 (25%)] Loss: 0.475364
+Train Epoch: 39 [12672/45000 (28%)] Loss: 0.516689
+Train Epoch: 39 [14080/45000 (31%)] Loss: 0.465308
+Train Epoch: 39 [15488/45000 (34%)] Loss: 0.698946
+Train Epoch: 39 [16896/45000 (38%)] Loss: 0.428299
+Train Epoch: 39 [18304/45000 (41%)] Loss: 0.525366
+Train Epoch: 39 [19712/45000 (44%)] Loss: 0.525282
+Train Epoch: 39 [21120/45000 (47%)] Loss: 0.538613
+Train Epoch: 39 [22528/45000 (50%)] Loss: 0.577342
+Train Epoch: 39 [23936/45000 (53%)] Loss: 0.642567
+Train Epoch: 39 [25344/45000 (56%)] Loss: 0.728732
+Train Epoch: 39 [26752/45000 (59%)] Loss: 0.607147
+Train Epoch: 39 [28160/45000 (63%)] Loss: 0.581107
+Train Epoch: 39 [29568/45000 (66%)] Loss: 0.597366
+Train Epoch: 39 [30976/45000 (69%)] Loss: 0.512279
+Train Epoch: 39 [32384/45000 (72%)] Loss: 0.512808
+Train Epoch: 39 [33792/45000 (75%)] Loss: 0.560918
+Train Epoch: 39 [35200/45000 (78%)] Loss: 0.556458
+Train Epoch: 39 [36608/45000 (81%)] Loss: 0.497358
+Train Epoch: 39 [38016/45000 (84%)] Loss: 0.576501
+Train Epoch: 39 [39424/45000 (88%)] Loss: 0.661792
+Train Epoch: 39 [40832/45000 (91%)] Loss: 0.588061
+Train Epoch: 39 [42240/45000 (94%)] Loss: 0.547950
+Train Epoch: 39 [43648/45000 (97%)] Loss: 0.546941
+    epoch          : 39
+    loss           : 0.5413172771646217
+    accuracy       : 0.812615905145202
+    top_k_acc      : 0.9665995896464646
+    val_loss       : 0.5777154751121998
+    val_accuracy   : 0.8021484375
+    val_top_k_acc  : 0.959375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch39.pth ...
+Train Epoch: 40 [0/45000 (0%)] Loss: 0.498167
+Train Epoch: 40 [1408/45000 (3%)] Loss: 0.424693
+Train Epoch: 40 [2816/45000 (6%)] Loss: 0.590082
+Train Epoch: 40 [4224/45000 (9%)] Loss: 0.482066
+Train Epoch: 40 [5632/45000 (13%)] Loss: 0.527726
+Train Epoch: 40 [7040/45000 (16%)] Loss: 0.583078
+Train Epoch: 40 [8448/45000 (19%)] Loss: 0.610926
+Train Epoch: 40 [9856/45000 (22%)] Loss: 0.546334
+Train Epoch: 40 [11264/45000 (25%)] Loss: 0.479251
+Train Epoch: 40 [12672/45000 (28%)] Loss: 0.676266
+Train Epoch: 40 [14080/45000 (31%)] Loss: 0.683615
+Train Epoch: 40 [15488/45000 (34%)] Loss: 0.670243
+Train Epoch: 40 [16896/45000 (38%)] Loss: 0.422537
+Train Epoch: 40 [18304/45000 (41%)] Loss: 0.664046
+Train Epoch: 40 [19712/45000 (44%)] Loss: 0.494044
+Train Epoch: 40 [21120/45000 (47%)] Loss: 0.646733
+Train Epoch: 40 [22528/45000 (50%)] Loss: 0.354252
+Train Epoch: 40 [23936/45000 (53%)] Loss: 0.632486
+Train Epoch: 40 [25344/45000 (56%)] Loss: 0.597223
+Train Epoch: 40 [26752/45000 (59%)] Loss: 0.419439
+Train Epoch: 40 [28160/45000 (63%)] Loss: 0.772585
+Train Epoch: 40 [29568/45000 (66%)] Loss: 0.455718
+Train Epoch: 40 [30976/45000 (69%)] Loss: 0.507604
+Train Epoch: 40 [32384/45000 (72%)] Loss: 0.626668
+Train Epoch: 40 [33792/45000 (75%)] Loss: 0.718233
+Train Epoch: 40 [35200/45000 (78%)] Loss: 0.557449
+Train Epoch: 40 [36608/45000 (81%)] Loss: 0.715163
+Train Epoch: 40 [38016/45000 (84%)] Loss: 0.689038
+Train Epoch: 40 [39424/45000 (88%)] Loss: 0.508790
+Train Epoch: 40 [40832/45000 (91%)] Loss: 0.595877
+Train Epoch: 40 [42240/45000 (94%)] Loss: 0.533126
+Train Epoch: 40 [43648/45000 (97%)] Loss: 0.415151
+    epoch          : 40
+    loss           : 0.5425546541810036
+    accuracy       : 0.8110548847853536
+    top_k_acc      : 0.9665453361742423
+    val_loss       : 0.5584609627723693
+    val_accuracy   : 0.8087890625
+    val_top_k_acc  : 0.9623046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch40.pth ...
+Train Epoch: 41 [0/45000 (0%)] Loss: 0.653469
+Train Epoch: 41 [1408/45000 (3%)] Loss: 0.519879
+Train Epoch: 41 [2816/45000 (6%)] Loss: 0.462739
+Train Epoch: 41 [4224/45000 (9%)] Loss: 0.592209
+Train Epoch: 41 [5632/45000 (13%)] Loss: 0.559987
+Train Epoch: 41 [7040/45000 (16%)] Loss: 0.586570
+Train Epoch: 41 [8448/45000 (19%)] Loss: 0.516819
+Train Epoch: 41 [9856/45000 (22%)] Loss: 0.426022
+Train Epoch: 41 [11264/45000 (25%)] Loss: 0.487298
+Train Epoch: 41 [12672/45000 (28%)] Loss: 0.604790
+Train Epoch: 41 [14080/45000 (31%)] Loss: 0.504251
+Train Epoch: 41 [15488/45000 (34%)] Loss: 0.660869
+Train Epoch: 41 [16896/45000 (38%)] Loss: 0.495249
+Train Epoch: 41 [18304/45000 (41%)] Loss: 0.495548
+Train Epoch: 41 [19712/45000 (44%)] Loss: 0.555128
+Train Epoch: 41 [21120/45000 (47%)] Loss: 0.474182
+Train Epoch: 41 [22528/45000 (50%)] Loss: 0.499407
+Train Epoch: 41 [23936/45000 (53%)] Loss: 0.486612
+Train Epoch: 41 [25344/45000 (56%)] Loss: 0.564434
+Train Epoch: 41 [26752/45000 (59%)] Loss: 0.743750
+Train Epoch: 41 [28160/45000 (63%)] Loss: 0.475943
+Train Epoch: 41 [29568/45000 (66%)] Loss: 0.545179
+Train Epoch: 41 [30976/45000 (69%)] Loss: 0.465583
+Train Epoch: 41 [32384/45000 (72%)] Loss: 0.595063
+Train Epoch: 41 [33792/45000 (75%)] Loss: 0.527676
+Train Epoch: 41 [35200/45000 (78%)] Loss: 0.748777
+Train Epoch: 41 [36608/45000 (81%)] Loss: 0.676830
+Train Epoch: 41 [38016/45000 (84%)] Loss: 0.460386
+Train Epoch: 41 [39424/45000 (88%)] Loss: 0.550091
+Train Epoch: 41 [40832/45000 (91%)] Loss: 0.544475
+Train Epoch: 41 [42240/45000 (94%)] Loss: 0.420562
+Train Epoch: 41 [43648/45000 (97%)] Loss: 0.496093
+    epoch          : 41
+    loss           : 0.5430131305686452
+    accuracy       : 0.810971038510101
+    top_k_acc      : 0.9652358546401515
+    val_loss       : 0.5843475691974163
+    val_accuracy   : 0.798828125
+    val_top_k_acc  : 0.959375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch41.pth ...
+Train Epoch: 42 [0/45000 (0%)] Loss: 0.499247
+Train Epoch: 42 [1408/45000 (3%)] Loss: 0.634624
+Train Epoch: 42 [2816/45000 (6%)] Loss: 0.422916
+Train Epoch: 42 [4224/45000 (9%)] Loss: 0.678406
+Train Epoch: 42 [5632/45000 (13%)] Loss: 0.466674
+Train Epoch: 42 [7040/45000 (16%)] Loss: 0.542094
+Train Epoch: 42 [8448/45000 (19%)] Loss: 0.638401
+Train Epoch: 42 [9856/45000 (22%)] Loss: 0.554992
+Train Epoch: 42 [11264/45000 (25%)] Loss: 0.518083
+Train Epoch: 42 [12672/45000 (28%)] Loss: 0.478227
+Train Epoch: 42 [14080/45000 (31%)] Loss: 0.606022
+Train Epoch: 42 [15488/45000 (34%)] Loss: 0.621528
+Train Epoch: 42 [16896/45000 (38%)] Loss: 0.537631
+Train Epoch: 42 [18304/45000 (41%)] Loss: 0.612131
+Train Epoch: 42 [19712/45000 (44%)] Loss: 0.487461
+Train Epoch: 42 [21120/45000 (47%)] Loss: 0.530395
+Train Epoch: 42 [22528/45000 (50%)] Loss: 0.618345
+Train Epoch: 42 [23936/45000 (53%)] Loss: 0.483356
+Train Epoch: 42 [25344/45000 (56%)] Loss: 0.585476
+Train Epoch: 42 [26752/45000 (59%)] Loss: 0.486626
+Train Epoch: 42 [28160/45000 (63%)] Loss: 0.580898
+Train Epoch: 42 [29568/45000 (66%)] Loss: 0.437675
+Train Epoch: 42 [30976/45000 (69%)] Loss: 0.523209
+Train Epoch: 42 [32384/45000 (72%)] Loss: 0.610583
+Train Epoch: 42 [33792/45000 (75%)] Loss: 0.550059
+Train Epoch: 42 [35200/45000 (78%)] Loss: 0.548649
+Train Epoch: 42 [36608/45000 (81%)] Loss: 0.566543
+Train Epoch: 42 [38016/45000 (84%)] Loss: 0.519330
+Train Epoch: 42 [39424/45000 (88%)] Loss: 0.604706
+Train Epoch: 42 [40832/45000 (91%)] Loss: 0.571632
+Train Epoch: 42 [42240/45000 (94%)] Loss: 0.614059
+Train Epoch: 42 [43648/45000 (97%)] Loss: 0.506784
+    epoch          : 42
+    loss           : 0.5408806260675192
+    accuracy       : 0.81094391177399
+    top_k_acc      : 0.9661409011994949
+    val_loss       : 0.5578174486756324
+    val_accuracy   : 0.8080078125
+    val_top_k_acc  : 0.961328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch42.pth ...
+Train Epoch: 43 [0/45000 (0%)] Loss: 0.624258
+Train Epoch: 43 [1408/45000 (3%)] Loss: 0.435105
+Train Epoch: 43 [2816/45000 (6%)] Loss: 0.622193
+Train Epoch: 43 [4224/45000 (9%)] Loss: 0.487669
+Train Epoch: 43 [5632/45000 (13%)] Loss: 0.665084
+Train Epoch: 43 [7040/45000 (16%)] Loss: 0.501806
+Train Epoch: 43 [8448/45000 (19%)] Loss: 0.458634
+Train Epoch: 43 [9856/45000 (22%)] Loss: 0.586833
+Train Epoch: 43 [11264/45000 (25%)] Loss: 0.503889
+Train Epoch: 43 [12672/45000 (28%)] Loss: 0.569501
+Train Epoch: 43 [14080/45000 (31%)] Loss: 0.519773
+Train Epoch: 43 [15488/45000 (34%)] Loss: 0.494111
+Train Epoch: 43 [16896/45000 (38%)] Loss: 0.526079
+Train Epoch: 43 [18304/45000 (41%)] Loss: 0.502112
+Train Epoch: 43 [19712/45000 (44%)] Loss: 0.522247
+Train Epoch: 43 [21120/45000 (47%)] Loss: 0.539374
+Train Epoch: 43 [22528/45000 (50%)] Loss: 0.604576
+Train Epoch: 43 [23936/45000 (53%)] Loss: 0.489793
+Train Epoch: 43 [25344/45000 (56%)] Loss: 0.568955
+Train Epoch: 43 [26752/45000 (59%)] Loss: 0.464649
+Train Epoch: 43 [28160/45000 (63%)] Loss: 0.457639
+Train Epoch: 43 [29568/45000 (66%)] Loss: 0.530852
+Train Epoch: 43 [30976/45000 (69%)] Loss: 0.494198
+Train Epoch: 43 [32384/45000 (72%)] Loss: 0.535679
+Train Epoch: 43 [33792/45000 (75%)] Loss: 0.736896
+Train Epoch: 43 [35200/45000 (78%)] Loss: 0.367617
+Train Epoch: 43 [36608/45000 (81%)] Loss: 0.650178
+Train Epoch: 43 [38016/45000 (84%)] Loss: 0.584550
+Train Epoch: 43 [39424/45000 (88%)] Loss: 0.445734
+Train Epoch: 43 [40832/45000 (91%)] Loss: 0.482690
+Train Epoch: 43 [42240/45000 (94%)] Loss: 0.574077
+Train Epoch: 43 [43648/45000 (97%)] Loss: 0.638717
+    epoch          : 43
+    loss           : 0.5389861863275821
+    accuracy       : 0.8132348879419191
+    top_k_acc      : 0.9663406526199495
+    val_loss       : 0.5679445929825306
+    val_accuracy   : 0.8048828125
+    val_top_k_acc  : 0.958203125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch43.pth ...
+Train Epoch: 44 [0/45000 (0%)] Loss: 0.405472
+Train Epoch: 44 [1408/45000 (3%)] Loss: 0.484877
+Train Epoch: 44 [2816/45000 (6%)] Loss: 0.461485
+Train Epoch: 44 [4224/45000 (9%)] Loss: 0.478530
+Train Epoch: 44 [5632/45000 (13%)] Loss: 0.488183
+Train Epoch: 44 [7040/45000 (16%)] Loss: 0.567384
+Train Epoch: 44 [8448/45000 (19%)] Loss: 0.442565
+Train Epoch: 44 [9856/45000 (22%)] Loss: 0.482436
+Train Epoch: 44 [11264/45000 (25%)] Loss: 0.499850
+Train Epoch: 44 [12672/45000 (28%)] Loss: 0.566731
+Train Epoch: 44 [14080/45000 (31%)] Loss: 0.473192
+Train Epoch: 44 [15488/45000 (34%)] Loss: 0.599691
+Train Epoch: 44 [16896/45000 (38%)] Loss: 0.666216
+Train Epoch: 44 [18304/45000 (41%)] Loss: 0.515946
+Train Epoch: 44 [19712/45000 (44%)] Loss: 0.524375
+Train Epoch: 44 [21120/45000 (47%)] Loss: 0.559621
+Train Epoch: 44 [22528/45000 (50%)] Loss: 0.496124
+Train Epoch: 44 [23936/45000 (53%)] Loss: 0.582242
+Train Epoch: 44 [25344/45000 (56%)] Loss: 0.435085
+Train Epoch: 44 [26752/45000 (59%)] Loss: 0.565265
+Train Epoch: 44 [28160/45000 (63%)] Loss: 0.461864
+Train Epoch: 44 [29568/45000 (66%)] Loss: 0.618096
+Train Epoch: 44 [30976/45000 (69%)] Loss: 0.713895
+Train Epoch: 44 [32384/45000 (72%)] Loss: 0.533398
+Train Epoch: 44 [33792/45000 (75%)] Loss: 0.466069
+Train Epoch: 44 [35200/45000 (78%)] Loss: 0.405281
+Train Epoch: 44 [36608/45000 (81%)] Loss: 0.589033
+Train Epoch: 44 [38016/45000 (84%)] Loss: 0.508476
+Train Epoch: 44 [39424/45000 (88%)] Loss: 0.480861
+Train Epoch: 44 [40832/45000 (91%)] Loss: 0.616593
+Train Epoch: 44 [42240/45000 (94%)] Loss: 0.450835
+Train Epoch: 44 [43648/45000 (97%)] Loss: 0.568042
+    epoch          : 44
+    loss           : 0.5394773330878128
+    accuracy       : 0.8143421519886364
+    top_k_acc      : 0.9666119199810606
+    val_loss       : 0.5778044514358044
+    val_accuracy   : 0.8005859375
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch44.pth ...
+Train Epoch: 45 [0/45000 (0%)] Loss: 0.559788
+Train Epoch: 45 [1408/45000 (3%)] Loss: 0.377409
+Train Epoch: 45 [2816/45000 (6%)] Loss: 0.601713
+Train Epoch: 45 [4224/45000 (9%)] Loss: 0.724980
+Train Epoch: 45 [5632/45000 (13%)] Loss: 0.465608
+Train Epoch: 45 [7040/45000 (16%)] Loss: 0.509765
+Train Epoch: 45 [8448/45000 (19%)] Loss: 0.415217
+Train Epoch: 45 [9856/45000 (22%)] Loss: 0.567228
+Train Epoch: 45 [11264/45000 (25%)] Loss: 0.678170
+Train Epoch: 45 [12672/45000 (28%)] Loss: 0.630598
+Train Epoch: 45 [14080/45000 (31%)] Loss: 0.517575
+Train Epoch: 45 [15488/45000 (34%)] Loss: 0.644436
+Train Epoch: 45 [16896/45000 (38%)] Loss: 0.516188
+Train Epoch: 45 [18304/45000 (41%)] Loss: 0.412107
+Train Epoch: 45 [19712/45000 (44%)] Loss: 0.509105
+Train Epoch: 45 [21120/45000 (47%)] Loss: 0.557288
+Train Epoch: 45 [22528/45000 (50%)] Loss: 0.571348
+Train Epoch: 45 [23936/45000 (53%)] Loss: 0.591153
+Train Epoch: 45 [25344/45000 (56%)] Loss: 0.556387
+Train Epoch: 45 [26752/45000 (59%)] Loss: 0.515327
+Train Epoch: 45 [28160/45000 (63%)] Loss: 0.665393
+Train Epoch: 45 [29568/45000 (66%)] Loss: 0.533085
+Train Epoch: 45 [30976/45000 (69%)] Loss: 0.502323
+Train Epoch: 45 [32384/45000 (72%)] Loss: 0.583480
+Train Epoch: 45 [33792/45000 (75%)] Loss: 0.410832
+Train Epoch: 45 [35200/45000 (78%)] Loss: 0.502122
+Train Epoch: 45 [36608/45000 (81%)] Loss: 0.583654
+Train Epoch: 45 [38016/45000 (84%)] Loss: 0.576100
+Train Epoch: 45 [39424/45000 (88%)] Loss: 0.497416
+Train Epoch: 45 [40832/45000 (91%)] Loss: 0.496070
+Train Epoch: 45 [42240/45000 (94%)] Loss: 0.511461
+Train Epoch: 45 [43648/45000 (97%)] Loss: 0.474400
+    epoch          : 45
+    loss           : 0.5397923068905418
+    accuracy       : 0.8146504103535354
+    top_k_acc      : 0.9654750631313131
+    val_loss       : 0.5705033153295517
+    val_accuracy   : 0.80390625
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch45.pth ...
+Train Epoch: 46 [0/45000 (0%)] Loss: 0.489111
+Train Epoch: 46 [1408/45000 (3%)] Loss: 0.433190
+Train Epoch: 46 [2816/45000 (6%)] Loss: 0.584702
+Train Epoch: 46 [4224/45000 (9%)] Loss: 0.496476
+Train Epoch: 46 [5632/45000 (13%)] Loss: 0.559360
+Train Epoch: 46 [7040/45000 (16%)] Loss: 0.626731
+Train Epoch: 46 [8448/45000 (19%)] Loss: 0.469610
+Train Epoch: 46 [9856/45000 (22%)] Loss: 0.479981
+Train Epoch: 46 [11264/45000 (25%)] Loss: 0.500012
+Train Epoch: 46 [12672/45000 (28%)] Loss: 0.434124
+Train Epoch: 46 [14080/45000 (31%)] Loss: 0.594040
+Train Epoch: 46 [15488/45000 (34%)] Loss: 0.392930
+Train Epoch: 46 [16896/45000 (38%)] Loss: 0.461541
+Train Epoch: 46 [18304/45000 (41%)] Loss: 0.485238
+Train Epoch: 46 [19712/45000 (44%)] Loss: 0.627553
+Train Epoch: 46 [21120/45000 (47%)] Loss: 0.451688
+Train Epoch: 46 [22528/45000 (50%)] Loss: 0.519981
+Train Epoch: 46 [23936/45000 (53%)] Loss: 0.574089
+Train Epoch: 46 [25344/45000 (56%)] Loss: 0.461705
+Train Epoch: 46 [26752/45000 (59%)] Loss: 0.591103
+Train Epoch: 46 [28160/45000 (63%)] Loss: 0.583597
+Train Epoch: 46 [29568/45000 (66%)] Loss: 0.649402
+Train Epoch: 46 [30976/45000 (69%)] Loss: 0.352842
+Train Epoch: 46 [32384/45000 (72%)] Loss: 0.395053
+Train Epoch: 46 [33792/45000 (75%)] Loss: 0.703213
+Train Epoch: 46 [35200/45000 (78%)] Loss: 0.496176
+Train Epoch: 46 [36608/45000 (81%)] Loss: 0.570611
+Train Epoch: 46 [38016/45000 (84%)] Loss: 0.507089
+Train Epoch: 46 [39424/45000 (88%)] Loss: 0.490477
+Train Epoch: 46 [40832/45000 (91%)] Loss: 0.546961
+Train Epoch: 46 [42240/45000 (94%)] Loss: 0.414348
+Train Epoch: 46 [43648/45000 (97%)] Loss: 0.442109
+    epoch          : 46
+    loss           : 0.5388433683494275
+    accuracy       : 0.8133014717487373
+    top_k_acc      : 0.9666069878472222
+    val_loss       : 0.5524434007704258
+    val_accuracy   : 0.810546875
+    val_top_k_acc  : 0.9623046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch46.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 47 [0/45000 (0%)] Loss: 0.533421
+Train Epoch: 47 [1408/45000 (3%)] Loss: 0.583388
+Train Epoch: 47 [2816/45000 (6%)] Loss: 0.534481
+Train Epoch: 47 [4224/45000 (9%)] Loss: 0.617143
+Train Epoch: 47 [5632/45000 (13%)] Loss: 0.464826
+Train Epoch: 47 [7040/45000 (16%)] Loss: 0.513536
+Train Epoch: 47 [8448/45000 (19%)] Loss: 0.605991
+Train Epoch: 47 [9856/45000 (22%)] Loss: 0.479491
+Train Epoch: 47 [11264/45000 (25%)] Loss: 0.496331
+Train Epoch: 47 [12672/45000 (28%)] Loss: 0.512949
+Train Epoch: 47 [14080/45000 (31%)] Loss: 0.636210
+Train Epoch: 47 [15488/45000 (34%)] Loss: 0.557883
+Train Epoch: 47 [16896/45000 (38%)] Loss: 0.405839
+Train Epoch: 47 [18304/45000 (41%)] Loss: 0.416466
+Train Epoch: 47 [19712/45000 (44%)] Loss: 0.595809
+Train Epoch: 47 [21120/45000 (47%)] Loss: 0.700217
+Train Epoch: 47 [22528/45000 (50%)] Loss: 0.506397
+Train Epoch: 47 [23936/45000 (53%)] Loss: 0.603771
+Train Epoch: 47 [25344/45000 (56%)] Loss: 0.595720
+Train Epoch: 47 [26752/45000 (59%)] Loss: 0.507407
+Train Epoch: 47 [28160/45000 (63%)] Loss: 0.404972
+Train Epoch: 47 [29568/45000 (66%)] Loss: 0.396930
+Train Epoch: 47 [30976/45000 (69%)] Loss: 0.451003
+Train Epoch: 47 [32384/45000 (72%)] Loss: 0.578615
+Train Epoch: 47 [33792/45000 (75%)] Loss: 0.536197
+Train Epoch: 47 [35200/45000 (78%)] Loss: 0.574966
+Train Epoch: 47 [36608/45000 (81%)] Loss: 0.606892
+Train Epoch: 47 [38016/45000 (84%)] Loss: 0.464973
+Train Epoch: 47 [39424/45000 (88%)] Loss: 0.536028
+Train Epoch: 47 [40832/45000 (91%)] Loss: 0.593225
+Train Epoch: 47 [42240/45000 (94%)] Loss: 0.524927
+Train Epoch: 47 [43648/45000 (97%)] Loss: 0.479307
+    epoch          : 47
+    loss           : 0.5347258290275931
+    accuracy       : 0.8152077414772727
+    top_k_acc      : 0.9667006983901515
+    val_loss       : 0.5530111961066723
+    val_accuracy   : 0.8080078125
+    val_top_k_acc  : 0.9619140625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch47.pth ...
+Train Epoch: 48 [0/45000 (0%)] Loss: 0.635540
+Train Epoch: 48 [1408/45000 (3%)] Loss: 0.499372
+Train Epoch: 48 [2816/45000 (6%)] Loss: 0.462796
+Train Epoch: 48 [4224/45000 (9%)] Loss: 0.485373
+Train Epoch: 48 [5632/45000 (13%)] Loss: 0.540854
+Train Epoch: 48 [7040/45000 (16%)] Loss: 0.508816
+Train Epoch: 48 [8448/45000 (19%)] Loss: 0.481555
+Train Epoch: 48 [9856/45000 (22%)] Loss: 0.520517
+Train Epoch: 48 [11264/45000 (25%)] Loss: 0.495056
+Train Epoch: 48 [12672/45000 (28%)] Loss: 0.598889
+Train Epoch: 48 [14080/45000 (31%)] Loss: 0.521884
+Train Epoch: 48 [15488/45000 (34%)] Loss: 0.547498
+Train Epoch: 48 [16896/45000 (38%)] Loss: 0.479537
+Train Epoch: 48 [18304/45000 (41%)] Loss: 0.625973
+Train Epoch: 48 [19712/45000 (44%)] Loss: 0.446445
+Train Epoch: 48 [21120/45000 (47%)] Loss: 0.624636
+Train Epoch: 48 [22528/45000 (50%)] Loss: 0.515362
+Train Epoch: 48 [23936/45000 (53%)] Loss: 0.421838
+Train Epoch: 48 [25344/45000 (56%)] Loss: 0.606447
+Train Epoch: 48 [26752/45000 (59%)] Loss: 0.605228
+Train Epoch: 48 [28160/45000 (63%)] Loss: 0.618142
+Train Epoch: 48 [29568/45000 (66%)] Loss: 0.548584
+Train Epoch: 48 [30976/45000 (69%)] Loss: 0.481683
+Train Epoch: 48 [32384/45000 (72%)] Loss: 0.571576
+Train Epoch: 48 [33792/45000 (75%)] Loss: 0.536772
+Train Epoch: 48 [35200/45000 (78%)] Loss: 0.554356
+Train Epoch: 48 [36608/45000 (81%)] Loss: 0.611245
+Train Epoch: 48 [38016/45000 (84%)] Loss: 0.704938
+Train Epoch: 48 [39424/45000 (88%)] Loss: 0.574422
+Train Epoch: 48 [40832/45000 (91%)] Loss: 0.414916
+Train Epoch: 48 [42240/45000 (94%)] Loss: 0.554165
+Train Epoch: 48 [43648/45000 (97%)] Loss: 0.598360
+    epoch          : 48
+    loss           : 0.5373833242126487
+    accuracy       : 0.8131978969381314
+    top_k_acc      : 0.9655465790719696
+    val_loss       : 0.5714161343872547
+    val_accuracy   : 0.80625
+    val_top_k_acc  : 0.958203125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch48.pth ...
+Train Epoch: 49 [0/45000 (0%)] Loss: 0.474235
+Train Epoch: 49 [1408/45000 (3%)] Loss: 0.646470
+Train Epoch: 49 [2816/45000 (6%)] Loss: 0.590856
+Train Epoch: 49 [4224/45000 (9%)] Loss: 0.466796
+Train Epoch: 49 [5632/45000 (13%)] Loss: 0.517049
+Train Epoch: 49 [7040/45000 (16%)] Loss: 0.364850
+Train Epoch: 49 [8448/45000 (19%)] Loss: 0.547505
+Train Epoch: 49 [9856/45000 (22%)] Loss: 0.730300
+Train Epoch: 49 [11264/45000 (25%)] Loss: 0.477165
+Train Epoch: 49 [12672/45000 (28%)] Loss: 0.482051
+Train Epoch: 49 [14080/45000 (31%)] Loss: 0.448327
+Train Epoch: 49 [15488/45000 (34%)] Loss: 0.469328
+Train Epoch: 49 [16896/45000 (38%)] Loss: 0.476723
+Train Epoch: 49 [18304/45000 (41%)] Loss: 0.521066
+Train Epoch: 49 [19712/45000 (44%)] Loss: 0.503679
+Train Epoch: 49 [21120/45000 (47%)] Loss: 0.638864
+Train Epoch: 49 [22528/45000 (50%)] Loss: 0.512483
+Train Epoch: 49 [23936/45000 (53%)] Loss: 0.630745
+Train Epoch: 49 [25344/45000 (56%)] Loss: 0.661161
+Train Epoch: 49 [26752/45000 (59%)] Loss: 0.645928
+Train Epoch: 49 [28160/45000 (63%)] Loss: 0.627959
+Train Epoch: 49 [29568/45000 (66%)] Loss: 0.418826
+Train Epoch: 49 [30976/45000 (69%)] Loss: 0.426417
+Train Epoch: 49 [32384/45000 (72%)] Loss: 0.566423
+Train Epoch: 49 [33792/45000 (75%)] Loss: 0.600577
+Train Epoch: 49 [35200/45000 (78%)] Loss: 0.572933
+Train Epoch: 49 [36608/45000 (81%)] Loss: 0.478504
+Train Epoch: 49 [38016/45000 (84%)] Loss: 0.602826
+Train Epoch: 49 [39424/45000 (88%)] Loss: 0.348543
+Train Epoch: 49 [40832/45000 (91%)] Loss: 0.521734
+Train Epoch: 49 [42240/45000 (94%)] Loss: 0.653960
+Train Epoch: 49 [43648/45000 (97%)] Loss: 0.529829
+    epoch          : 49
+    loss           : 0.5370353302833709
+    accuracy       : 0.8138464725378788
+    top_k_acc      : 0.9655860361426768
+    val_loss       : 0.5633338637650013
+    val_accuracy   : 0.8064453125
+    val_top_k_acc  : 0.9623046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch49.pth ...
+Train Epoch: 50 [0/45000 (0%)] Loss: 0.519825
+Train Epoch: 50 [1408/45000 (3%)] Loss: 0.430664
+Train Epoch: 50 [2816/45000 (6%)] Loss: 0.385920
+Train Epoch: 50 [4224/45000 (9%)] Loss: 0.584873
+Train Epoch: 50 [5632/45000 (13%)] Loss: 0.695085
+Train Epoch: 50 [7040/45000 (16%)] Loss: 0.454873
+Train Epoch: 50 [8448/45000 (19%)] Loss: 0.558591
+Train Epoch: 50 [9856/45000 (22%)] Loss: 0.642327
+Train Epoch: 50 [11264/45000 (25%)] Loss: 0.656140
+Train Epoch: 50 [12672/45000 (28%)] Loss: 0.452140
+Train Epoch: 50 [14080/45000 (31%)] Loss: 0.660268
+Train Epoch: 50 [15488/45000 (34%)] Loss: 0.565353
+Train Epoch: 50 [16896/45000 (38%)] Loss: 0.553703
+Train Epoch: 50 [18304/45000 (41%)] Loss: 0.514432
+Train Epoch: 50 [19712/45000 (44%)] Loss: 0.416471
+Train Epoch: 50 [21120/45000 (47%)] Loss: 0.477216
+Train Epoch: 50 [22528/45000 (50%)] Loss: 0.552641
+Train Epoch: 50 [23936/45000 (53%)] Loss: 0.526232
+Train Epoch: 50 [25344/45000 (56%)] Loss: 0.531465
+Train Epoch: 50 [26752/45000 (59%)] Loss: 0.691427
+Train Epoch: 50 [28160/45000 (63%)] Loss: 0.430173
+Train Epoch: 50 [29568/45000 (66%)] Loss: 0.547745
+Train Epoch: 50 [30976/45000 (69%)] Loss: 0.526094
+Train Epoch: 50 [32384/45000 (72%)] Loss: 0.523230
+Train Epoch: 50 [33792/45000 (75%)] Loss: 0.548482
+Train Epoch: 50 [35200/45000 (78%)] Loss: 0.424352
+Train Epoch: 50 [36608/45000 (81%)] Loss: 0.523895
+Train Epoch: 50 [38016/45000 (84%)] Loss: 0.669464
+Train Epoch: 50 [39424/45000 (88%)] Loss: 0.528745
+Train Epoch: 50 [40832/45000 (91%)] Loss: 0.473901
+Train Epoch: 50 [42240/45000 (94%)] Loss: 0.591259
+Train Epoch: 50 [43648/45000 (97%)] Loss: 0.673740
+    epoch          : 50
+    loss           : 0.5386962340298024
+    accuracy       : 0.8115382339015151
+    top_k_acc      : 0.9653073705808081
+    val_loss       : 0.5539705414324999
+    val_accuracy   : 0.8140625
+    val_top_k_acc  : 0.961328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch50.pth ...
+Train Epoch: 51 [0/45000 (0%)] Loss: 0.789937
+Train Epoch: 51 [1408/45000 (3%)] Loss: 0.469343
+Train Epoch: 51 [2816/45000 (6%)] Loss: 0.509314
+Train Epoch: 51 [4224/45000 (9%)] Loss: 0.532236
+Train Epoch: 51 [5632/45000 (13%)] Loss: 0.617259
+Train Epoch: 51 [7040/45000 (16%)] Loss: 0.415429
+Train Epoch: 51 [8448/45000 (19%)] Loss: 0.564518
+Train Epoch: 51 [9856/45000 (22%)] Loss: 0.536555
+Train Epoch: 51 [11264/45000 (25%)] Loss: 0.444238
+Train Epoch: 51 [12672/45000 (28%)] Loss: 0.593920
+Train Epoch: 51 [14080/45000 (31%)] Loss: 0.426459
+Train Epoch: 51 [15488/45000 (34%)] Loss: 0.640247
+Train Epoch: 51 [16896/45000 (38%)] Loss: 0.431678
+Train Epoch: 51 [18304/45000 (41%)] Loss: 0.570552
+Train Epoch: 51 [19712/45000 (44%)] Loss: 0.480855
+Train Epoch: 51 [21120/45000 (47%)] Loss: 0.487519
+Train Epoch: 51 [22528/45000 (50%)] Loss: 0.523084
+Train Epoch: 51 [23936/45000 (53%)] Loss: 0.569252
+Train Epoch: 51 [25344/45000 (56%)] Loss: 0.505633
+Train Epoch: 51 [26752/45000 (59%)] Loss: 0.443624
+Train Epoch: 51 [28160/45000 (63%)] Loss: 0.494351
+Train Epoch: 51 [29568/45000 (66%)] Loss: 0.528358
+Train Epoch: 51 [30976/45000 (69%)] Loss: 0.583875
+Train Epoch: 51 [32384/45000 (72%)] Loss: 0.561385
+Train Epoch: 51 [33792/45000 (75%)] Loss: 0.410267
+Train Epoch: 51 [35200/45000 (78%)] Loss: 0.423600
+Train Epoch: 51 [36608/45000 (81%)] Loss: 0.596001
+Train Epoch: 51 [38016/45000 (84%)] Loss: 0.534427
+Train Epoch: 51 [39424/45000 (88%)] Loss: 0.533716
+Train Epoch: 51 [40832/45000 (91%)] Loss: 0.498828
+Train Epoch: 51 [42240/45000 (94%)] Loss: 0.479432
+Train Epoch: 51 [43648/45000 (97%)] Loss: 0.634105
+    epoch          : 51
+    loss           : 0.5296420309353959
+    accuracy       : 0.8156614977904041
+    top_k_acc      : 0.96719391177399
+    val_loss       : 0.5604080908000469
+    val_accuracy   : 0.8111328125
+    val_top_k_acc  : 0.9599609375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch51.pth ...
+Train Epoch: 52 [0/45000 (0%)] Loss: 0.489574
+Train Epoch: 52 [1408/45000 (3%)] Loss: 0.600750
+Train Epoch: 52 [2816/45000 (6%)] Loss: 0.629454
+Train Epoch: 52 [4224/45000 (9%)] Loss: 0.480557
+Train Epoch: 52 [5632/45000 (13%)] Loss: 0.574257
+Train Epoch: 52 [7040/45000 (16%)] Loss: 0.543664
+Train Epoch: 52 [8448/45000 (19%)] Loss: 0.698236
+Train Epoch: 52 [9856/45000 (22%)] Loss: 0.450644
+Train Epoch: 52 [11264/45000 (25%)] Loss: 0.513123
+Train Epoch: 52 [12672/45000 (28%)] Loss: 0.555377
+Train Epoch: 52 [14080/45000 (31%)] Loss: 0.531281
+Train Epoch: 52 [15488/45000 (34%)] Loss: 0.459059
+Train Epoch: 52 [16896/45000 (38%)] Loss: 0.584501
+Train Epoch: 52 [18304/45000 (41%)] Loss: 0.603980
+Train Epoch: 52 [19712/45000 (44%)] Loss: 0.522446
+Train Epoch: 52 [21120/45000 (47%)] Loss: 0.613927
+Train Epoch: 52 [22528/45000 (50%)] Loss: 0.762904
+Train Epoch: 52 [23936/45000 (53%)] Loss: 0.418876
+Train Epoch: 52 [25344/45000 (56%)] Loss: 0.575199
+Train Epoch: 52 [26752/45000 (59%)] Loss: 0.414842
+Train Epoch: 52 [28160/45000 (63%)] Loss: 0.488017
+Train Epoch: 52 [29568/45000 (66%)] Loss: 0.515486
+Train Epoch: 52 [30976/45000 (69%)] Loss: 0.583803
+Train Epoch: 52 [32384/45000 (72%)] Loss: 0.512857
+Train Epoch: 52 [33792/45000 (75%)] Loss: 0.489463
+Train Epoch: 52 [35200/45000 (78%)] Loss: 0.472193
+Train Epoch: 52 [36608/45000 (81%)] Loss: 0.485961
+Train Epoch: 52 [38016/45000 (84%)] Loss: 0.510224
+Train Epoch: 52 [39424/45000 (88%)] Loss: 0.710961
+Train Epoch: 52 [40832/45000 (91%)] Loss: 0.490583
+Train Epoch: 52 [42240/45000 (94%)] Loss: 0.435007
+Train Epoch: 52 [43648/45000 (97%)] Loss: 0.548692
+    epoch          : 52
+    loss           : 0.528546707535332
+    accuracy       : 0.8159056384154041
+    top_k_acc      : 0.9667574179292928
+    val_loss       : 0.5563762068748475
+    val_accuracy   : 0.8076171875
+    val_top_k_acc  : 0.9615234375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch52.pth ...
+Train Epoch: 53 [0/45000 (0%)] Loss: 0.619950
+Train Epoch: 53 [1408/45000 (3%)] Loss: 0.631695
+Train Epoch: 53 [2816/45000 (6%)] Loss: 0.554165
+Train Epoch: 53 [4224/45000 (9%)] Loss: 0.548275
+Train Epoch: 53 [5632/45000 (13%)] Loss: 0.525194
+Train Epoch: 53 [7040/45000 (16%)] Loss: 0.493471
+Train Epoch: 53 [8448/45000 (19%)] Loss: 0.524532
+Train Epoch: 53 [9856/45000 (22%)] Loss: 0.485207
+Train Epoch: 53 [11264/45000 (25%)] Loss: 0.513537
+Train Epoch: 53 [12672/45000 (28%)] Loss: 0.715691
+Train Epoch: 53 [14080/45000 (31%)] Loss: 0.422525
+Train Epoch: 53 [15488/45000 (34%)] Loss: 0.410938
+Train Epoch: 53 [16896/45000 (38%)] Loss: 0.512319
+Train Epoch: 53 [18304/45000 (41%)] Loss: 0.453007
+Train Epoch: 53 [19712/45000 (44%)] Loss: 0.516619
+Train Epoch: 53 [21120/45000 (47%)] Loss: 0.635377
+Train Epoch: 53 [22528/45000 (50%)] Loss: 0.588855
+Train Epoch: 53 [23936/45000 (53%)] Loss: 0.584576
+Train Epoch: 53 [25344/45000 (56%)] Loss: 0.329128
+Train Epoch: 53 [26752/45000 (59%)] Loss: 0.456910
+Train Epoch: 53 [28160/45000 (63%)] Loss: 0.649493
+Train Epoch: 53 [29568/45000 (66%)] Loss: 0.473752
+Train Epoch: 53 [30976/45000 (69%)] Loss: 0.698532
+Train Epoch: 53 [32384/45000 (72%)] Loss: 0.497185
+Train Epoch: 53 [33792/45000 (75%)] Loss: 0.579790
+Train Epoch: 53 [35200/45000 (78%)] Loss: 0.502844
+Train Epoch: 53 [36608/45000 (81%)] Loss: 0.422498
+Train Epoch: 53 [38016/45000 (84%)] Loss: 0.454855
+Train Epoch: 53 [39424/45000 (88%)] Loss: 0.577807
+Train Epoch: 53 [40832/45000 (91%)] Loss: 0.590990
+Train Epoch: 53 [42240/45000 (94%)] Loss: 0.448905
+Train Epoch: 53 [43648/45000 (97%)] Loss: 0.514835
+    epoch          : 53
+    loss           : 0.5287306596609679
+    accuracy       : 0.814800840435606
+    top_k_acc      : 0.9681606100063131
+    val_loss       : 0.551542105898261
+    val_accuracy   : 0.8109375
+    val_top_k_acc  : 0.962109375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch53.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 54 [0/45000 (0%)] Loss: 0.694639
+Train Epoch: 54 [1408/45000 (3%)] Loss: 0.612435
+Train Epoch: 54 [2816/45000 (6%)] Loss: 0.528395
+Train Epoch: 54 [4224/45000 (9%)] Loss: 0.439407
+Train Epoch: 54 [5632/45000 (13%)] Loss: 0.549426
+Train Epoch: 54 [7040/45000 (16%)] Loss: 0.663155
+Train Epoch: 54 [8448/45000 (19%)] Loss: 0.600564
+Train Epoch: 54 [9856/45000 (22%)] Loss: 0.543098
+Train Epoch: 54 [11264/45000 (25%)] Loss: 0.504239
+Train Epoch: 54 [12672/45000 (28%)] Loss: 0.406432
+Train Epoch: 54 [14080/45000 (31%)] Loss: 0.533372
+Train Epoch: 54 [15488/45000 (34%)] Loss: 0.594410
+Train Epoch: 54 [16896/45000 (38%)] Loss: 0.600269
+Train Epoch: 54 [18304/45000 (41%)] Loss: 0.564599
+Train Epoch: 54 [19712/45000 (44%)] Loss: 0.585012
+Train Epoch: 54 [21120/45000 (47%)] Loss: 0.512521
+Train Epoch: 54 [22528/45000 (50%)] Loss: 0.605767
+Train Epoch: 54 [23936/45000 (53%)] Loss: 0.649420
+Train Epoch: 54 [25344/45000 (56%)] Loss: 0.535887
+Train Epoch: 54 [26752/45000 (59%)] Loss: 0.461737
+Train Epoch: 54 [28160/45000 (63%)] Loss: 0.543747
+Train Epoch: 54 [29568/45000 (66%)] Loss: 0.619659
+Train Epoch: 54 [30976/45000 (69%)] Loss: 0.526039
+Train Epoch: 54 [32384/45000 (72%)] Loss: 0.534186
+Train Epoch: 54 [33792/45000 (75%)] Loss: 0.598383
+Train Epoch: 54 [35200/45000 (78%)] Loss: 0.571764
+Train Epoch: 54 [36608/45000 (81%)] Loss: 0.587658
+Train Epoch: 54 [38016/45000 (84%)] Loss: 0.463713
+Train Epoch: 54 [39424/45000 (88%)] Loss: 0.521843
+Train Epoch: 54 [40832/45000 (91%)] Loss: 0.559655
+Train Epoch: 54 [42240/45000 (94%)] Loss: 0.577527
+Train Epoch: 54 [43648/45000 (97%)] Loss: 0.567811
+    epoch          : 54
+    loss           : 0.5301565197719769
+    accuracy       : 0.8162410235164141
+    top_k_acc      : 0.9663899739583333
+    val_loss       : 0.5565469712018967
+    val_accuracy   : 0.8103515625
+    val_top_k_acc  : 0.96171875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch54.pth ...
+Train Epoch: 55 [0/45000 (0%)] Loss: 0.381759
+Train Epoch: 55 [1408/45000 (3%)] Loss: 0.445201
+Train Epoch: 55 [2816/45000 (6%)] Loss: 0.615101
+Train Epoch: 55 [4224/45000 (9%)] Loss: 0.456039
+Train Epoch: 55 [5632/45000 (13%)] Loss: 0.479129
+Train Epoch: 55 [7040/45000 (16%)] Loss: 0.545031
+Train Epoch: 55 [8448/45000 (19%)] Loss: 0.663382
+Train Epoch: 55 [9856/45000 (22%)] Loss: 0.411524
+Train Epoch: 55 [11264/45000 (25%)] Loss: 0.425549
+Train Epoch: 55 [12672/45000 (28%)] Loss: 0.543388
+Train Epoch: 55 [14080/45000 (31%)] Loss: 0.611473
+Train Epoch: 55 [15488/45000 (34%)] Loss: 0.655316
+Train Epoch: 55 [16896/45000 (38%)] Loss: 0.324973
+Train Epoch: 55 [18304/45000 (41%)] Loss: 0.479637
+Train Epoch: 55 [19712/45000 (44%)] Loss: 0.505561
+Train Epoch: 55 [21120/45000 (47%)] Loss: 0.555042
+Train Epoch: 55 [22528/45000 (50%)] Loss: 0.505847
+Train Epoch: 55 [23936/45000 (53%)] Loss: 0.524749
+Train Epoch: 55 [25344/45000 (56%)] Loss: 0.530944
+Train Epoch: 55 [26752/45000 (59%)] Loss: 0.500686
+Train Epoch: 55 [28160/45000 (63%)] Loss: 0.481549
+Train Epoch: 55 [29568/45000 (66%)] Loss: 0.499810
+Train Epoch: 55 [30976/45000 (69%)] Loss: 0.391419
+Train Epoch: 55 [32384/45000 (72%)] Loss: 0.407513
+Train Epoch: 55 [33792/45000 (75%)] Loss: 0.514015
+Train Epoch: 55 [35200/45000 (78%)] Loss: 0.373298
+Train Epoch: 55 [36608/45000 (81%)] Loss: 0.647427
+Train Epoch: 55 [38016/45000 (84%)] Loss: 0.523070
+Train Epoch: 55 [39424/45000 (88%)] Loss: 0.549428
+Train Epoch: 55 [40832/45000 (91%)] Loss: 0.565209
+Train Epoch: 55 [42240/45000 (94%)] Loss: 0.471013
+Train Epoch: 55 [43648/45000 (97%)] Loss: 0.537475
+    epoch          : 55
+    loss           : 0.5305212950333953
+    accuracy       : 0.8168353456439394
+    top_k_acc      : 0.9678844105113636
+    val_loss       : 0.5536856792867184
+    val_accuracy   : 0.810546875
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch55.pth ...
+Train Epoch: 56 [0/45000 (0%)] Loss: 0.457239
+Train Epoch: 56 [1408/45000 (3%)] Loss: 0.491877
+Train Epoch: 56 [2816/45000 (6%)] Loss: 0.448774
+Train Epoch: 56 [4224/45000 (9%)] Loss: 0.569851
+Train Epoch: 56 [5632/45000 (13%)] Loss: 0.525031
+Train Epoch: 56 [7040/45000 (16%)] Loss: 0.495313
+Train Epoch: 56 [8448/45000 (19%)] Loss: 0.539725
+Train Epoch: 56 [9856/45000 (22%)] Loss: 0.457626
+Train Epoch: 56 [11264/45000 (25%)] Loss: 0.674388
+Train Epoch: 56 [12672/45000 (28%)] Loss: 0.475740
+Train Epoch: 56 [14080/45000 (31%)] Loss: 0.461383
+Train Epoch: 56 [15488/45000 (34%)] Loss: 0.511715
+Train Epoch: 56 [16896/45000 (38%)] Loss: 0.509119
+Train Epoch: 56 [18304/45000 (41%)] Loss: 0.505351
+Train Epoch: 56 [19712/45000 (44%)] Loss: 0.420075
+Train Epoch: 56 [21120/45000 (47%)] Loss: 0.545146
+Train Epoch: 56 [22528/45000 (50%)] Loss: 0.421642
+Train Epoch: 56 [23936/45000 (53%)] Loss: 0.441209
+Train Epoch: 56 [25344/45000 (56%)] Loss: 0.554484
+Train Epoch: 56 [26752/45000 (59%)] Loss: 0.577428
+Train Epoch: 56 [28160/45000 (63%)] Loss: 0.641852
+Train Epoch: 56 [29568/45000 (66%)] Loss: 0.540478
+Train Epoch: 56 [30976/45000 (69%)] Loss: 0.496305
+Train Epoch: 56 [32384/45000 (72%)] Loss: 0.503010
+Train Epoch: 56 [33792/45000 (75%)] Loss: 0.430369
+Train Epoch: 56 [35200/45000 (78%)] Loss: 0.489436
+Train Epoch: 56 [36608/45000 (81%)] Loss: 0.400631
+Train Epoch: 56 [38016/45000 (84%)] Loss: 0.667479
+Train Epoch: 56 [39424/45000 (88%)] Loss: 0.452122
+Train Epoch: 56 [40832/45000 (91%)] Loss: 0.609647
+Train Epoch: 56 [42240/45000 (94%)] Loss: 0.451491
+Train Epoch: 56 [43648/45000 (97%)] Loss: 0.594226
+    epoch          : 56
+    loss           : 0.528816941024905
+    accuracy       : 0.8149981257891414
+    top_k_acc      : 0.9669941603535354
+    val_loss       : 0.5979569517076015
+    val_accuracy   : 0.7974609375
+    val_top_k_acc  : 0.955859375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch56.pth ...
+Train Epoch: 57 [0/45000 (0%)] Loss: 0.573741
+Train Epoch: 57 [1408/45000 (3%)] Loss: 0.459680
+Train Epoch: 57 [2816/45000 (6%)] Loss: 0.518806
+Train Epoch: 57 [4224/45000 (9%)] Loss: 0.581215
+Train Epoch: 57 [5632/45000 (13%)] Loss: 0.662899
+Train Epoch: 57 [7040/45000 (16%)] Loss: 0.486213
+Train Epoch: 57 [8448/45000 (19%)] Loss: 0.477738
+Train Epoch: 57 [9856/45000 (22%)] Loss: 0.529030
+Train Epoch: 57 [11264/45000 (25%)] Loss: 0.381283
+Train Epoch: 57 [12672/45000 (28%)] Loss: 0.694768
+Train Epoch: 57 [14080/45000 (31%)] Loss: 0.438072
+Train Epoch: 57 [15488/45000 (34%)] Loss: 0.506430
+Train Epoch: 57 [16896/45000 (38%)] Loss: 0.538125
+Train Epoch: 57 [18304/45000 (41%)] Loss: 0.476669
+Train Epoch: 57 [19712/45000 (44%)] Loss: 0.466950
+Train Epoch: 57 [21120/45000 (47%)] Loss: 0.528851
+Train Epoch: 57 [22528/45000 (50%)] Loss: 0.604037
+Train Epoch: 57 [23936/45000 (53%)] Loss: 0.412802
+Train Epoch: 57 [25344/45000 (56%)] Loss: 0.402646
+Train Epoch: 57 [26752/45000 (59%)] Loss: 0.467299
+Train Epoch: 57 [28160/45000 (63%)] Loss: 0.583242
+Train Epoch: 57 [29568/45000 (66%)] Loss: 0.472599
+Train Epoch: 57 [30976/45000 (69%)] Loss: 0.502647
+Train Epoch: 57 [32384/45000 (72%)] Loss: 0.634878
+Train Epoch: 57 [33792/45000 (75%)] Loss: 0.518560
+Train Epoch: 57 [35200/45000 (78%)] Loss: 0.527971
+Train Epoch: 57 [36608/45000 (81%)] Loss: 0.497634
+Train Epoch: 57 [38016/45000 (84%)] Loss: 0.446330
+Train Epoch: 57 [39424/45000 (88%)] Loss: 0.513391
+Train Epoch: 57 [40832/45000 (91%)] Loss: 0.559195
+Train Epoch: 57 [42240/45000 (94%)] Loss: 0.567984
+Train Epoch: 57 [43648/45000 (97%)] Loss: 0.650563
+    epoch          : 57
+    loss           : 0.5296547082676129
+    accuracy       : 0.8156294389204546
+    top_k_acc      : 0.9669719657512627
+    val_loss       : 0.5532367538660765
+    val_accuracy   : 0.813671875
+    val_top_k_acc  : 0.9611328125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch57.pth ...
+Train Epoch: 58 [0/45000 (0%)] Loss: 0.510438
+Train Epoch: 58 [1408/45000 (3%)] Loss: 0.585121
+Train Epoch: 58 [2816/45000 (6%)] Loss: 0.448018
+Train Epoch: 58 [4224/45000 (9%)] Loss: 0.554078
+Train Epoch: 58 [5632/45000 (13%)] Loss: 0.601567
+Train Epoch: 58 [7040/45000 (16%)] Loss: 0.406334
+Train Epoch: 58 [8448/45000 (19%)] Loss: 0.418797
+Train Epoch: 58 [9856/45000 (22%)] Loss: 0.526768
+Train Epoch: 58 [11264/45000 (25%)] Loss: 0.659666
+Train Epoch: 58 [12672/45000 (28%)] Loss: 0.588069
+Train Epoch: 58 [14080/45000 (31%)] Loss: 0.409382
+Train Epoch: 58 [15488/45000 (34%)] Loss: 0.494035
+Train Epoch: 58 [16896/45000 (38%)] Loss: 0.544148
+Train Epoch: 58 [18304/45000 (41%)] Loss: 0.420207
+Train Epoch: 58 [19712/45000 (44%)] Loss: 0.479740
+Train Epoch: 58 [21120/45000 (47%)] Loss: 0.452786
+Train Epoch: 58 [22528/45000 (50%)] Loss: 0.430459
+Train Epoch: 58 [23936/45000 (53%)] Loss: 0.399788
+Train Epoch: 58 [25344/45000 (56%)] Loss: 0.482434
+Train Epoch: 58 [26752/45000 (59%)] Loss: 0.561748
+Train Epoch: 58 [28160/45000 (63%)] Loss: 0.496034
+Train Epoch: 58 [29568/45000 (66%)] Loss: 0.529295
+Train Epoch: 58 [30976/45000 (69%)] Loss: 0.479142
+Train Epoch: 58 [32384/45000 (72%)] Loss: 0.735888
+Train Epoch: 58 [33792/45000 (75%)] Loss: 0.451420
+Train Epoch: 58 [35200/45000 (78%)] Loss: 0.623165
+Train Epoch: 58 [36608/45000 (81%)] Loss: 0.584000
+Train Epoch: 58 [38016/45000 (84%)] Loss: 0.425830
+Train Epoch: 58 [39424/45000 (88%)] Loss: 0.406351
+Train Epoch: 58 [40832/45000 (91%)] Loss: 0.564929
+Train Epoch: 58 [42240/45000 (94%)] Loss: 0.464065
+Train Epoch: 58 [43648/45000 (97%)] Loss: 0.434164
+    epoch          : 58
+    loss           : 0.5268896565857258
+    accuracy       : 0.8154765427714646
+    top_k_acc      : 0.9672999526515151
+    val_loss       : 0.5495378036051989
+    val_accuracy   : 0.8146484375
+    val_top_k_acc  : 0.960546875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch58.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 59 [0/45000 (0%)] Loss: 0.708508
+Train Epoch: 59 [1408/45000 (3%)] Loss: 0.527740
+Train Epoch: 59 [2816/45000 (6%)] Loss: 0.433172
+Train Epoch: 59 [4224/45000 (9%)] Loss: 0.606394
+Train Epoch: 59 [5632/45000 (13%)] Loss: 0.556456
+Train Epoch: 59 [7040/45000 (16%)] Loss: 0.585382
+Train Epoch: 59 [8448/45000 (19%)] Loss: 0.571051
+Train Epoch: 59 [9856/45000 (22%)] Loss: 0.437417
+Train Epoch: 59 [11264/45000 (25%)] Loss: 0.575558
+Train Epoch: 59 [12672/45000 (28%)] Loss: 0.566099
+Train Epoch: 59 [14080/45000 (31%)] Loss: 0.640276
+Train Epoch: 59 [15488/45000 (34%)] Loss: 0.476441
+Train Epoch: 59 [16896/45000 (38%)] Loss: 0.627988
+Train Epoch: 59 [18304/45000 (41%)] Loss: 0.588342
+Train Epoch: 59 [19712/45000 (44%)] Loss: 0.505412
+Train Epoch: 59 [21120/45000 (47%)] Loss: 0.600608
+Train Epoch: 59 [22528/45000 (50%)] Loss: 0.618690
+Train Epoch: 59 [23936/45000 (53%)] Loss: 0.522100
+Train Epoch: 59 [25344/45000 (56%)] Loss: 0.440062
+Train Epoch: 59 [26752/45000 (59%)] Loss: 0.538413
+Train Epoch: 59 [28160/45000 (63%)] Loss: 0.471741
+Train Epoch: 59 [29568/45000 (66%)] Loss: 0.578895
+Train Epoch: 59 [30976/45000 (69%)] Loss: 0.531752
+Train Epoch: 59 [32384/45000 (72%)] Loss: 0.526774
+Train Epoch: 59 [33792/45000 (75%)] Loss: 0.413769
+Train Epoch: 59 [35200/45000 (78%)] Loss: 0.468948
+Train Epoch: 59 [36608/45000 (81%)] Loss: 0.461992
+Train Epoch: 59 [38016/45000 (84%)] Loss: 0.570316
+Train Epoch: 59 [39424/45000 (88%)] Loss: 0.522009
+Train Epoch: 59 [40832/45000 (91%)] Loss: 0.594246
+Train Epoch: 59 [42240/45000 (94%)] Loss: 0.565473
+Train Epoch: 59 [43648/45000 (97%)] Loss: 0.500698
+    epoch          : 59
+    loss           : 0.5298569475046613
+    accuracy       : 0.8168279474431818
+    top_k_acc      : 0.9675391611426768
+    val_loss       : 0.566043309867382
+    val_accuracy   : 0.803515625
+    val_top_k_acc  : 0.9615234375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch59.pth ...
+Train Epoch: 60 [0/45000 (0%)] Loss: 0.418313
+Train Epoch: 60 [1408/45000 (3%)] Loss: 0.527095
+Train Epoch: 60 [2816/45000 (6%)] Loss: 0.629162
+Train Epoch: 60 [4224/45000 (9%)] Loss: 0.404196
+Train Epoch: 60 [5632/45000 (13%)] Loss: 0.592242
+Train Epoch: 60 [7040/45000 (16%)] Loss: 0.569050
+Train Epoch: 60 [8448/45000 (19%)] Loss: 0.401930
+Train Epoch: 60 [9856/45000 (22%)] Loss: 0.559835
+Train Epoch: 60 [11264/45000 (25%)] Loss: 0.376271
+Train Epoch: 60 [12672/45000 (28%)] Loss: 0.648489
+Train Epoch: 60 [14080/45000 (31%)] Loss: 0.451182
+Train Epoch: 60 [15488/45000 (34%)] Loss: 0.478067
+Train Epoch: 60 [16896/45000 (38%)] Loss: 0.463890
+Train Epoch: 60 [18304/45000 (41%)] Loss: 0.440595
+Train Epoch: 60 [19712/45000 (44%)] Loss: 0.531150
+Train Epoch: 60 [21120/45000 (47%)] Loss: 0.518294
+Train Epoch: 60 [22528/45000 (50%)] Loss: 0.437690
+Train Epoch: 60 [23936/45000 (53%)] Loss: 0.703131
+Train Epoch: 60 [25344/45000 (56%)] Loss: 0.560908
+Train Epoch: 60 [26752/45000 (59%)] Loss: 0.541680
+Train Epoch: 60 [28160/45000 (63%)] Loss: 0.447798
+Train Epoch: 60 [29568/45000 (66%)] Loss: 0.499300
+Train Epoch: 60 [30976/45000 (69%)] Loss: 0.491766
+Train Epoch: 60 [32384/45000 (72%)] Loss: 0.414775
+Train Epoch: 60 [33792/45000 (75%)] Loss: 0.513547
+Train Epoch: 60 [35200/45000 (78%)] Loss: 0.634339
+Train Epoch: 60 [36608/45000 (81%)] Loss: 0.572903
+Train Epoch: 60 [38016/45000 (84%)] Loss: 0.447746
+Train Epoch: 60 [39424/45000 (88%)] Loss: 0.506858
+Train Epoch: 60 [40832/45000 (91%)] Loss: 0.464314
+Train Epoch: 60 [42240/45000 (94%)] Loss: 0.530833
+Train Epoch: 60 [43648/45000 (97%)] Loss: 0.578153
+    epoch          : 60
+    loss           : 0.5283121842552315
+    accuracy       : 0.8171164772727273
+    top_k_acc      : 0.966091579861111
+    val_loss       : 0.5513448290526867
+    val_accuracy   : 0.812890625
+    val_top_k_acc  : 0.9623046875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch60.pth ...
+Train Epoch: 61 [0/45000 (0%)] Loss: 0.580322
+Train Epoch: 61 [1408/45000 (3%)] Loss: 0.709043
+Train Epoch: 61 [2816/45000 (6%)] Loss: 0.503901
+Train Epoch: 61 [4224/45000 (9%)] Loss: 0.539245
+Train Epoch: 61 [5632/45000 (13%)] Loss: 0.594598
+Train Epoch: 61 [7040/45000 (16%)] Loss: 0.500623
+Train Epoch: 61 [8448/45000 (19%)] Loss: 0.375402
+Train Epoch: 61 [9856/45000 (22%)] Loss: 0.595925
+Train Epoch: 61 [11264/45000 (25%)] Loss: 0.442522
+Train Epoch: 61 [12672/45000 (28%)] Loss: 0.410868
+Train Epoch: 61 [14080/45000 (31%)] Loss: 0.531673
+Train Epoch: 61 [15488/45000 (34%)] Loss: 0.463275
+Train Epoch: 61 [16896/45000 (38%)] Loss: 0.632524
+Train Epoch: 61 [18304/45000 (41%)] Loss: 0.623532
+Train Epoch: 61 [19712/45000 (44%)] Loss: 0.565127
+Train Epoch: 61 [21120/45000 (47%)] Loss: 0.542061
+Train Epoch: 61 [22528/45000 (50%)] Loss: 0.708447
+Train Epoch: 61 [23936/45000 (53%)] Loss: 0.503026
+Train Epoch: 61 [25344/45000 (56%)] Loss: 0.558257
+Train Epoch: 61 [26752/45000 (59%)] Loss: 0.408909
+Train Epoch: 61 [28160/45000 (63%)] Loss: 0.611453
+Train Epoch: 61 [29568/45000 (66%)] Loss: 0.612828
+Train Epoch: 61 [30976/45000 (69%)] Loss: 0.381055
+Train Epoch: 61 [32384/45000 (72%)] Loss: 0.483993
+Train Epoch: 61 [33792/45000 (75%)] Loss: 0.525656
+Train Epoch: 61 [35200/45000 (78%)] Loss: 0.426551
+Train Epoch: 61 [36608/45000 (81%)] Loss: 0.626482
+Train Epoch: 61 [38016/45000 (84%)] Loss: 0.509122
+Train Epoch: 61 [39424/45000 (88%)] Loss: 0.596337
+Train Epoch: 61 [40832/45000 (91%)] Loss: 0.510613
+Train Epoch: 61 [42240/45000 (94%)] Loss: 0.453915
+Train Epoch: 61 [43648/45000 (97%)] Loss: 0.527104
+    epoch          : 61
+    loss           : 0.5276140766218305
+    accuracy       : 0.8177132654671717
+    top_k_acc      : 0.967401061395202
+    val_loss       : 0.5615099057555198
+    val_accuracy   : 0.806640625
+    val_top_k_acc  : 0.958203125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch61.pth ...
+Train Epoch: 62 [0/45000 (0%)] Loss: 0.469481
+Train Epoch: 62 [1408/45000 (3%)] Loss: 0.492680
+Train Epoch: 62 [2816/45000 (6%)] Loss: 0.489637
+Train Epoch: 62 [4224/45000 (9%)] Loss: 0.458009
+Train Epoch: 62 [5632/45000 (13%)] Loss: 0.466506
+Train Epoch: 62 [7040/45000 (16%)] Loss: 0.635105
+Train Epoch: 62 [8448/45000 (19%)] Loss: 0.586943
+Train Epoch: 62 [9856/45000 (22%)] Loss: 0.497920
+Train Epoch: 62 [11264/45000 (25%)] Loss: 0.515079
+Train Epoch: 62 [12672/45000 (28%)] Loss: 0.676113
+Train Epoch: 62 [14080/45000 (31%)] Loss: 0.437600
+Train Epoch: 62 [15488/45000 (34%)] Loss: 0.589315
+Train Epoch: 62 [16896/45000 (38%)] Loss: 0.464977
+Train Epoch: 62 [18304/45000 (41%)] Loss: 0.592148
+Train Epoch: 62 [19712/45000 (44%)] Loss: 0.557085
+Train Epoch: 62 [21120/45000 (47%)] Loss: 0.456395
+Train Epoch: 62 [22528/45000 (50%)] Loss: 0.500133
+Train Epoch: 62 [23936/45000 (53%)] Loss: 0.548437
+Train Epoch: 62 [25344/45000 (56%)] Loss: 0.678398
+Train Epoch: 62 [26752/45000 (59%)] Loss: 0.567334
+Train Epoch: 62 [28160/45000 (63%)] Loss: 0.528582
+Train Epoch: 62 [29568/45000 (66%)] Loss: 0.423245
+Train Epoch: 62 [30976/45000 (69%)] Loss: 0.515166
+Train Epoch: 62 [32384/45000 (72%)] Loss: 0.484231
+Train Epoch: 62 [33792/45000 (75%)] Loss: 0.442911
+Train Epoch: 62 [35200/45000 (78%)] Loss: 0.589367
+Train Epoch: 62 [36608/45000 (81%)] Loss: 0.547387
+Train Epoch: 62 [38016/45000 (84%)] Loss: 0.472613
+Train Epoch: 62 [39424/45000 (88%)] Loss: 0.658981
+Train Epoch: 62 [40832/45000 (91%)] Loss: 0.629434
+Train Epoch: 62 [42240/45000 (94%)] Loss: 0.656567
+Train Epoch: 62 [43648/45000 (97%)] Loss: 0.568578
+    epoch          : 62
+    loss           : 0.5292171437970616
+    accuracy       : 0.8158439867424242
+    top_k_acc      : 0.96694977114899
+    val_loss       : 0.555874016880989
+    val_accuracy   : 0.8109375
+    val_top_k_acc  : 0.9626953125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch62.pth ...
+Train Epoch: 63 [0/45000 (0%)] Loss: 0.471858
+Train Epoch: 63 [1408/45000 (3%)] Loss: 0.620210
+Train Epoch: 63 [2816/45000 (6%)] Loss: 0.563972
+Train Epoch: 63 [4224/45000 (9%)] Loss: 0.438772
+Train Epoch: 63 [5632/45000 (13%)] Loss: 0.669837
+Train Epoch: 63 [7040/45000 (16%)] Loss: 0.467087
+Train Epoch: 63 [8448/45000 (19%)] Loss: 0.429246
+Train Epoch: 63 [9856/45000 (22%)] Loss: 0.499275
+Train Epoch: 63 [11264/45000 (25%)] Loss: 0.527828
+Train Epoch: 63 [12672/45000 (28%)] Loss: 0.571691
+Train Epoch: 63 [14080/45000 (31%)] Loss: 0.592467
+Train Epoch: 63 [15488/45000 (34%)] Loss: 0.633402
+Train Epoch: 63 [16896/45000 (38%)] Loss: 0.520166
+Train Epoch: 63 [18304/45000 (41%)] Loss: 0.541599
+Train Epoch: 63 [19712/45000 (44%)] Loss: 0.446882
+Train Epoch: 63 [21120/45000 (47%)] Loss: 0.532978
+Train Epoch: 63 [22528/45000 (50%)] Loss: 0.484452
+Train Epoch: 63 [23936/45000 (53%)] Loss: 0.533704
+Train Epoch: 63 [25344/45000 (56%)] Loss: 0.583561
+Train Epoch: 63 [26752/45000 (59%)] Loss: 0.606893
+Train Epoch: 63 [28160/45000 (63%)] Loss: 0.446463
+Train Epoch: 63 [29568/45000 (66%)] Loss: 0.450908
+Train Epoch: 63 [30976/45000 (69%)] Loss: 0.418388
+Train Epoch: 63 [32384/45000 (72%)] Loss: 0.657901
+Train Epoch: 63 [33792/45000 (75%)] Loss: 0.435077
+Train Epoch: 63 [35200/45000 (78%)] Loss: 0.448715
+Train Epoch: 63 [36608/45000 (81%)] Loss: 0.488023
+Train Epoch: 63 [38016/45000 (84%)] Loss: 0.587990
+Train Epoch: 63 [39424/45000 (88%)] Loss: 0.581245
+Train Epoch: 63 [40832/45000 (91%)] Loss: 0.772087
+Train Epoch: 63 [42240/45000 (94%)] Loss: 0.356300
+Train Epoch: 63 [43648/45000 (97%)] Loss: 0.664028
+    epoch          : 63
+    loss           : 0.5285642458633943
+    accuracy       : 0.8171460700757577
+    top_k_acc      : 0.9668511284722222
+    val_loss       : 0.5849913626909256
+    val_accuracy   : 0.801953125
+    val_top_k_acc  : 0.9591796875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch63.pth ...
+Train Epoch: 64 [0/45000 (0%)] Loss: 0.644888
+Train Epoch: 64 [1408/45000 (3%)] Loss: 0.448262
+Train Epoch: 64 [2816/45000 (6%)] Loss: 0.454774
+Train Epoch: 64 [4224/45000 (9%)] Loss: 0.355497
+Train Epoch: 64 [5632/45000 (13%)] Loss: 0.399909
+Train Epoch: 64 [7040/45000 (16%)] Loss: 0.581376
+Train Epoch: 64 [8448/45000 (19%)] Loss: 0.704952
+Train Epoch: 64 [9856/45000 (22%)] Loss: 0.507666
+Train Epoch: 64 [11264/45000 (25%)] Loss: 0.538681
+Train Epoch: 64 [12672/45000 (28%)] Loss: 0.501896
+Train Epoch: 64 [14080/45000 (31%)] Loss: 0.520463
+Train Epoch: 64 [15488/45000 (34%)] Loss: 0.663513
+Train Epoch: 64 [16896/45000 (38%)] Loss: 0.500378
+Train Epoch: 64 [18304/45000 (41%)] Loss: 0.433270
+Train Epoch: 64 [19712/45000 (44%)] Loss: 0.569262
+Train Epoch: 64 [21120/45000 (47%)] Loss: 0.413935
+Train Epoch: 64 [22528/45000 (50%)] Loss: 0.564212
+Train Epoch: 64 [23936/45000 (53%)] Loss: 0.504732
+Train Epoch: 64 [25344/45000 (56%)] Loss: 0.720865
+Train Epoch: 64 [26752/45000 (59%)] Loss: 0.641922
+Train Epoch: 64 [28160/45000 (63%)] Loss: 0.583115
+Train Epoch: 64 [29568/45000 (66%)] Loss: 0.422495
+Train Epoch: 64 [30976/45000 (69%)] Loss: 0.595830
+Train Epoch: 64 [32384/45000 (72%)] Loss: 0.391211
+Train Epoch: 64 [33792/45000 (75%)] Loss: 0.462809
+Train Epoch: 64 [35200/45000 (78%)] Loss: 0.549435
+Train Epoch: 64 [36608/45000 (81%)] Loss: 0.403125
+Train Epoch: 64 [38016/45000 (84%)] Loss: 0.500338
+Train Epoch: 64 [39424/45000 (88%)] Loss: 0.531894
+Train Epoch: 64 [40832/45000 (91%)] Loss: 0.610133
+Train Epoch: 64 [42240/45000 (94%)] Loss: 0.508339
+Train Epoch: 64 [43648/45000 (97%)] Loss: 0.492931
+    epoch          : 64
+    loss           : 0.5294465726580132
+    accuracy       : 0.8149808633207072
+    top_k_acc      : 0.9670064906881314
+    val_loss       : 0.5605425082147122
+    val_accuracy   : 0.8046875
+    val_top_k_acc  : 0.9607421875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch64.pth ...
+Train Epoch: 65 [0/45000 (0%)] Loss: 0.504618
+Train Epoch: 65 [1408/45000 (3%)] Loss: 0.448325
+Train Epoch: 65 [2816/45000 (6%)] Loss: 0.535416
+Train Epoch: 65 [4224/45000 (9%)] Loss: 0.527978
+Train Epoch: 65 [5632/45000 (13%)] Loss: 0.620692
+Train Epoch: 65 [7040/45000 (16%)] Loss: 0.650475
+Train Epoch: 65 [8448/45000 (19%)] Loss: 0.449203
+Train Epoch: 65 [9856/45000 (22%)] Loss: 0.521554
+Train Epoch: 65 [11264/45000 (25%)] Loss: 0.476329
+Train Epoch: 65 [12672/45000 (28%)] Loss: 0.571583
+Train Epoch: 65 [14080/45000 (31%)] Loss: 0.540928
+Train Epoch: 65 [15488/45000 (34%)] Loss: 0.571308
+Train Epoch: 65 [16896/45000 (38%)] Loss: 0.651802
+Train Epoch: 65 [18304/45000 (41%)] Loss: 0.554945
+Train Epoch: 65 [19712/45000 (44%)] Loss: 0.644604
+Train Epoch: 65 [21120/45000 (47%)] Loss: 0.503056
+Train Epoch: 65 [22528/45000 (50%)] Loss: 0.391646
+Train Epoch: 65 [23936/45000 (53%)] Loss: 0.394791
+Train Epoch: 65 [25344/45000 (56%)] Loss: 0.443235
+Train Epoch: 65 [26752/45000 (59%)] Loss: 0.599366
+Train Epoch: 65 [28160/45000 (63%)] Loss: 0.531007
+Train Epoch: 65 [29568/45000 (66%)] Loss: 0.468431
+Train Epoch: 65 [30976/45000 (69%)] Loss: 0.461864
+Train Epoch: 65 [32384/45000 (72%)] Loss: 0.536468
+Train Epoch: 65 [33792/45000 (75%)] Loss: 0.462043
+Train Epoch: 65 [35200/45000 (78%)] Loss: 0.504590
+Train Epoch: 65 [36608/45000 (81%)] Loss: 0.545986
+Train Epoch: 65 [38016/45000 (84%)] Loss: 0.522044
+Train Epoch: 65 [39424/45000 (88%)] Loss: 0.640472
+Train Epoch: 65 [40832/45000 (91%)] Loss: 0.623852
+Train Epoch: 65 [42240/45000 (94%)] Loss: 0.503321
+Train Epoch: 65 [43648/45000 (97%)] Loss: 0.531022
+    epoch          : 65
+    loss           : 0.5293124429034916
+    accuracy       : 0.8177527225378788
+    top_k_acc      : 0.9678498855744949
+    val_loss       : 0.5577902399003506
+    val_accuracy   : 0.8091796875
+    val_top_k_acc  : 0.962890625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch65.pth ...
+Train Epoch: 66 [0/45000 (0%)] Loss: 0.504682
+Train Epoch: 66 [1408/45000 (3%)] Loss: 0.541140
+Train Epoch: 66 [2816/45000 (6%)] Loss: 0.612916
+Train Epoch: 66 [4224/45000 (9%)] Loss: 0.705835
+Train Epoch: 66 [5632/45000 (13%)] Loss: 0.550218
+Train Epoch: 66 [7040/45000 (16%)] Loss: 0.362296
+Train Epoch: 66 [8448/45000 (19%)] Loss: 0.555765
+Train Epoch: 66 [9856/45000 (22%)] Loss: 0.477843
+Train Epoch: 66 [11264/45000 (25%)] Loss: 0.468504
+Train Epoch: 66 [12672/45000 (28%)] Loss: 0.605987
+Train Epoch: 66 [14080/45000 (31%)] Loss: 0.542520
+Train Epoch: 66 [15488/45000 (34%)] Loss: 0.419620
+Train Epoch: 66 [16896/45000 (38%)] Loss: 0.480587
+Train Epoch: 66 [18304/45000 (41%)] Loss: 0.387317
+Train Epoch: 66 [19712/45000 (44%)] Loss: 0.610775
+Train Epoch: 66 [21120/45000 (47%)] Loss: 0.578587
+Train Epoch: 66 [22528/45000 (50%)] Loss: 0.553975
+Train Epoch: 66 [23936/45000 (53%)] Loss: 0.341823
+Train Epoch: 66 [25344/45000 (56%)] Loss: 0.397947
+Train Epoch: 66 [26752/45000 (59%)] Loss: 0.457117
+Train Epoch: 66 [28160/45000 (63%)] Loss: 0.525342
+Train Epoch: 66 [29568/45000 (66%)] Loss: 0.592596
+Train Epoch: 66 [30976/45000 (69%)] Loss: 0.490642
+Train Epoch: 66 [32384/45000 (72%)] Loss: 0.633258
+Train Epoch: 66 [33792/45000 (75%)] Loss: 0.641590
+Train Epoch: 66 [35200/45000 (78%)] Loss: 0.402846
+Train Epoch: 66 [36608/45000 (81%)] Loss: 0.433956
+Train Epoch: 66 [38016/45000 (84%)] Loss: 0.506090
+Train Epoch: 66 [39424/45000 (88%)] Loss: 0.522691
+Train Epoch: 66 [40832/45000 (91%)] Loss: 0.572255
+Train Epoch: 66 [42240/45000 (94%)] Loss: 0.636706
+Train Epoch: 66 [43648/45000 (97%)] Loss: 0.516853
+    epoch          : 66
+    loss           : 0.5290590871802785
+    accuracy       : 0.8165640782828283
+    top_k_acc      : 0.9673665364583333
+    val_loss       : 0.5623350694775582
+    val_accuracy   : 0.8115234375
+    val_top_k_acc  : 0.958203125
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch66.pth ...
+Train Epoch: 67 [0/45000 (0%)] Loss: 0.550936
+Train Epoch: 67 [1408/45000 (3%)] Loss: 0.487350
+Train Epoch: 67 [2816/45000 (6%)] Loss: 0.367437
+Train Epoch: 67 [4224/45000 (9%)] Loss: 0.583589
+Train Epoch: 67 [5632/45000 (13%)] Loss: 0.515652
+Train Epoch: 67 [7040/45000 (16%)] Loss: 0.436046
+Train Epoch: 67 [8448/45000 (19%)] Loss: 0.584881
+Train Epoch: 67 [9856/45000 (22%)] Loss: 0.461139
+Train Epoch: 67 [11264/45000 (25%)] Loss: 0.430703
+Train Epoch: 67 [12672/45000 (28%)] Loss: 0.504511
+Train Epoch: 67 [14080/45000 (31%)] Loss: 0.482265
+Train Epoch: 67 [15488/45000 (34%)] Loss: 0.461191
+Train Epoch: 67 [16896/45000 (38%)] Loss: 0.568862
+Train Epoch: 67 [18304/45000 (41%)] Loss: 0.560172
+Train Epoch: 67 [19712/45000 (44%)] Loss: 0.522079
+Train Epoch: 67 [21120/45000 (47%)] Loss: 0.660891
+Train Epoch: 67 [22528/45000 (50%)] Loss: 0.592167
+Train Epoch: 67 [23936/45000 (53%)] Loss: 0.660530
+Train Epoch: 67 [25344/45000 (56%)] Loss: 0.732365
+Train Epoch: 67 [26752/45000 (59%)] Loss: 0.525165
+Train Epoch: 67 [28160/45000 (63%)] Loss: 0.440297
+Train Epoch: 67 [29568/45000 (66%)] Loss: 0.580176
+Train Epoch: 67 [30976/45000 (69%)] Loss: 0.508907
+Train Epoch: 67 [32384/45000 (72%)] Loss: 0.506196
+Train Epoch: 67 [33792/45000 (75%)] Loss: 0.538199
+Train Epoch: 67 [35200/45000 (78%)] Loss: 0.564472
+Train Epoch: 67 [36608/45000 (81%)] Loss: 0.522799
+Train Epoch: 67 [38016/45000 (84%)] Loss: 0.521524
+Train Epoch: 67 [39424/45000 (88%)] Loss: 0.535976
+Train Epoch: 67 [40832/45000 (91%)] Loss: 0.490583
+Train Epoch: 67 [42240/45000 (94%)] Loss: 0.547665
+Train Epoch: 67 [43648/45000 (97%)] Loss: 0.402151
+    epoch          : 67
+    loss           : 0.5284641173414208
+    accuracy       : 0.8155431265782828
+    top_k_acc      : 0.9668338660037878
+    val_loss       : 0.5597094900906086
+    val_accuracy   : 0.8091796875
+    val_top_k_acc  : 0.9607421875
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch67.pth ...
+Train Epoch: 68 [0/45000 (0%)] Loss: 0.666263
+Train Epoch: 68 [1408/45000 (3%)] Loss: 0.535813
+Train Epoch: 68 [2816/45000 (6%)] Loss: 0.511436
+Train Epoch: 68 [4224/45000 (9%)] Loss: 0.428842
+Train Epoch: 68 [5632/45000 (13%)] Loss: 0.567737
+Train Epoch: 68 [7040/45000 (16%)] Loss: 0.455986
+Train Epoch: 68 [8448/45000 (19%)] Loss: 0.465270
+Train Epoch: 68 [9856/45000 (22%)] Loss: 0.533655
+Train Epoch: 68 [11264/45000 (25%)] Loss: 0.511569
+Train Epoch: 68 [12672/45000 (28%)] Loss: 0.488484
+Train Epoch: 68 [14080/45000 (31%)] Loss: 0.491246
+Train Epoch: 68 [15488/45000 (34%)] Loss: 0.412186
+Train Epoch: 68 [16896/45000 (38%)] Loss: 0.453466
+Train Epoch: 68 [18304/45000 (41%)] Loss: 0.488651
+Train Epoch: 68 [19712/45000 (44%)] Loss: 0.566077
+Train Epoch: 68 [21120/45000 (47%)] Loss: 0.555753
+Train Epoch: 68 [22528/45000 (50%)] Loss: 0.359629
+Train Epoch: 68 [23936/45000 (53%)] Loss: 0.515446
+Train Epoch: 68 [25344/45000 (56%)] Loss: 0.575436
+Train Epoch: 68 [26752/45000 (59%)] Loss: 0.524996
+Train Epoch: 68 [28160/45000 (63%)] Loss: 0.384529
+Train Epoch: 68 [29568/45000 (66%)] Loss: 0.561829
+Train Epoch: 68 [30976/45000 (69%)] Loss: 0.523675
+Train Epoch: 68 [32384/45000 (72%)] Loss: 0.440066
+Train Epoch: 68 [33792/45000 (75%)] Loss: 0.564134
+Train Epoch: 68 [35200/45000 (78%)] Loss: 0.563630
+Train Epoch: 68 [36608/45000 (81%)] Loss: 0.466604
+Train Epoch: 68 [38016/45000 (84%)] Loss: 0.645349
+Train Epoch: 68 [39424/45000 (88%)] Loss: 0.525951
+Train Epoch: 68 [40832/45000 (91%)] Loss: 0.500709
+Train Epoch: 68 [42240/45000 (94%)] Loss: 0.556441
+Train Epoch: 68 [43648/45000 (97%)] Loss: 0.507878
+    epoch          : 68
+    loss           : 0.5280425584113057
+    accuracy       : 0.816778626104798
+    top_k_acc      : 0.9672604955808081
+    val_loss       : 0.5632456667721272
+    val_accuracy   : 0.807421875
+    val_top_k_acc  : 0.9619140625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1214_002620/checkpoint-epoch68.pth ...
+Train Epoch: 69 [0/45000 (0%)] Loss: 0.399241
+Train Epoch: 69 [1408/45000 (3%)] Loss: 0.600587
+Train Epoch: 69 [2816/45000 (6%)] Loss: 0.468696
+Train Epoch: 69 [4224/45000 (9%)] Loss: 0.519650
+Train Epoch: 69 [5632/45000 (13%)] Loss: 0.445492
+Train Epoch: 69 [7040/45000 (16%)] Loss: 0.481677
+Train Epoch: 69 [8448/45000 (19%)] Loss: 0.503341
+Train Epoch: 69 [9856/45000 (22%)] Loss: 0.640908
+Train Epoch: 69 [11264/45000 (25%)] Loss: 0.491549
+Train Epoch: 69 [12672/45000 (28%)] Loss: 0.517412
+Train Epoch: 69 [14080/45000 (31%)] Loss: 0.609162
+Train Epoch: 69 [15488/45000 (34%)] Loss: 0.573090
+Train Epoch: 69 [16896/45000 (38%)] Loss: 0.707607
+Train Epoch: 69 [18304/45000 (41%)] Loss: 0.535655
+Train Epoch: 69 [19712/45000 (44%)] Loss: 0.570265
+Train Epoch: 69 [21120/45000 (47%)] Loss: 0.553417
+Train Epoch: 69 [22528/45000 (50%)] Loss: 0.443073
+Train Epoch: 69 [23936/45000 (53%)] Loss: 0.518550
+Train Epoch: 69 [25344/45000 (56%)] Loss: 0.614273
+Train Epoch: 69 [26752/45000 (59%)] Loss: 0.650059
+Train Epoch: 69 [28160/45000 (63%)] Loss: 0.434074
+Train Epoch: 69 [29568/45000 (66%)] Loss: 0.536786
+Train Epoch: 69 [30976/45000 (69%)] Loss: 0.554792
+Train Epoch: 69 [32384/45000 (72%)] Loss: 0.473199
+Train Epoch: 69 [33792/45000 (75%)] Loss: 0.481077
+Train Epoch: 69 [35200/45000 (78%)] Loss: 0.635863
+Train Epoch: 69 [36608/45000 (81%)] Loss: 0.445673
+Train Epoch: 69 [38016/45000 (84%)] Loss: 0.437789
+Train Epoch: 69 [39424/45000 (88%)] Loss: 0.535588
+Train Epoch: 69 [40832/45000 (91%)] Loss: 0.638758
+Train Epoch: 69 [42240/45000 (94%)] Loss: 0.559467
+Train Epoch: 69 [43648/45000 (97%)] Loss: 0.495149
+    epoch          : 69
+    loss           : 0.5299135006286881
+    accuracy       : 0.8163914535984849
+    top_k_acc      : 0.9671667850378788
+    val_loss       : 0.5624720126390457
+    val_accuracy   : 0.807421875
+    val_top_k_acc  : 0.9583984375
+Validation performance didn't improve for 10 epochs. Training stops.
