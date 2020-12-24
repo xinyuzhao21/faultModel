@@ -1,0 +1,65 @@
+import matplotlib
+import numpy as np
+import matplotlib.pyplot as plt
+import torch
+import torch.nn as nn
+import torchvision
+import torch.optim as optim
+
+SEED = 123
+torch.manual_seed(SEED)
+torch.backends.cudnn.deterministic = True
+torch.backends.cudnn.benchmark = False
+np.random.seed(SEED)
+
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(1, 1,bias=False)
+        with torch.no_grad():
+            self.fc1.weight.data[0] = 1
+        print('init', self.fc1.weight)
+        print()
+
+    def forward(self, x):
+        uncorrupted = self.fc1.weight.data.numpy().item()
+        print('uncorrupted',uncorrupted)
+        with torch.no_grad():
+            self.fc1.weight.data[0] = 2
+        result = self.fc1(x)
+        with torch.no_grad():
+            self.fc1.weight.data[0] = uncorrupted
+        print('Forward', x, self.fc1.weight, result)
+        print()
+
+        return result
+
+
+
+model = Net()
+criterion = lambda x, y: x - y
+optimizer = optim.SGD(model.parameters(), lr=1)
+
+for epoch in range(2):  # loop over the dataset multiple times
+
+    running_loss = 0.0
+
+    # get the inputs; data is a list of [inputs, labels]
+    inputs, labels = torch.tensor([2], dtype=torch.float), torch.tensor([0])
+
+    # zero the parameter gradients
+    optimizer.zero_grad()
+
+    # forward + backward + optimize
+    outputs = model(inputs)
+    loss = criterion(outputs, labels)
+    loss.backward()
+    print('grad', model.fc1.weight.grad)
+    print("loss",loss)
+    optimizer.step()
+
+    # print statistics
+    running_loss += loss.item()
+
+print('Finished Training')
