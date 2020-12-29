@@ -1,0 +1,11 @@
+import playground.testModel as models
+import torch
+import playground.corrupt as corrupt
+import playground.testTrain as trainers
+import playground.corrupt as corrupt
+model = models.LinearNet()
+# trainers.train(model)
+fault = corrupt.Fault('conv',[0,0,1,0],method='manual',corrupt_value=1)
+model = models.ConvNet()
+
+trainers.train_corrupt(model,fault)

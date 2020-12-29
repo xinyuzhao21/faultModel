@@ -58,3 +58,13 @@ if __name__=="__main__":
     inj_softmax = softmax(inj_output)
     inj_label = list(torch.argmax(inj_softmax, dim=1))[0].item()
     print("[Function] PytorchFI label:", inj_label)
+
+    layer = [1, 2]
+    k = [2, 3]
+    C_in = [4, 1]
+    H = [2, 2]
+    W = [2, 2]
+    err_val = [10000, 20000]
+    inj=pfi_model.declare_weight_fi(k=k, conv_num=1, c=C_in, h=H, w=W, value=err_val)
+
+    inj(image)
