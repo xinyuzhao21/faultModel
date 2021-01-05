@@ -15,10 +15,10 @@ echo 'what3'
 if [ $? -eq 0 ]; then
 	eval "$__conda_setup"
 else
-	if [ -f "/home/xinyuzhao/anaconda3/etc/profile.d/conda.sh" ]; then
-		. "/home/xinyuzhao/anaconda3/etc/profile.d/conda.sh"
+	if [ -f "/home/xinyuzhao/miniconda3/etc/profile.d/conda.sh" ]; then
+		. "/home/xinyuzhao/miniconda3/etc/profile.d/conda.sh"
 	else
-		export PATH="/home/xinyuzhao/anaconda3/bin:$PATH"
+		export PATH="/home/xinyuzhao/miniconda3/bin:$PATH"
 	fi  
 fi
 unset __conda_setup

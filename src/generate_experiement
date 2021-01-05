@@ -1,2 +1,55 @@
 
+from pathlib import Path
+
+def get_script(layer,time,index):
+    script = f"""#!/bin/sh
+    #SBATCH -o out/experiment_%J.txt
+    #SBATCH -e out/experiment_%J.err
+    #SBATCH --partition=titanx-short
+    #SBATCH --gres=gpu:1
+    #SBATCH --cpus-per-task=2
+    echo `pwd`
+    echo "SLURM task ID: "$SLURM_ARRAY_TASK_ID
+    #module unload cudnn/4.0
+    #module unload cudnn/5.1
+    echo 'what1'
+    echo 'what2'
+    __conda_setup="$('/home/xinyuzhao/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+    echo 'what3'
+    if [ $? -eq 0 ]; then
+        eval "$__conda_setup"
+    else
+        if [ -f "/home/xinyuzhao/miniconda3/etc/profile.d/conda.sh" ]; then
+            . "/home/xinyuzhao/miniconda3/etc/profile.d/conda.sh"
+        else
+            export PATH="/home/xinyuzhao/miniconda3/bin:$PATH"
+        fi  
+    fi
+    unset __conda_setup
+    # <<< conda initialize <<
+    conda init bash
+    sleep 1
+    conda activate faultModel
+    sleep 1
+    python -c 'import torch; print(torch.cuda.is_available())'
+    time python train.py  --config config.json --l {layer} --t {time} --i {index}"""
+    return script
+
+faults = []
+with open('playground/faults.out') as f:
+    for line in f:
+        faults.append(line.rstrip())
+
+layer = 'conv1'
+time = '2'
+index = "0000"
+save_dir = 'experiments/'
+save_dir=Path(save_dir)
+save_dir.mkdir(parents=True, exist_ok=True)
+for i,fault in enumerate(faults):
+    script = get_script(layer,time,fault)
+    experiment_name = "fault_run"+fault+".sh"
+    with open(save_dir/experiment_name,'w') as f:
+        f.write(script)
+
 
