@@ -25,8 +25,8 @@ class ResNet18(BaseModel):
     def __init__(self,num_classes=10,pretrained=True):
         super().__init__()
         self.resnet = torchvision.models.resnet18(pretrained=pretrained)
-        for param in self.resnet.parameters():
-            param.requires_grad=False
+        #for param in self.resnet.parameters():
+        #    param.requires_grad=False
         self.resnet.fc = nn.Linear(self.resnet.fc.in_features, num_classes)
 
     def forward(self, x):

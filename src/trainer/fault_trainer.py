@@ -53,6 +53,7 @@ class FaultTrainer(BaseTrainer):
                 print("ORIGIN",origin,"INJECT",injected)
                 output = self.model(data)
                 self.fault.corrupt_value = origin
+                self.fault.method = 'manual'
                 origin,injected=FaultInject.weight_inject(self.fault,self.model)
                 print("ORIGIN",origin,"INJECT",injected)
                 print('END Weight Fault inject')

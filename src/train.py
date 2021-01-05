@@ -46,6 +46,7 @@ def main(config):
     optimizer = config.init_obj('optimizer', torch.optim, trainable_params)
     lr_scheduler = config.init_obj('lr_scheduler', torch.optim.lr_scheduler, optimizer)
 
+
     # construct faults given index and layer
     layer = config['fault']['layer']
     fault_index = config ['fault']['index']
