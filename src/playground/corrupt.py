@@ -9,6 +9,25 @@ class Fault:
         self.time = time
         self.injected = False
 
+    @staticmethod
+    def generate_faults(N,C,W,H,sample_size,print=True):
+        total = []
+        for c in range(C):
+            for n in range(N):
+                for w in range(W):
+                    for h in range(H):
+                        total.append((n,c,w,h))
+        np.random.seed(0)
+        np.random.shuffle(total)
+        faults = total[:sample_size]
+        if print:
+            with open("faults.out",'w') as f:
+                for fault in faults:
+                    f.write("".join(map(str,fault))+'\n')
+        return faults
+
+
+
 
 
 class FaultInject:

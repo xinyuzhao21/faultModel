@@ -25,6 +25,11 @@
         }
     },
     "loss": "cross_entropy_loss",
+    "fault": {
+        "layer": "conv1",
+        "index": [0,0,0,0],
+        "time": 2
+    },
     "metrics": [
         "accuracy", "top_k_acc"
     ],

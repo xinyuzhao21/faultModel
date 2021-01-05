@@ -46,7 +46,13 @@ def main(config):
     optimizer = config.init_obj('optimizer', torch.optim, trainable_params)
     lr_scheduler = config.init_obj('lr_scheduler', torch.optim.lr_scheduler, optimizer)
 
-    fault = Fault(fault_layer='conv1',fault_index=[0,0,0,0])
+    # construct faults given index and layer
+    layer = config['fault']['layer']
+    fault_index = config ['fault']['index']
+    if isinstance(fault_index,str):
+        fault_index=[int(c) for c in fault_index]
+    time = config['fault']['time']
+    fault = Fault(fault_layer=layer,fault_index=fault_index,time=time)
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
                       config=config,
                       device=device,
@@ -71,7 +77,10 @@ if __name__ == '__main__':
     CustomArgs = collections.namedtuple('CustomArgs', 'flags type target')
     options = [
         CustomArgs(['--lr', '--learning_rate'], type=float, target='optimizer;args;lr'),
-        CustomArgs(['--bs', '--batch_size'], type=int, target='data_loader;args;batch_size')
+        CustomArgs(['--bs', '--batch_size'], type=int, target='data_loader;args;batch_size'),
+        CustomArgs(['--l', '--layer'], type=str, target='fault;layer'),
+        CustomArgs(['--t', '--time'], type=int, target='fault;time'),
+        CustomArgs(['--i', '--index'], type=str, target='fault;index')
     ]
     config = ConfigParser.from_args(args, options)
     main(config)
