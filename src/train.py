@@ -46,7 +46,7 @@ def main(config):
     optimizer = config.init_obj('optimizer', torch.optim, trainable_params)
     lr_scheduler = config.init_obj('lr_scheduler', torch.optim.lr_scheduler, optimizer)
 
-    fault = Fault(fault_layer='conv1',fault_index=[0,0,0,0])
+    fault = Fault(fault_layer='conv1',fault_index=[0,0,0,0],time=2)
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
                       config=config,
                       device=device,

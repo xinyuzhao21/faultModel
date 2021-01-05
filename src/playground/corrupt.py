@@ -29,9 +29,9 @@ class FaultInject:
                     else fault_index
                 )
 
-                if fault.method is 'max_cap':
+                if fault.method ==  'max_cap':
                     corrupt_value=torch.max(param).item()
-                if fault.method is 'manual':
+                if fault.method == 'manual':
                     corrupt_value=corrupt_value
                 weight=param.data
                 orig_value, injected_value= FaultInject._tensor_inject(weight,corrupt_idx,corrupt_value)
