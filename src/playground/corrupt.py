@@ -11,7 +11,7 @@ class Fault:
         self.origin = None
 
     @staticmethod
-    def generate_faults(N,C,W,H,sample_size,print=True):
+    def generate_faults(N,C,W,H,sample_size=None,print=True):
         total = []
         for c in range(C):
             for n in range(N):
@@ -38,8 +38,9 @@ class FaultInject:
     def weight_inject(faults,model,reset=False,**kwargs):
         if isinstance(faults,Fault):
             FaultInject._weight_inject(faults, model, reset, **kwargs)
-        for fault in faults:
-            FaultInject._weight_inject(fault,model,reset,**kwargs)
+        else:
+            for fault in faults:
+                FaultInject._weight_inject(fault,model,reset,**kwargs)
 
     @staticmethod
     def _weight_inject(fault,model,reset=False,**kwargs):
