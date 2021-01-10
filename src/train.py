@@ -51,9 +51,9 @@ def main(config):
     layer = config['fault']['layer']
     fault_indice = config ['fault']['index']
     if isinstance(fault_indice,str):
-        fault_index=[int(c) for fault_index in fault_indice.split(';') for c in fault_index]
+        fault_indice=[int(c) for fault_index in fault_indice.split(';') for c in fault_index]
     time = config['fault']['time']
-    fault = Fault(fault_layer=layer,fault_index=fault_index,time=time)
+    fault = Fault(fault_layer=layer,fault_index=fault_indice,time=time)
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
                       config=config,
                       device=device,
