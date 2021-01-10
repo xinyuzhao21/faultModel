@@ -37,11 +37,12 @@ class FaultInject:
     @staticmethod
     def weight_inject(faults,model,reset=False,**kwargs):
         if isinstance(faults,Fault):
-            FaultInject._weight_inject(faults, model, reset, **kwargs)
+            return FaultInject._weight_inject(faults, model, reset, **kwargs)
         else:
+            ret = []
             for fault in faults:
-                FaultInject._weight_inject(fault,model,reset,**kwargs)
-
+                ret.append(FaultInject._weight_inject(fault,model,reset,**kwargs))
+            return ret
     @staticmethod
     def _weight_inject(fault,model,reset=False,**kwargs):
         corrupt_model = model
