@@ -8,6 +8,7 @@ class Fault:
         self.method=method
         self.time = time
         self.injected = False
+        self.origin = None
 
     @staticmethod
     def generate_faults(N,C,W,H,sample_size,print=True):
@@ -34,12 +35,20 @@ class FaultInject:
     def __init__(self,model=None):
         self.model = model
     @staticmethod
-    def weight_inject(fault,model,**kwargs):
+    def weight_inject(faults,model,reset=False,**kwargs):
+        if isinstance(faults,Fault):
+            FaultInject._weight_inject(faults, model, reset, **kwargs)
+        for fault in faults:
+            FaultInject._weight_inject(fault,model,reset,**kwargs)
+
+    @staticmethod
+    def _weight_inject(fault,model,reset=False,**kwargs):
         corrupt_model = model
         if isinstance(fault,tuple):
             fault_layer, fault_index,corrupt_value =fault
         if isinstance(fault,Fault):
-            fault_layer, fault_index, corrupt_value = fault.fault_layer,fault.fault_index,fault.corrupt_value
+            fault_layer, fault_index = fault.fault_layer,fault.fault_index
+            corrupt_value = fault.origin if reset else fault.corrupt_value
         for name, param in corrupt_model.named_parameters():
             if fault_layer in name:
                 corrupt_idx = (
@@ -55,6 +64,7 @@ class FaultInject:
                 weight=param.data
                 orig_value, injected_value= FaultInject._tensor_inject(weight,corrupt_idx,corrupt_value)
                 fault.injected=True
+                fault.origin = orig_value
                 return orig_value, injected_value
         # param=getattr(corrupt_model,fault_layer)
         # if param:

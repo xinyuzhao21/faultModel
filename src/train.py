@@ -49,9 +49,9 @@ def main(config):
 
     # construct faults given index and layer
     layer = config['fault']['layer']
-    fault_index = config ['fault']['index']
-    if isinstance(fault_index,str):
-        fault_index=[int(c) for c in fault_index]
+    fault_indice = config ['fault']['index']
+    if isinstance(fault_indice,str):
+        fault_index=[int(c) for fault_index in fault_indice.split(';') for c in fault_index]
     time = config['fault']['time']
     fault = Fault(fault_layer=layer,fault_index=fault_index,time=time)
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
