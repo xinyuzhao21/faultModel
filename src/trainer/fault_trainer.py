@@ -49,6 +49,7 @@ class FaultTrainer(BaseTrainer):
             self.optimizer.zero_grad()
             if self.fault and self.fault.time == epoch and not self.fault.injected:
                 print('START Weight Fault inject')
+                print(self.fault)
                 origin,injected=FaultInject.weight_inject(self.fault,self.model)
                 print("ORIGIN",origin,"INJECT",injected)
                 output = self.model(data)
