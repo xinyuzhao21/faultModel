@@ -96,6 +96,7 @@ class FaultTrainer(BaseTrainer):
         """
         self.model.eval()
         self.valid_metrics.reset()
+        print("Actual Validation size",self.valid_data_loader.dataset.data.shape)
         with torch.no_grad():
             for batch_idx, (data, target) in enumerate(self.valid_data_loader):
                 data, target = data.to(self.device), target.to(self.device)
