@@ -24,7 +24,7 @@ class Fault:
         if print:
             with open("faults.out",'w') as f:
                 for fault in faults:
-                    f.write("".join(map(str,fault))+'\n')
+                    f.write(",".join(map(str,fault))+'\n')
         return faults
 
 
