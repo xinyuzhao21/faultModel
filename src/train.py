@@ -25,7 +25,9 @@ def main(config):
 
     # setup data_loader instances
     data_loader = config.init_obj('data_loader', module_data)
+    print("Training Size:", data_loader.dataset.data.shape)
     valid_data_loader = data_loader.split_validation()
+    print("Validation Size:",valid_data_loader.dataset.data.shape)
 
     # build model architecture, then print to console
     model = config.init_obj('arch', module_arch)
