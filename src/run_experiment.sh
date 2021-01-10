@@ -10,7 +10,7 @@ echo "SLURM task ID: "$SLURM_ARRAY_TASK_ID
 #module unload cudnn/5.1
 echo 'what1'
 echo 'what2'
-__conda_setup="$('/home/xinyuzhao/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/xinyuzhao/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 echo 'what3'
 if [ $? -eq 0 ]; then
 	eval "$__conda_setup"
