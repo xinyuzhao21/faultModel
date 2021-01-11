@@ -28,6 +28,8 @@ class ConfigParser:
         exper_name = self.config['name']
         if run_id is None: # use timestamp as default run-id
             run_id = datetime.now().strftime(r'%m%d_%H%M%S')
+        else:
+            run_id += datetime.now().strftime(r'%m%d_%H%M%S')
         self._save_dir = save_dir / 'models' / exper_name / run_id
         self._log_dir = save_dir / 'log' / exper_name / run_id
 
@@ -75,7 +77,11 @@ class ConfigParser:
 
         # parse custom cli options into dictionary
         modification = {opt.target : getattr(args, _get_opt_name(opt.flags)) for opt in options}
-        return cls(config, resume, modification)
+        try:
+            run_id =config['fault']['index']
+        except:
+            run_id = 'fault_free'
+        return cls(config, resume, modification,run_id=run_id)
 
     def init_obj(self, name, module, *args, **kwargs):
         """
