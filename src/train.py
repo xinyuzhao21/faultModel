@@ -50,14 +50,14 @@ def main(config):
 
 
     # construct faults given index and layer
-    if 'fault' in config:
+    try:
         layer = config['fault']['layer']
         fault_indice = config ['fault']['index']
         if isinstance(fault_indice,str):
             fault_indice=[int(c) for fault_index in fault_indice.split(';') for c in fault_index.split(',')]
         time = config['fault']['time']
         fault = Fault(fault_layer=layer,fault_index=fault_indice,time=time)
-    else:
+    except e:
         fault = None
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
                       config=config,
