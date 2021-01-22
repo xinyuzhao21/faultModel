@@ -1,0 +1,19 @@
+/home/xinyuzhao/faultModel/src
+SLURM task ID: 
+what1
+what2
+what3
+no change     /home/xinyuzhao/miniconda3/condabin/conda
+no change     /home/xinyuzhao/miniconda3/bin/conda
+no change     /home/xinyuzhao/miniconda3/bin/conda-env
+no change     /home/xinyuzhao/miniconda3/bin/activate
+no change     /home/xinyuzhao/miniconda3/bin/deactivate
+no change     /home/xinyuzhao/miniconda3/etc/profile.d/conda.sh
+no change     /home/xinyuzhao/miniconda3/etc/fish/conf.d/conda.fish
+no change     /home/xinyuzhao/miniconda3/shell/condabin/Conda.psm1
+no change     /home/xinyuzhao/miniconda3/shell/condabin/conda-hook.ps1
+no change     /home/xinyuzhao/miniconda3/lib/python3.8/site-packages/xontrib/conda.xsh
+no change     /home/xinyuzhao/miniconda3/etc/profile.d/conda.csh
+no change     /home/xinyuzhao/.bashrc
+No action taken.
+True

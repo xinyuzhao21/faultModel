@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "train.py", line 91, in <module>
+    config = ConfigParser.from_args(args, options)
+  File "/home/xinyuzhao/faultModel/src/parse_config.py", line 78, in from_args
+    return cls(config, resume, modification)
+  File "/home/xinyuzhao/faultModel/src/parse_config.py", line 36, in __init__
+    self.save_dir.mkdir(parents=True, exist_ok=exist_ok)
+  File "/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/pathlib.py", line 1284, in mkdir
+    self._accessor.mkdir(self, mode)
+FileExistsError: [Errno 17] File exists: 'saved/models/CIFAR_10_ResNet_18_BASE/0110_191052'
+
+real	0m2.238s
+user	0m1.200s
+sys	0m0.289s

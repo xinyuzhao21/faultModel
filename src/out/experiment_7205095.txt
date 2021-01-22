@@ -1,0 +1,247 @@
+/home/xinyuzhao/faultModel/src
+SLURM task ID: 
+what1
+what2
+what3
+no change     /home/xinyuzhao/miniconda3/condabin/conda
+no change     /home/xinyuzhao/miniconda3/bin/conda
+no change     /home/xinyuzhao/miniconda3/bin/conda-env
+no change     /home/xinyuzhao/miniconda3/bin/activate
+no change     /home/xinyuzhao/miniconda3/bin/deactivate
+no change     /home/xinyuzhao/miniconda3/etc/profile.d/conda.sh
+no change     /home/xinyuzhao/miniconda3/etc/fish/conf.d/conda.fish
+no change     /home/xinyuzhao/miniconda3/shell/condabin/Conda.psm1
+no change     /home/xinyuzhao/miniconda3/shell/condabin/conda-hook.ps1
+no change     /home/xinyuzhao/miniconda3/lib/python3.8/site-packages/xontrib/conda.xsh
+no change     /home/xinyuzhao/miniconda3/etc/profile.d/conda.csh
+no change     /home/xinyuzhao/.bashrc
+No action taken.
+False
+Files already downloaded and verified
+ResNet18(
+  (resnet): ResNet(
+    (conv1): Conv2d(3, 64, kernel_size=(7, 7), stride=(2, 2), padding=(3, 3), bias=False)
+    (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (relu): ReLU(inplace=True)
+    (maxpool): MaxPool2d(kernel_size=3, stride=2, padding=1, dilation=1, ceil_mode=False)
+    (layer1): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer2): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(64, 128, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(64, 128, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer3): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(128, 256, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(128, 256, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(256, 256, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (layer4): Sequential(
+      (0): BasicBlock(
+        (conv1): Conv2d(256, 512, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (downsample): Sequential(
+          (0): Conv2d(256, 512, kernel_size=(1, 1), stride=(2, 2), bias=False)
+          (1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+      (1): BasicBlock(
+        (conv1): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn1): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        (relu): ReLU(inplace=True)
+        (conv2): Conv2d(512, 512, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+        (bn2): BatchNorm2d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      )
+    )
+    (avgpool): AdaptiveAvgPool2d(output_size=(1, 1))
+    (fc): Linear(in_features=512, out_features=10, bias=True)
+  )
+)
+Trainable parameters: 11181642
+Warning: There's no GPU available on this machine,training will be performed on CPU.
+Train Epoch: 1 [0/45000 (0%)] Loss: 2.609105
+Train Epoch: 1 [1408/45000 (3%)] Loss: 0.769803
+Train Epoch: 1 [2816/45000 (6%)] Loss: 0.849801
+Train Epoch: 1 [4224/45000 (9%)] Loss: 0.642832
+Train Epoch: 1 [5632/45000 (13%)] Loss: 0.620156
+Train Epoch: 1 [7040/45000 (16%)] Loss: 0.687999
+Train Epoch: 1 [8448/45000 (19%)] Loss: 0.591060
+Train Epoch: 1 [9856/45000 (22%)] Loss: 0.598838
+Train Epoch: 1 [11264/45000 (25%)] Loss: 0.510598
+Train Epoch: 1 [12672/45000 (28%)] Loss: 0.555672
+Train Epoch: 1 [14080/45000 (31%)] Loss: 0.463629
+Train Epoch: 1 [15488/45000 (34%)] Loss: 0.447704
+Train Epoch: 1 [16896/45000 (38%)] Loss: 0.605651
+Train Epoch: 1 [18304/45000 (41%)] Loss: 0.552096
+Train Epoch: 1 [19712/45000 (44%)] Loss: 0.577136
+Train Epoch: 1 [21120/45000 (47%)] Loss: 0.537898
+Train Epoch: 1 [22528/45000 (50%)] Loss: 0.517159
+Train Epoch: 1 [23936/45000 (53%)] Loss: 0.399324
+Train Epoch: 1 [25344/45000 (56%)] Loss: 0.346122
+Train Epoch: 1 [26752/45000 (59%)] Loss: 0.393278
+Train Epoch: 1 [28160/45000 (63%)] Loss: 0.483444
+Train Epoch: 1 [29568/45000 (66%)] Loss: 0.390884
+Train Epoch: 1 [30976/45000 (69%)] Loss: 0.386236
+Train Epoch: 1 [32384/45000 (72%)] Loss: 0.571954
+Train Epoch: 1 [33792/45000 (75%)] Loss: 0.421709
+Train Epoch: 1 [35200/45000 (78%)] Loss: 0.455038
+Train Epoch: 1 [36608/45000 (81%)] Loss: 0.437646
+Train Epoch: 1 [38016/45000 (84%)] Loss: 0.527926
+Train Epoch: 1 [39424/45000 (88%)] Loss: 0.524419
+Train Epoch: 1 [40832/45000 (91%)] Loss: 0.468628
+Train Epoch: 1 [42240/45000 (94%)] Loss: 0.235341
+Train Epoch: 1 [43648/45000 (97%)] Loss: 0.419856
+    epoch          : 1
+    loss           : 0.5217410403896462
+    accuracy       : 0.8214197640467172
+    top_k_acc      : 0.9631495620265151
+    val_loss       : 0.46132580786943433
+    val_accuracy   : 0.8375
+    val_top_k_acc  : 0.9740234375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1228_211412/checkpoint-epoch1.pth ...
+Saving current best: model_best.pth ...
+START Weight Fault inject
+ORIGIN -0.008656268939375877 INJECT 1.0256969928741455
+ORIGIN 1.0256969928741455 INJECT -0.008656268939375877
+END Weight Fault inject
+Train Epoch: 2 [0/45000 (0%)] Loss: 0.307181
+Train Epoch: 2 [1408/45000 (3%)] Loss: 0.352819
+Train Epoch: 2 [2816/45000 (6%)] Loss: 0.225538
+Train Epoch: 2 [4224/45000 (9%)] Loss: 0.242403
+Train Epoch: 2 [5632/45000 (13%)] Loss: 0.221718
+Train Epoch: 2 [7040/45000 (16%)] Loss: 0.252896
+Train Epoch: 2 [8448/45000 (19%)] Loss: 0.335564
+Train Epoch: 2 [9856/45000 (22%)] Loss: 0.274231
+Train Epoch: 2 [11264/45000 (25%)] Loss: 0.322146
+Train Epoch: 2 [12672/45000 (28%)] Loss: 0.174455
+Train Epoch: 2 [14080/45000 (31%)] Loss: 0.310863
+Train Epoch: 2 [15488/45000 (34%)] Loss: 0.430690
+Train Epoch: 2 [16896/45000 (38%)] Loss: 0.199826
+Train Epoch: 2 [18304/45000 (41%)] Loss: 0.151736
+Train Epoch: 2 [19712/45000 (44%)] Loss: 0.283898
+Train Epoch: 2 [21120/45000 (47%)] Loss: 0.292252
+Train Epoch: 2 [22528/45000 (50%)] Loss: 0.295241
+Train Epoch: 2 [23936/45000 (53%)] Loss: 0.317827
+Train Epoch: 2 [25344/45000 (56%)] Loss: 0.389537
+Train Epoch: 2 [26752/45000 (59%)] Loss: 0.179502
+Train Epoch: 2 [28160/45000 (63%)] Loss: 0.345467
+Train Epoch: 2 [29568/45000 (66%)] Loss: 0.257046
+Train Epoch: 2 [30976/45000 (69%)] Loss: 0.277928
+Train Epoch: 2 [32384/45000 (72%)] Loss: 0.318466
+Train Epoch: 2 [33792/45000 (75%)] Loss: 0.377496
+Train Epoch: 2 [35200/45000 (78%)] Loss: 0.336908
+Train Epoch: 2 [36608/45000 (81%)] Loss: 0.373226
+Train Epoch: 2 [38016/45000 (84%)] Loss: 0.171676
+Train Epoch: 2 [39424/45000 (88%)] Loss: 0.304942
+Train Epoch: 2 [40832/45000 (91%)] Loss: 0.367988
+Train Epoch: 2 [42240/45000 (94%)] Loss: 0.332898
+Train Epoch: 2 [43648/45000 (97%)] Loss: 0.191238
+    epoch          : 2
+    loss           : 0.2858401105569845
+    accuracy       : 0.9010712594696969
+    top_k_acc      : 0.9877263849431818
+    val_loss       : 0.45005330741405486
+    val_accuracy   : 0.8462890625
+    val_top_k_acc  : 0.975390625
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1228_211412/checkpoint-epoch2.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 3 [0/45000 (0%)] Loss: 0.228878
+Train Epoch: 3 [1408/45000 (3%)] Loss: 0.128923
+Train Epoch: 3 [2816/45000 (6%)] Loss: 0.121782
+Train Epoch: 3 [4224/45000 (9%)] Loss: 0.147815
+Train Epoch: 3 [5632/45000 (13%)] Loss: 0.092089
+Train Epoch: 3 [7040/45000 (16%)] Loss: 0.158113
+Train Epoch: 3 [8448/45000 (19%)] Loss: 0.179680
+Train Epoch: 3 [9856/45000 (22%)] Loss: 0.106869
+Train Epoch: 3 [11264/45000 (25%)] Loss: 0.136680
+Train Epoch: 3 [12672/45000 (28%)] Loss: 0.235858
+Train Epoch: 3 [14080/45000 (31%)] Loss: 0.091447
+Train Epoch: 3 [15488/45000 (34%)] Loss: 0.189713
+Train Epoch: 3 [16896/45000 (38%)] Loss: 0.125461
+Train Epoch: 3 [18304/45000 (41%)] Loss: 0.197982
+Train Epoch: 3 [19712/45000 (44%)] Loss: 0.099206
+Train Epoch: 3 [21120/45000 (47%)] Loss: 0.244883
+Train Epoch: 3 [22528/45000 (50%)] Loss: 0.282841
+Train Epoch: 3 [23936/45000 (53%)] Loss: 0.215765
+Train Epoch: 3 [25344/45000 (56%)] Loss: 0.200051
+Train Epoch: 3 [26752/45000 (59%)] Loss: 0.174130
+Train Epoch: 3 [28160/45000 (63%)] Loss: 0.144447
+Train Epoch: 3 [29568/45000 (66%)] Loss: 0.238203
+Train Epoch: 3 [30976/45000 (69%)] Loss: 0.347148
+Train Epoch: 3 [32384/45000 (72%)] Loss: 0.239453
+Train Epoch: 3 [33792/45000 (75%)] Loss: 0.150976
+Train Epoch: 3 [35200/45000 (78%)] Loss: 0.178840
+Train Epoch: 3 [36608/45000 (81%)] Loss: 0.152617
+Train Epoch: 3 [38016/45000 (84%)] Loss: 0.195403
+Train Epoch: 3 [39424/45000 (88%)] Loss: 0.239439
+Train Epoch: 3 [40832/45000 (91%)] Loss: 0.238036
+Train Epoch: 3 [42240/45000 (94%)] Loss: 0.217583
+Train Epoch: 3 [43648/45000 (97%)] Loss: 0.193107
+    epoch          : 3
+    loss           : 0.18387886476491325
+    accuracy       : 0.9375591856060606
+    top_k_acc      : 0.9938570273042928
+    val_loss       : 0.37439825646579267
+    val_accuracy   : 0.880078125
+    val_top_k_acc  : 0.9787109375
+Saving checkpoint: saved/models/CIFAR_10_ResNet_18_BASE/1228_211412/checkpoint-epoch3.pth ...
+Saving current best: model_best.pth ...
+Train Epoch: 4 [0/45000 (0%)] Loss: 0.176107
+Train Epoch: 4 [1408/45000 (3%)] Loss: 0.073575
+Train Epoch: 4 [2816/45000 (6%)] Loss: 0.083634
+Train Epoch: 4 [4224/45000 (9%)] Loss: 0.106454
+Train Epoch: 4 [5632/45000 (13%)] Loss: 0.046298
+Train Epoch: 4 [7040/45000 (16%)] Loss: 0.126442
+Train Epoch: 4 [8448/45000 (19%)] Loss: 0.038799
+Train Epoch: 4 [9856/45000 (22%)] Loss: 0.079681
+Train Epoch: 4 [11264/45000 (25%)] Loss: 0.106178
+Train Epoch: 4 [12672/45000 (28%)] Loss: 0.125810
+Train Epoch: 4 [14080/45000 (31%)] Loss: 0.089567
+Train Epoch: 4 [15488/45000 (34%)] Loss: 0.137106

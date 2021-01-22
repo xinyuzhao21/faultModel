@@ -1,0 +1,13 @@
+/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/site-packages/torch/cuda/__init__.py:52: UserWarning: CUDA initialization: CUDA driver initialization failed, you might not have a CUDA gpu. (Triggered internally at  /opt/conda/conda-bld/pytorch_1607370117127/work/c10/cuda/CUDAFunctions.cpp:100.)
+  return torch._C._cuda_getDeviceCount() > 0
+Traceback (most recent call last):
+  File "train.py", line 12, in <module>
+    from trainer.fault_trainer import  FaultTrainer
+  File "/home/xinyuzhao/faultModel/src/trainer/fault_trainer.py", line 56
+    self.fault.method = 'manual'
+                               ^
+TabError: inconsistent use of tabs and spaces in indentation
+
+real	0m1.733s
+user	0m1.210s
+sys	0m0.278s

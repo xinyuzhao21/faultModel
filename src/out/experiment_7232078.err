@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "train.py", line 89, in <module>
+    main(config)
+  File "train.py", line 67, in main
+    trainer.train()
+  File "/home/xinyuzhao/faultModel/src/base/base_trainer.py", line 61, in train
+    result = self._train_epoch(epoch)
+  File "/home/xinyuzhao/faultModel/src/trainer/fault_trainer.py", line 53, in _train_epoch
+    origin,injected=FaultInject.weight_inject(self.fault,self.model)
+TypeError: cannot unpack non-iterable NoneType object
+
+real	0m9.363s
+user	0m6.711s
+sys	0m3.495s

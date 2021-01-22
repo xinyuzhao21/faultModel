@@ -1,0 +1,20 @@
+Traceback (most recent call last):
+  File "train.py", line 92, in <module>
+    config = ConfigParser.from_args(args, options)
+  File "/home/xinyuzhao/faultModel/src/parse_config.py", line 77, in from_args
+    config = read_json(cfg_fname)
+  File "/home/xinyuzhao/faultModel/src/utils/util.py", line 17, in read_json
+    return json.load(handle, object_hook=OrderedDict)
+  File "/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/json/__init__.py", line 293, in load
+    return loads(fp.read(),
+  File "/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/json/__init__.py", line 370, in loads
+    return cls(**kw).decode(s)
+  File "/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "/home/xinyuzhao/miniconda3/envs/faultModel/lib/python3.8/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 43 column 14 (char 874)
+
+real	0m7.136s
+user	0m1.135s
+sys	0m0.286s

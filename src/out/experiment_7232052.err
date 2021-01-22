@@ -1,0 +1,39 @@
+
+CommandNotFoundError: Your shell has not been properly configured to use 'conda activate'.
+To initialize your shell, run
+
+    $ conda init <SHELL_NAME>
+
+Currently supported shells are:
+  - bash
+  - fish
+  - tcsh
+  - xonsh
+  - zsh
+  - powershell
+
+See 'conda init --help' for more information and options.
+
+IMPORTANT: You may need to close and restart your shell after running 'conda init'.
+
+
+Traceback (most recent call last):
+  File "train.py", line 89, in <module>
+    main(config)
+  File "train.py", line 67, in main
+    trainer.train()
+  File "/home/xinyuzhao/faultModel/src/base/base_trainer.py", line 61, in train
+    result = self._train_epoch(epoch)
+  File "/home/xinyuzhao/faultModel/src/trainer/fault_trainer.py", line 52, in _train_epoch
+    origin,injected=FaultInject.weight_inject(self.fault,self.model)
+  File "/home/xinyuzhao/faultModel/src/playground/corrupt.py", line 40, in weight_inject
+    FaultInject._weight_inject(faults, model, reset, **kwargs)
+  File "/home/xinyuzhao/faultModel/src/playground/corrupt.py", line 66, in _weight_inject
+    orig_value, injected_value= FaultInject._tensor_inject(weight,corrupt_idx,corrupt_value)
+  File "/home/xinyuzhao/faultModel/src/playground/corrupt.py", line 86, in _tensor_inject
+    orig_value = tensor[index].item()
+IndexError: too many indices for tensor of dimension 4
+
+real	4m5.992s
+user	5m56.888s
+sys	2m4.588s

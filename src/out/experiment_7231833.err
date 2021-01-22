@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "train.py", line 87, in <module>
+    main(config)
+  File "train.py", line 56, in main
+    fault = Fault(fault_layer=layer,fault_index=fault_index,time=time)
+UnboundLocalError: local variable 'fault_index' referenced before assignment
+
+real	0m21.603s
+user	0m5.147s
+sys	0m2.318s

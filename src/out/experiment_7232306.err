@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "train.py", line 92, in <module>
+    main(config)
+  File "train.py", line 53, in main
+    if 'fault' in config.keys():
+AttributeError: 'ConfigParser' object has no attribute 'keys'
+
+real	0m14.034s
+user	0m5.312s
+sys	0m3.234s

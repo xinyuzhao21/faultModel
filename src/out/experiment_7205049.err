@@ -1,0 +1,8 @@
+/home/xinyuzhao/faultModel/src/playground/corrupt.py:32: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if fault.method is 'max_cap':
+/home/xinyuzhao/faultModel/src/playground/corrupt.py:34: SyntaxWarning: "is" with a literal. Did you mean "=="?
+  if fault.method is 'manual':
+
+real	54m14.666s
+user	77m22.879s
+sys	30m39.906s
