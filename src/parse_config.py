@@ -24,7 +24,10 @@ class ConfigParser:
 
         # set save_dir where trained model and log will be saved.
         save_dir = Path(self.config['trainer']['save_dir'])
-
+        try:
+            run_id =config['fault']['index']
+        except:
+            run_id = 'fault_free'
         exper_name = self.config['name']
         if run_id is None: # use timestamp as default run-id
             run_id = datetime.now().strftime(r'%m%d_%H%M%S')
@@ -77,11 +80,8 @@ class ConfigParser:
 
         # parse custom cli options into dictionary
         modification = {opt.target : getattr(args, _get_opt_name(opt.flags)) for opt in options}
-        try:
-            run_id =config['fault']['index']
-        except:
-            run_id = 'fault_free'
-        return cls(config, resume, modification,run_id=run_id)
+
+        return cls(config, resume, modification,run_id=None)
 
     def init_obj(self, name, module, *args, **kwargs):
         """

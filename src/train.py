@@ -51,21 +51,25 @@ def main(config):
 
     # construct faults given index and layer
     try:
-        layer = config['fault']['layer']
-        fault_indice = config ['fault']['index']
-        if isinstance(fault_indice,str):
-            fault_indice=[int(c) for fault_index in fault_indice.split(';') for c in fault_index.split(',')]
-        time = config['fault']['time']
-        fault = Fault(fault_layer=layer,fault_index=fault_indice,time=time)
-    except e:
-        fault = None
+        layers = config['fault']['layer'].split('_')
+        fault_indices = config ['fault']['index']
+        if isinstance(fault_indices,str):
+            fault_indices=[[int(c) for c in fault_index.split(',')] for fault_index in fault_indices.split('_') ]
+        times =list(map(int ,config['fault']['time'].split('_')))
+        assert len(times)==len(layers)==len(fault_indices)
+        faults = []
+        for layer,fault_indice,time in zip(layers,fault_indices,times):
+            fault = Fault(fault_layer=layer,fault_index=fault_indice,time=time)
+            faults.append(fault)
+    except:
+        faults = None
     trainer = FaultTrainer(model, criterion, metrics, optimizer,
                       config=config,
                       device=device,
                       data_loader=data_loader,
                       valid_data_loader=valid_data_loader,
                       lr_scheduler=lr_scheduler,
-                           fault=fault)
+                           fault=faults)
 
     trainer.train()
 
@@ -85,7 +89,7 @@ if __name__ == '__main__':
         CustomArgs(['--lr', '--learning_rate'], type=float, target='optimizer;args;lr'),
         CustomArgs(['--bs', '--batch_size'], type=int, target='data_loader;args;batch_size'),
         CustomArgs(['--l', '--layer'], type=str, target='fault;layer'),
-        CustomArgs(['--t', '--time'], type=int, target='fault;time'),
+        CustomArgs(['--t', '--time'], type=str, target='fault;time'),
         CustomArgs(['--i', '--index'], type=str, target='fault;index')
     ]
     config = ConfigParser.from_args(args, options)

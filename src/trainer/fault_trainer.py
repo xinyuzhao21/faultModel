@@ -47,16 +47,18 @@ class FaultTrainer(BaseTrainer):
             data, target = data.to(self.device), target.to(self.device)
 
             self.optimizer.zero_grad()
-            if self.fault and self.fault.time == epoch and not self.fault.injected:
+            if self.fault and isinstance(self.fault,list):
                 print('START Weight Fault inject')
-                print(self.fault)
-                origin,injected=FaultInject.weight_inject(self.fault,self.model)
-                print("ORIGIN",origin,"INJECT",injected)
+                for fault in self.fault:
+                    if fault and fault.time == epoch and not fault.injected:
+                        origin, injected = FaultInject.weight_inject(fault, self.model)
+                        print("ORIGIN", origin, "INJECT", injected)
                 output = self.model(data)
-                self.fault.corrupt_value = origin
-                self.fault.method = 'manual'
-                origin,injected=FaultInject.weight_inject(self.fault,self.model)
-                print("ORIGIN",origin,"INJECT",injected)
+                print('Fault Model Forward Pass')
+                for fault in self.fault:
+                    if fault and fault.time == epoch and  fault.injected:
+                        origin, injected = FaultInject.weight_inject(fault, self.model,reset=True)
+                        print("INJECT", origin, "ORIGIN", injected)
                 print('END Weight Fault inject')
             else:
                 output=self.model(data)
